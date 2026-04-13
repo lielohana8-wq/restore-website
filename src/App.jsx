@@ -185,7 +185,17 @@ return<div>
 <section className="sec" id="gallery"><div className="mx">
   <Fade><STit>לפני ואחרי</STit></Fade>
   <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
-    {(D.beforeAfter||DEF.beforeAfter).map((b,i)=><Fade key={i} d={i*.06}><div className="crd" style={{overflow:"hidden"}}><div style={{display:"flex",height:160}}><div style={{flex:1,background:`linear-gradient(135deg,${b.bc},${b.bc}cc)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}><span style={{fontSize:32,opacity:.08}}>✕</span><span style={{position:"absolute",bottom:8,right:8,padding:"4px 10px",borderRadius:8,background:"rgba(0,0,0,.5)",color:"#fff",fontSize:10,fontFamily:"'Heebo'",fontWeight:700}}>לפני</span></div><div style={{width:2,background:"rgba(200,164,78,.2)"}}/><div style={{flex:1,background:`linear-gradient(135deg,${b.ac},${b.ac}dd)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}><span style={{fontSize:32,opacity:.08}}>✓</span><span style={{position:"absolute",bottom:8,left:8,padding:"4px 10px",borderRadius:8,background:"#C8A44E",color:"#0E1A2B",fontSize:10,fontFamily:"'Heebo'",fontWeight:700}}>אחרי</span></div></div><div style={{padding:"14px 18px"}}><h4 style={{fontSize:14,color:"#fff",marginBottom:2}}>{b.title}</h4><p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{b.desc}</p></div></div></Fade>)}
+    {(D.beforeAfter||DEF.beforeAfter).map((b,i)=><Fade key={i} d={i*.06}><div className="crd" style={{overflow:"hidden"}}><div style={{display:"flex",height:180}}>
+      <div style={{flex:1,background:b.imgBefore?"none":`linear-gradient(135deg,${b.bc},${b.bc}cc)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>
+        {b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:32,opacity:.08}}>✕</span>}
+        <span style={{position:"absolute",bottom:8,right:8,padding:"4px 10px",borderRadius:8,background:"rgba(0,0,0,.6)",color:"#fff",fontSize:10,fontFamily:"'Heebo'",fontWeight:700}}>לפני</span>
+      </div>
+      <div style={{width:2,background:"rgba(200,164,78,.2)"}}/>
+      <div style={{flex:1,background:b.imgAfter?"none":`linear-gradient(135deg,${b.ac},${b.ac}dd)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>
+        {b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:32,opacity:.08}}>✓</span>}
+        <span style={{position:"absolute",bottom:8,left:8,padding:"4px 10px",borderRadius:8,background:"#C8A44E",color:"#0E1A2B",fontSize:10,fontFamily:"'Heebo'",fontWeight:700}}>אחרי</span>
+      </div>
+    </div><div style={{padding:"14px 18px"}}><h4 style={{fontSize:14,color:"#fff",marginBottom:2}}>{b.title}</h4><p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{b.desc}</p></div></div></Fade>)}
   </div>
 </div></section>
 
@@ -270,7 +280,7 @@ function Admin({data,save,back}){
   const delS=i=>setD2({...d,services:d.services.filter((_,j)=>j!==i)});
   const addR=()=>setD2({...d,reviews:[...d.reviews,{n:"שם",t:"ביקורת",s:"שירות"}]});
   const delR=i=>setD2({...d,reviews:d.reviews.filter((_,j)=>j!==i)});
-  const addB=()=>setD2({...d,beforeAfter:[...d.beforeAfter,{title:"חדש",desc:"תיאור",bc:"#555",ac:"#aaa"}]});
+  const addB=()=>setD2({...d,beforeAfter:[...d.beforeAfter,{title:"חדש",desc:"תיאור",bc:"#555",ac:"#aaa",imgBefore:"",imgAfter:""}]});
   const delB=i=>setD2({...d,beforeAfter:d.beforeAfter.filter((_,j)=>j!==i)});
 
   const box={background:"rgba(255,255,255,.025)",border:"1px solid rgba(200,164,78,.06)",borderRadius:16,padding:20,marginBottom:12};
@@ -338,7 +348,19 @@ return<div style={{minHeight:"100vh",background:"#090909",direction:"rtl"}}>
         <div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}><strong style={{color:"#C8A44E"}}>פריט {i+1}</strong><button onClick={()=>delB(i)} style={{background:"none",border:"none",color:"#F87171",cursor:"pointer",fontSize:12}}>🗑</button></div>
         <label style={lbl}>כותרת</label><input style={inp} value={b.title} onChange={e=>upB(i,"title",e.target.value)}/>
         <label style={lbl}>תיאור</label><input style={inp} value={b.desc} onChange={e=>upB(i,"desc",e.target.value)}/>
-        <div style={{display:"flex",gap:8}}><div style={{flex:1}}><label style={lbl}>צבע לפני</label><input style={{...inp,padding:4,height:38}} type="color" value={b.bc} onChange={e=>upB(i,"bc",e.target.value)}/></div><div style={{flex:1}}><label style={lbl}>צבע אחרי</label><input style={{...inp,padding:4,height:38}} type="color" value={b.ac} onChange={e=>upB(i,"ac",e.target.value)}/></div></div>
+        <div style={{display:"flex",gap:12,marginBottom:8}}>
+          <div style={{flex:1}}>
+            <label style={lbl}>📷 תמונה לפני</label>
+            {b.imgBefore&&<img src={b.imgBefore} style={{width:"100%",height:80,objectFit:"cover",borderRadius:8,marginBottom:6}}/>}
+            <input type="file" accept="image/*" onChange={e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=x=>upB(i,"imgBefore",x.target.result);r.readAsDataURL(f);}} style={{fontSize:11,color:"rgba(255,255,255,.3)"}}/>
+          </div>
+          <div style={{flex:1}}>
+            <label style={lbl}>📷 תמונה אחרי</label>
+            {b.imgAfter&&<img src={b.imgAfter} style={{width:"100%",height:80,objectFit:"cover",borderRadius:8,marginBottom:6}}/>}
+            <input type="file" accept="image/*" onChange={e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=x=>upB(i,"imgAfter",x.target.result);r.readAsDataURL(f);}} style={{fontSize:11,color:"rgba(255,255,255,.3)"}}/>
+          </div>
+        </div>
+        <div style={{display:"flex",gap:8}}><div style={{flex:1}}><label style={lbl}>צבע לפני (חלופי)</label><input style={{...inp,padding:4,height:38}} type="color" value={b.bc} onChange={e=>upB(i,"bc",e.target.value)}/></div><div style={{flex:1}}><label style={lbl}>צבע אחרי (חלופי)</label><input style={{...inp,padding:4,height:38}} type="color" value={b.ac} onChange={e=>upB(i,"ac",e.target.value)}/></div></div>
       </div>)}
       <button onClick={saveAll} className="btn btn-a" style={{marginTop:8,padding:"10px 24px",fontSize:14}}>💾 שמור</button>
     </div>}
