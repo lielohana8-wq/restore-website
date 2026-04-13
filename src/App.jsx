@@ -32,23 +32,17 @@ const DEFAULTS = {
   areas: "תל אביב · רמת גן · גבעתיים · הרצליה · רעננה · פתח תקווה · ראשון לציון · חולון · נתניה · ירושלים · בית שמש · אשדוד · אשקלון · באר שבע · חיפה · כפר סבא · מודיעין · רחובות · חדרה",
 };
 
-/* ─── Cloud Functions ─── */
-const BLOB_API = "https://jsonblob.com/api/jsonBlob";
+/* ─── Cloud Functions (via Vercel API route — no CORS) ─── */
 async function cloudLoad(id) {
   if (!id) return null;
-  try { const r = await fetch(`${BLOB_API}/${id}`); if (r.ok) return await r.json(); } catch(e) {}
+  try { const r = await fetch("/api/data", { headers: { "X-Cloud-Id": id } }); if (r.ok) { const d = await r.json(); return d.phone ? d : null; } } catch(e) {}
   return null;
 }
 async function cloudSave(id, data) {
   try {
-    if (id) {
-      await fetch(`${BLOB_API}/${id}`, { method:"PUT", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data) });
-      return id;
-    } else {
-      const r = await fetch(BLOB_API, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data) });
-      const loc = r.headers.get("Location") || "";
-      return loc.split("/").pop();
-    }
+    const r = await fetch("/api/data", { method: "POST", headers: { "Content-Type": "application/json", "X-Cloud-Id": id || "" }, body: JSON.stringify(data) });
+    const j = await r.json();
+    return j.id || null;
   } catch(e) { return null; }
 }
 
