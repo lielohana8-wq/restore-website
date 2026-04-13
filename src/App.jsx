@@ -72,8 +72,8 @@ h1,h2,h3,h4{font-family:'Heebo',sans-serif;font-weight:800;letter-spacing:-.02em
 .btn-o{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#ccc}
 .btn-o:hover{border-color:#C8A44E;color:#C8A44E}
 
-.crd{background:rgba(255,255,255,.025);border:1px solid rgba(200,164,78,.06);border-radius:16px;transition:all .3s}
-.crd:hover{border-color:rgba(200,164,78,.18);box-shadow:0 12px 40px rgba(0,0,0,.2);transform:translateY(-4px)}
+.crd{background:rgba(9,9,9,.7);backdrop-filter:blur(12px);border:1px solid rgba(200,164,78,.12);border-radius:16px;transition:all .3s}
+.crd:hover{border-color:rgba(200,164,78,.25);box-shadow:0 12px 40px rgba(0,0,0,.3);transform:translateY(-4px)}
 
 .gold-line{height:2px;background:linear-gradient(90deg,transparent 5%,rgba(200,164,78,.3) 50%,transparent 95%)}
 
