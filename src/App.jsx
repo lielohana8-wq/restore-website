@@ -118,7 +118,7 @@ return<div>
 <header style={{position:"fixed",top:0,left:0,right:0,zIndex:100,transition:"all .3s",background:"rgba(9,9,9,.85)",backdropFilter:"blur(16px)",borderBottom:"1px solid rgba(200,164,78,.06)"}}>
 <div className="mx" style={{display:"flex",alignItems:"center",justifyContent:"space-between",height:90}}>
   <img src="/img/logo.png" alt="RESTORE" onClick={()=>window.scrollTo({top:0,behavior:"smooth"})}
-    style={{height:200,marginTop:50,cursor:"pointer",objectFit:"contain",animation:"glowPulse 4s ease-in-out infinite",filter:"drop-shadow(0 6px 20px rgba(0,0,0,.6))",position:"relative",zIndex:10}}/>  <nav className="d-hide" style={{display:"flex",alignItems:"center",gap:24}}>
+    style={{height:200,marginTop:50,cursor:"pointer",objectFit:"contain",animation:"glowPulse 4s ease-in-out infinite",filter:"drop-shadow(0 6px 20px rgba(0,0,0,.6))",position:"relative",zIndex:10,mixBlendMode:"lighten"}}/>  <nav className="d-hide" style={{display:"flex",alignItems:"center",gap:24}}>
     {nav.map(([id,l])=><span key={id} onClick={()=>go(id)} style={{color:"rgba(255,255,255,.4)",fontSize:14,cursor:"pointer",fontFamily:"'Heebo'",fontWeight:500,transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#C8A44E"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,.4)"}>{l}</span>)}
     <a href={WA} target="_blank" rel="noopener" className="btn btn-g" style={{padding:"10px 20px",fontSize:14}}>💬 וואטסאפ</a>
   </nav>
@@ -315,7 +315,7 @@ return<div>
 <section className="sec" style={{textAlign:"center",position:"relative",overflow:"hidden"}}>
   <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:400,height:400,borderRadius:"50%",background:"radial-gradient(circle,rgba(200,164,78,.04),transparent)"}}/>
   <div className="mx" style={{position:"relative",zIndex:1}}>
-    <Fade><img src="/img/logo.png" alt="RESTORE" style={{height:150,objectFit:"contain",margin:"0 auto 24px",animation:"glowPulse 3s ease-in-out infinite"}}/></Fade>
+    <Fade><img src="/img/logo.png" alt="RESTORE" style={{height:150,objectFit:"contain",margin:"0 auto 24px",animation:"glowPulse 3s ease-in-out infinite",mixBlendMode:"lighten"}}/></Fade>
     <Fade d={.1}><h2 style={{fontSize:"clamp(24px,5vw,36px)",color:"#fff",marginBottom:10}}>הבית שלך צריך <span style={{color:"#C8A44E"}}>RESTORE</span></h2></Fade>
     <Fade d={.2}><p style={{color:"rgba(255,255,255,.3)",fontSize:15,marginBottom:28}}>שחזור, לא ניקיון.</p></Fade>
     <Fade d={.3}><div className="m-stack" style={{display:"flex",gap:10,justifyContent:"center"}}>
@@ -334,7 +334,7 @@ return<div>
 {/* ══════ FOOTER ══════ */}
 <footer style={{background:"rgba(0,0,0,.4)",padding:"48px 0 16px",borderTop:"1px solid rgba(200,164,78,.05)"}}><div className="mx">
   <div className="m-col" style={{display:"grid",gridTemplateColumns:"1.5fr 1fr 1fr 1fr",gap:28,marginBottom:32}}>
-    <div><img src="/img/logo.png" alt="" style={{height:52,marginBottom:14}}/><p style={{fontSize:13,color:"rgba(255,255,255,.15)",lineHeight:1.8}}>שחזור מקצועי — ספות, שטיחים, מזרנים, רכבים, מזגנים. אחריות מלאה.</p></div>
+    <div><img src="/img/logo.png" alt="" style={{height:52,marginBottom:14,mixBlendMode:"lighten"}}/><p style={{fontSize:13,color:"rgba(255,255,255,.15)",lineHeight:1.8}}>שחזור מקצועי — ספות, שטיחים, מזרנים, רכבים, מזגנים. אחריות מלאה.</p></div>
     <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:12}}>שירותים</h4>{SERVICES.map((s,i)=><div key={i} style={{fontSize:12,color:"rgba(255,255,255,.15)",marginBottom:5,cursor:"pointer"}} onClick={()=>go("services")}>{s.name}</div>)}</div>
     <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:12}}>ניווט</h4>{nav.map(([id,l])=><div key={id} style={{fontSize:12,color:"rgba(255,255,255,.15)",marginBottom:5,cursor:"pointer"}} onClick={()=>go(id)}>{l}</div>)}</div>
     <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:12}}>צור קשר</h4><a href={`tel:${PH.replace(/-/g,"")}`} style={{display:"block",fontSize:12,color:"rgba(255,255,255,.15)",marginBottom:5}}>📞 {PH}</a><a href={WA} target="_blank" rel="noopener" style={{display:"block",fontSize:12,color:"rgba(255,255,255,.15)",marginBottom:10}}>💬 וואטסאפ</a><div style={{fontSize:10,color:"rgba(255,255,255,.08)"}}>א׳-ה׳ 8:00-21:00 | ו׳ 8:00-14:00</div></div>
