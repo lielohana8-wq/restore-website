@@ -43,23 +43,18 @@ async function cloudLoad(id) {
   return null;
 }
 async function cloudSave(id, data) {
+  if (!id) return null;
+  const body = JSON.stringify(data);
+  const headers = { "Content-Type": "application/json" };
   try {
-    if (id) {
-      const r = await fetch(`https://api.npoint.io/${id}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-      return r.ok ? id : null;
-    } else {
-      const r = await fetch("https://api.npoint.io/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-      if (!r.ok) return null;
-      // npoint returns HTML with the new URL, extract the ID
-      const text = await r.text();
-      try {
-        const j = JSON.parse(text);
-        if (j && j.id) return j.id;
-      } catch(e) {}
-      // Try extracting from URL pattern
-      const match = text.match(/api\.npoint\.io\/([a-z0-9]+)/);
-      return match ? match[1] : null;
-    }
+    // Try POST first (npoint.io standard)
+    let r = await fetch(`https://api.npoint.io/${id}`, { method: "POST", headers, body });
+    if (r.ok) { console.log("npoint POST ok"); return id; }
+    // Try PATCH as fallback
+    r = await fetch(`https://api.npoint.io/${id}`, { method: "PATCH", headers, body });
+    if (r.ok) { console.log("npoint PATCH ok"); return id; }
+    console.error("npoint save failed:", r.status, await r.text().catch(()=>""));
+    return null;
   } catch (e) { console.error("cloud save error:", e); return null; }
 }
 
@@ -203,12 +198,26 @@ function Admin({data,setData,cloudId,setCloudId,back}){
 
   const saveAll=async()=>{
     const id = cloudId || localStorage.getItem("r_npoint") || "";
-    if(!id){ show("⚠️ חבר לענן קודם!"); setTab("cloud"); return; }
-    setSaving(true); show("שומר...");
-    const ok = await cloudSave(id, d);
-    if(ok){ setData(d); show("✅ נשמר לכולם!"); }
-    else { show("❌ שגיאה בשמירה"); }
-    setSaving(false);
+    if(id){
+      setSaving(true); show("שומר בענן...");
+      try {
+        const ok = await cloudSave(id, d);
+        if(ok){ setData(d); show("✅ נשמר בענן!"); setSaving(false); return; }
+      } catch(e) { console.error(e); }
+      show("⚠️ ענן נכשל — השתמש בהורדה");
+      setSaving(false);
+    } else {
+      downloadJson();
+    }
+  };
+
+  const downloadJson=()=>{
+    setData(d);
+    const blob = new Blob([JSON.stringify(d, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href = url; a.download = "data.json"; a.click();
+    URL.revokeObjectURL(url);
+    show("✅ data.json הורד! שים בתיקיית public ותדחוף ל-GitHub");
   };
 
   const connectCloud=async()=>{
@@ -259,14 +268,15 @@ return<div style={{minHeight:"100vh",background:"#090909",direction:"rtl"}}>
   {toast&&<div style={{position:"fixed",top:16,left:"50%",transform:"translateX(-50%)",zIndex:10000,background:toast.startsWith("❌")?"#DC2626":toast.startsWith("⚠")?"#D97706":"#059669",color:"#fff",padding:"12px 24px",borderRadius:12,fontSize:14,fontFamily:"'Heebo'",fontWeight:600,boxShadow:"0 4px 20px rgba(0,0,0,.4)"}}>{toast}</div>}
   <div style={{background:"rgba(14,26,43,.6)",borderBottom:"1px solid rgba(200,164,78,.06)",padding:"14px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50}}>
     <div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontFamily:"'Heebo'",fontSize:14,fontWeight:800,color:"#C8A44E"}}>פאנל ניהול</span>{cloudId&&<span style={{fontSize:10,color:"#25D366"}}>● ענן</span>}</div>
-    <div style={{display:"flex",gap:8}}><button onClick={saveAll} disabled={saving||!cloudId} className="btn btn-g" style={{padding:"8px 20px",fontSize:14,opacity:(saving||!cloudId)?.5:1}}>{saving?"שומר...":"🚀 שמור לכולם"}</button><button onClick={back} style={{background:"none",border:"1px solid rgba(255,255,255,.06)",borderRadius:10,padding:"8px 14px",color:"rgba(255,255,255,.35)",cursor:"pointer",fontSize:12}}>← חזרה</button></div>
+    <div style={{display:"flex",gap:8}}><button onClick={saveAll} disabled={saving} className="btn btn-g" style={{padding:"8px 20px",fontSize:14,opacity:saving?.5:1}}>{saving?"שומר...":"🚀 שמור"}</button><button onClick={downloadJson} className="btn btn-a" style={{padding:"8px 16px",fontSize:13}}>📥 הורד JSON</button><button onClick={back} style={{background:"none",border:"1px solid rgba(255,255,255,.06)",borderRadius:10,padding:"8px 14px",color:"rgba(255,255,255,.35)",cursor:"pointer",fontSize:12}}>← חזרה</button></div>
   </div>
   <div style={{display:"flex",gap:4,padding:"12px 20px",borderBottom:"1px solid rgba(255,255,255,.03)",flexWrap:"wrap"}}>{[["cloud","☁️ ענן"],["contact","📞 קשר"],["services","💰 שירותים"],["reviews","⭐ ביקורות"],["ba","📸 לפני/אחרי"],["areas","🗺️ אזורים"],["leads","📋 לידים"]].map(([id,l])=><button key={id} onClick={()=>setTab(id)} style={{padding:"10px 14px",borderRadius:10,border:"none",cursor:"pointer",fontSize:12,fontFamily:"'Heebo'",fontWeight:600,background:tab===id?"rgba(200,164,78,.1)":"transparent",color:tab===id?"#C8A44E":"rgba(255,255,255,.3)"}}>{l}</button>)}</div>
   <div style={{maxWidth:820,margin:"0 auto",padding:20}}>
 
     {tab==="cloud"&&<div><h3 style={{fontSize:18,color:"#fff",marginBottom:16}}>☁️ חיבור ענן</h3><div style={box}>
-      {cloudId?<><div style={{display:"flex",alignItems:"center",gap:8,marginBottom:12}}><div style={{width:10,height:10,borderRadius:"50%",background:"#25D366"}}/><span style={{color:"#25D366",fontFamily:"'Heebo'",fontWeight:700}}>מחובר ✅</span></div><p style={{fontSize:13,color:"rgba(255,255,255,.35)",lineHeight:1.8}}>ID: <code style={{background:"rgba(200,164,78,.1)",padding:"2px 8px",borderRadius:4,color:"#C8A44E"}}>{cloudId}</code></p><p style={{fontSize:13,color:"rgba(255,255,255,.35)",lineHeight:1.8,marginTop:8}}>שנה מחיר/טלפון/ביקורת → לחץ <strong style={{color:"#25D366"}}>"שמור לכולם"</strong> → כל מבקר רואה.</p></>
-      :<><p style={{fontSize:14,color:"rgba(255,255,255,.4)",lineHeight:2,marginBottom:16}}>חבר לענן כדי שכל שינוי יישמר <strong style={{color:"#fff"}}>לכולם</strong>.</p>
+      {cloudId?<><div style={{display:"flex",alignItems:"center",gap:8,marginBottom:12}}><div style={{width:10,height:10,borderRadius:"50%",background:"#25D366"}}/><span style={{color:"#25D366",fontFamily:"'Heebo'",fontWeight:700}}>מחובר ✅</span></div><p style={{fontSize:13,color:"rgba(255,255,255,.35)",lineHeight:1.8}}>ID: <code style={{background:"rgba(200,164,78,.1)",padding:"2px 8px",borderRadius:4,color:"#C8A44E"}}>{cloudId}</code></p><p style={{fontSize:13,color:"rgba(255,255,255,.35)",lineHeight:1.8,marginTop:8}}>שנה מחיר/טלפון/ביקורת → לחץ <strong style={{color:"#25D366"}}>"שמור"</strong></p>
+        <div style={{background:"rgba(0,0,0,.3)",borderRadius:12,padding:16,marginTop:16}}><p style={{fontSize:13,color:"#C8A44E",fontFamily:"'Heebo'",fontWeight:700,marginBottom:8}}>💡 אם הענן לא שומר — שיטה שעובדת 100%:</p><ol style={{fontSize:13,color:"rgba(255,255,255,.4)",lineHeight:2.2,paddingRight:20}}><li>ערוך מה שצריך בפאנל</li><li>לחץ <strong style={{color:"#C8A44E"}}>"📥 הורד JSON"</strong> בהדר</li><li>שים את הקובץ <code style={{color:"#C8A44E"}}>data.json</code> בתיקיית <code style={{color:"#C8A44E"}}>public/</code></li><li>תריץ: <code style={{color:"#C8A44E"}}>git add . && git commit -m "update" && git push</code></li><li>תוך דקה — כל מבקר רואה!</li></ol></div></>
+      :<><p style={{fontSize:14,color:"rgba(255,255,255,.4)",lineHeight:2,marginBottom:16}}>חבר לענן כדי שהשינויים יישמרו אוטומטית.</p>
         <button onClick={connectCloud} disabled={saving} className="btn btn-g" style={{fontSize:15,marginBottom:20}}>{saving?"מתחבר...":"☁️ חבר לענן — אוטומטי"}</button>
         <div style={{background:"rgba(0,0,0,.3)",borderRadius:12,padding:16}}>
           <p style={{fontSize:13,color:"#C8A44E",fontFamily:"'Heebo'",fontWeight:700,marginBottom:8}}>אם אוטומטי לא עובד — חיבור ידני:</p>
