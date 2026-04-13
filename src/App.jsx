@@ -135,9 +135,9 @@ return<div>
 {/* ══════ HERO — lion as background ══════ */}
 <section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"100px 0 50px"}}>
   {/* Lion sofa as full background */}
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/hero-sofa.png)",backgroundSize:"cover",backgroundPosition:"center",opacity:.35}}/>
+  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/hero-sofa.png)",backgroundSize:"cover",backgroundPosition:"center",opacity:.55}}/>
   {/* Dark gradient overlay - lighter on left so lion shows */}
-  <div style={{position:"absolute",inset:0,background:"linear-gradient(to left, rgba(9,9,9,.3), rgba(9,9,9,.8) 55%)"}}/>
+  <div style={{position:"absolute",inset:0,background:"linear-gradient(to left, rgba(9,9,9,.15), rgba(9,9,9,.75) 55%)"}}/>
   {/* Gold glow */}
   <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at 60% 50%,rgba(200,164,78,.05),transparent 60%)"}}/>
 
@@ -201,8 +201,8 @@ return<div>
 
 {/* ══════ SERVICES ══════ */}
 <section className="sec" id="services" style={{background:"rgba(14,26,43,.25)",position:"relative",overflow:"hidden"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-van.png)",backgroundSize:"cover",backgroundPosition:"center",opacity:.12}}/>
-  <div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(9,9,9,.7),rgba(9,9,9,.6))"}}/>
+  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-van.png)",backgroundSize:"cover",backgroundPosition:"center",opacity:.35}}/>
+  <div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(9,9,9,.55),rgba(9,9,9,.5))"}}/>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <Fade><SectionTitle sub="פתרון מקצועי לכל סוג — ציוד תעשייתי וחומרים בטוחים">השירותים שלנו</SectionTitle></Fade>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:14}}>
@@ -220,8 +220,8 @@ return<div>
 
 {/* ══════ PROCESS — Like Krishim ══════ */}
 <section className="sec" id="process" style={{position:"relative",overflow:"hidden"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-inspect.png)",backgroundSize:"cover",backgroundPosition:"center top",opacity:.1}}/>
-  <div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(9,9,9,.75),rgba(9,9,9,.65))"}}/>
+  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-inspect.png)",backgroundSize:"cover",backgroundPosition:"center top",opacity:.3}}/>
+  <div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(9,9,9,.55),rgba(9,9,9,.5))"}}/>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <Fade><SectionTitle sub="4 שלבים מהשיחה הראשונה ועד לספה כמו חדשה">מה הספה שלכם עוברת?</SectionTitle></Fade>
     <div style={{display:"grid",gridTemplateColumns:"1fr",gap:0,maxWidth:680,margin:"0 auto"}}>
@@ -249,8 +249,8 @@ return<div>
 
 {/* ══════ CTA — Lion office as background ══════ */}
 <section style={{padding:"80px 0",position:"relative",overflow:"hidden"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-office.png)",backgroundSize:"cover",backgroundPosition:"center",opacity:.2}}/>
-  <div style={{position:"absolute",inset:0,background:"linear-gradient(to left, rgba(9,9,9,.3), rgba(9,9,9,.8) 55%)"}}/>
+  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-office.png)",backgroundSize:"cover",backgroundPosition:"center",opacity:.45}}/>
+  <div style={{position:"absolute",inset:0,background:"linear-gradient(to left, rgba(9,9,9,.15), rgba(9,9,9,.7) 55%)"}}/>
   <div className="mx" style={{position:"relative",zIndex:2}}>
     <div className="m-center" style={{maxWidth:480}}>
       <Fade><h2 style={{fontSize:"clamp(22px,4vw,30px)",color:"#fff",marginBottom:10}}>רוצים הצעת מחיר?<br/><span style={{color:"#C8A44E"}}>האריה מחכה לשיחה 🦁</span></h2></Fade>
