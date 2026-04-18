@@ -227,6 +227,14 @@ return<div>
   </div>
 </section>
 
+{/* ═══ PRICE CALCULATOR ═══ */}
+<section className="sec" id="calc" style={{background:"rgba(200,164,78,.015)"}}>
+  <div className="mx">
+    <F><STit sub="בחרו שירותים וקבלו הערכת מחיר מיידית">🧮 מחשבון מחיר</STit></F>
+    <F d={.1}><PriceCalc services={SV} wa={wa}/></F>
+  </div>
+</section>
+
 {/* ═══ PROCESS ═══ */}
 <section className="sec" id="process" style={{position:"relative",overflow:"hidden"}}>
   <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-inspect.png)",backgroundSize:"cover",backgroundPosition:"center 20%",opacity:.5}}/><div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(6,6,6,.4),rgba(6,6,6,.35))"}}/>
@@ -271,6 +279,31 @@ return<div>
     </div><div style={{padding:"16px 20px"}}><h4 style={{fontSize:15,color:"#fff",marginBottom:3}}>{b.title}</h4><p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{b.desc}</p></div></div></F>)}
   </div>
 </div></section>
+
+{/* ═══ VIDEOS ═══ */}
+<section className="sec" id="videos" style={{background:"rgba(200,164,78,.015)"}}>
+  <div className="mx">
+    <F><STit sub="ראו במו עיניכם את ההבדל — לפני ואחרי בווידאו">📹 סרטוני עבודות</STit></F>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
+      {[
+        {title:"ניקוי ספה — לפני ואחרי",desc:"ספת בד עם כתמי קפה וזיעה. צפו בתהליך המלא.",thumb:"🛋️",color:"#C8A44E"},
+        {title:"ניקוי מזרן — תוצאות מטורפות",desc:"מזרן זוגי עם כתמים של שנים. ההבדל מדהים.",thumb:"🛏️",color:"#6DC489"},
+        {title:"שחזור פנים רכב",desc:"ריפודים, תקרה ודשבורד — כמו רכב חדש מהסלון.",thumb:"🚗",color:"#E07B5B"},
+      ].map((v,i)=><F key={i} d={i*.08}><div className="crd" style={{overflow:"hidden",cursor:"pointer"}} onClick={()=>window.open(`https://wa.me/${X.waNum}?text=${encodeURIComponent("היי, ראיתי את הסרטונים באתר ומעוניין/ת בשירות")}`)}>
+        <div style={{height:180,background:`linear-gradient(135deg,rgba(6,6,6,.8),rgba(6,6,6,.4)),linear-gradient(135deg,${v.color}33,${v.color}11)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}>
+          <div style={{width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,.08)",backdropFilter:"blur(8px)",border:"2px solid rgba(255,255,255,.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,transition:"transform .3s",cursor:"pointer"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.15)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>▶</div>
+          <div style={{position:"absolute",top:14,right:14,fontSize:32}}>{v.thumb}</div>
+          <div style={{position:"absolute",bottom:12,left:14,padding:"4px 12px",borderRadius:8,background:"rgba(200,164,78,.15)",backdropFilter:"blur(4px)",color:"#C8A44E",fontSize:11,fontFamily:"'Heebo'",fontWeight:700}}>📹 צפו בסרטון</div>
+        </div>
+        <div style={{padding:"16px 20px"}}>
+          <h4 style={{fontSize:15,color:"#fff",marginBottom:4}}>{v.title}</h4>
+          <p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{v.desc}</p>
+        </div>
+      </div></F>)}
+    </div>
+    <F d={.3}><p style={{textAlign:"center",marginTop:20,fontSize:13,color:"rgba(255,255,255,.2)"}}>🎬 עוד סרטונים בעמוד האינסטגרם והטיקטוק שלנו</p></F>
+  </div>
+</section>
 
 {/* ═══ REVIEWS ═══ */}
 <section className="sec" id="reviews" style={{background:"rgba(200,164,78,.015)"}}><div className="mx">
@@ -349,9 +382,75 @@ return<div>
   <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{flex:1,padding:"14px 6px",fontSize:15}}>💬 וואטסאפ</a>
   <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{flex:1,padding:"14px 6px",fontSize:15}}>📞 חייגו</a>
 </div>
+
+{/* Popup */}
+<Popup wa={wa}/>
+
 </div>;}
 
 /* ═══ Components ═══ */
+function Popup({wa}){
+  const[show,setShow]=useState(false);
+  useEffect(()=>{
+    if(sessionStorage.getItem("leo_popup"))return;
+    const t=setTimeout(()=>{setShow(true);sessionStorage.setItem("leo_popup","1");},4000);
+    return()=>clearTimeout(t);
+  },[]);
+  if(!show)return null;
+  return<><div onClick={()=>setShow(false)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,.7)",backdropFilter:"blur(6px)",zIndex:9998}}/>
+    <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:9999,width:"min(420px,90vw)",background:"#0c0c0c",borderRadius:24,border:"1px solid rgba(200,164,78,.15)",padding:"40px 32px",textAlign:"center",animation:"fadeUp .4s ease",boxShadow:"0 24px 64px rgba(0,0,0,.5)"}}>
+      <button onClick={()=>setShow(false)} style={{position:"absolute",top:14,left:14,background:"none",border:"none",color:"rgba(255,255,255,.2)",fontSize:18,cursor:"pointer"}}>✕</button>
+      <div style={{fontSize:52,marginBottom:14}}>🦁</div>
+      <h3 style={{fontSize:24,color:"#fff",fontFamily:"'Heebo'",marginBottom:8}}>ברוכים הבאים ל-Leo!</h3>
+      <p style={{color:"rgba(255,255,255,.4)",fontSize:15,lineHeight:1.7,marginBottom:6}}>מבקרים חדשים מקבלים</p>
+      <div style={{fontSize:42,fontFamily:"'Heebo'",fontWeight:900,background:"linear-gradient(135deg,#C8A44E,#E8D48A)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",marginBottom:6}}>10% הנחה</div>
+      <p style={{color:"rgba(255,255,255,.3)",fontSize:13,marginBottom:20}}>על ההזמנה הראשונה! ציינו <strong style={{color:"#C8A44E"}}>"LEO10"</strong> בוואטסאפ</p>
+      <a href={`${wa}?text=${encodeURIComponent("היי! ראיתי את ההנחה באתר — קוד LEO10 🦁")}`} target="_blank" rel="noopener" className="btn btn-g" style={{width:"100%",fontSize:16,padding:"16px 0",marginBottom:10,animation:"pulse 2s infinite"}}>💬 מממש עכשיו — וואטסאפ</a>
+      <button onClick={()=>setShow(false)} style={{background:"none",border:"none",color:"rgba(255,255,255,.15)",fontSize:12,cursor:"pointer"}}>אולי אחר כך</button>
+    </div>
+  </>;
+}
+
+function PriceCalc({services,wa}){
+  const[items,setItems]=useState({});
+  const toggle=(name)=>setItems(prev=>{const n={...prev};if(n[name])delete n[name];else n[name]=1;return n;});
+  const inc=(name)=>setItems(prev=>({...prev,[name]:(prev[name]||1)+1}));
+  const dec=(name)=>setItems(prev=>{const n={...prev};if(n[name]>1)n[name]-=1;else delete n[name];return n;});
+  
+  const getNum=(priceStr)=>{const m=String(priceStr).match(/(\d+)/);return m?parseInt(m[1]):0;};
+  const total=Object.entries(items).reduce((sum,[name,qty])=>{const svc=services.find(s=>s.name===name);return sum+(svc?getNum(svc.price)*qty:0);},0);
+  const selectedNames=Object.entries(items).map(([n,q])=>q>1?`${n} x${q}`:n).join(", ");
+
+  return<div className="crd glow-border" style={{maxWidth:600,margin:"0 auto",padding:0,overflow:"hidden"}}>
+    <div style={{background:"linear-gradient(135deg,rgba(200,164,78,.06),rgba(200,164,78,.02))",padding:"18px 24px",borderBottom:"1px solid rgba(200,164,78,.06)"}}>
+      <p style={{fontSize:14,color:"rgba(255,255,255,.4)",textAlign:"center"}}>👆 סמנו שירותים וכמויות — המחיר מתעדכן אוטומטית</p>
+    </div>
+    <div style={{padding:"8px 0"}}>
+      {services.map((s,i)=>{const active=!!items[s.name];const qty=items[s.name]||0;return<div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"14px 24px",borderBottom:i<services.length-1?"1px solid rgba(255,255,255,.02)":"none",background:active?"rgba(200,164,78,.04)":"none",transition:"background .2s",cursor:"pointer"}} onClick={()=>!active&&toggle(s.name)}>
+        <div style={{display:"flex",alignItems:"center",gap:12}}>
+          <span style={{fontSize:20}}>{s.icon||"🔹"}</span>
+          <div><div style={{fontSize:14,color:active?"#fff":"rgba(255,255,255,.5)",fontFamily:"'Heebo'",fontWeight:active?700:500}}>{s.name}</div><div style={{fontSize:11,color:"rgba(255,255,255,.15)"}}>{s.price}</div></div>
+        </div>
+        {active?<div style={{display:"flex",alignItems:"center",gap:8}} onClick={e=>e.stopPropagation()}>
+          <button onClick={()=>dec(s.name)} style={{width:30,height:30,borderRadius:8,background:"rgba(255,255,255,.04)",border:"1px solid rgba(200,164,78,.1)",color:"#C8A44E",fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>−</button>
+          <span style={{fontFamily:"'Heebo'",fontSize:16,fontWeight:800,color:"#C8A44E",minWidth:20,textAlign:"center"}}>{qty}</span>
+          <button onClick={()=>inc(s.name)} style={{width:30,height:30,borderRadius:8,background:"rgba(200,164,78,.08)",border:"1px solid rgba(200,164,78,.15)",color:"#C8A44E",fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>+</button>
+          <button onClick={()=>toggle(s.name)} style={{marginRight:4,background:"none",border:"none",color:"#F87171",fontSize:14,cursor:"pointer"}}>✕</button>
+        </div>
+        :<div style={{padding:"6px 14px",borderRadius:8,background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.06)",fontSize:12,color:"rgba(255,255,255,.2)"}}>+ הוסף</div>}
+      </div>;})}
+    </div>
+    <div style={{padding:"20px 24px",background:"rgba(200,164,78,.04)",borderTop:"1px solid rgba(200,164,78,.08)"}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:total>0?16:0}}>
+        <span style={{fontSize:14,color:"rgba(255,255,255,.4)"}}>סה״כ הערכה:</span>
+        <span style={{fontFamily:"'Heebo'",fontSize:total>0?32:20,fontWeight:900,color:"#C8A44E",transition:"all .3s"}}>{total>0?`~${total}₪`:"בחרו שירותים"}</span>
+      </div>
+      {total>0&&<a href={`${wa}?text=${encodeURIComponent(`היי! אני מעוניין/ת ב:\n${selectedNames}\n\nסה"כ הערכה: ~${total}₪\nאשמח להצעה מדויקת 🦁`)}`} target="_blank" rel="noopener" className="btn btn-g" style={{width:"100%",fontSize:15}}>💬 קבלו הצעה מדויקת — וואטסאפ</a>}
+      {total>0&&<p style={{textAlign:"center",fontSize:11,color:"rgba(255,255,255,.15)",marginTop:10}}>* המחיר הסופי ייקבע לאחר אבחון. ייתכנו הנחות חבילה!</p>}
+    </div>
+  </div>;
+}
+
 function FaqItem({q,a}){const[o,s]=useState(false);return<div className="crd" style={{marginBottom:10,borderColor:o?"rgba(200,164,78,.15)":"rgba(200,164,78,.05)"}}><div onClick={()=>s(!o)} style={{padding:"20px 24px",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontSize:15,fontFamily:"'Heebo'",fontWeight:600}}>{q}</span><span style={{color:"#C8A44E",fontSize:11,transition:"transform .3s",transform:o?"rotate(180deg)":"",opacity:.6}}>▼</span></div>{o&&<div style={{padding:"0 24px 20px",fontSize:14.5,color:"rgba(255,255,255,.4)",lineHeight:1.85}}>{a}</div>}</div>;}
 function LeadForm({services,wa}){const[f,setF]=useState({name:"",phone:"",service:""});const[sent,setSent]=useState(false);const inp={width:"100%",padding:"15px 18px",borderRadius:14,border:"1px solid rgba(200,164,78,.06)",fontSize:14,fontFamily:"'Assistant'",background:"rgba(255,255,255,.02)",color:"#fff",direction:"rtl",outline:"none",transition:"border-color .2s"};const submit=()=>{const l=gL();l.push({...f,id:"l"+Date.now(),date:new Date().toISOString(),status:"new"});sL(l);setSent(true);setTimeout(()=>{setSent(false);setF({name:"",phone:"",service:""});},5000);};if(sent)return<div style={{maxWidth:480,margin:"0 auto",textAlign:"center",padding:48}}><div style={{fontSize:48,marginBottom:14}}>✅</div><h3 style={{fontSize:22,color:"#fff",marginBottom:8}}>הפרטים נשלחו!</h3><p style={{color:"rgba(255,255,255,.3)",marginBottom:20}}>ניצור קשר בהקדם</p><a href={wa} target="_blank" rel="noopener" className="btn btn-g">💬 או שלחו הודעה</a></div>;return<form onSubmit={e=>{e.preventDefault();if(f.name&&f.phone)submit();}} style={{maxWidth:480,margin:"0 auto",background:"rgba(6,6,6,.5)",backdropFilter:"blur(16px)",borderRadius:22,padding:"40px 30px",border:"1px solid rgba(200,164,78,.06)"}}>{[["שם מלא","text","name","הכנסו שם מלא"],["טלפון","tel","phone","050-000-0000"]].map(([l,t,k,p])=><div key={k} style={{marginBottom:16}}><label style={{display:"block",fontSize:12,fontFamily:"'Heebo'",fontWeight:600,color:"rgba(255,255,255,.25)",marginBottom:6}}>{l} *</label><input type={t} style={inp} value={f[k]} placeholder={p} required onChange={e=>setF(x=>({...x,[k]:e.target.value}))} onFocus={e=>e.target.style.borderColor="#C8A44E"} onBlur={e=>e.target.style.borderColor="rgba(200,164,78,.06)"}/></div>)}<div style={{marginBottom:20}}><label style={{display:"block",fontSize:12,fontFamily:"'Heebo'",fontWeight:600,color:"rgba(255,255,255,.25)",marginBottom:6}}>שירות</label><select style={{...inp,appearance:"none"}} value={f.service} onChange={e=>setF(x=>({...x,service:e.target.value}))}><option value="">בחר שירות</option>{services.map((s,i)=><option key={i} value={s.name}>{s.name} — {s.price}</option>)}</select></div><button type="submit" className="btn btn-a" style={{width:"100%",fontSize:16,padding:"18px 0"}}>שלחו פרטים 🦁</button><p style={{textAlign:"center",fontSize:11,color:"rgba(255,255,255,.08)",marginTop:12}}>🔒 הפרטים מאובטחים</p></form>;}
 
