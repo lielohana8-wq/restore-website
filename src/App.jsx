@@ -188,6 +188,45 @@ return<div>
   </div>
 </section>
 
+{/* ═══ WHY LEO ═══ */}
+<section className="sec" id="why" style={{background:"rgba(200,164,78,.015)"}}>
+  <div className="mx">
+    <F><STit sub="כי כשמלך החיות מנקה — אין פשרות">למה דווקא Leo? 🦁</STit></F>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16,marginBottom:40}}>
+      {[
+        ["👑","מלך הניקיון","לא סתם שם — אנחנו מתייחסים לכל עבודה כמו מלך. ציוד תעשייתי מהשורה הראשונה, חומרים מקצועיים בלבד, ותוצאות שמדברות בעד עצמן."],
+        ["🛡️","אחריות מלכותית","לא מרוצים? נחזור ונתקן — בחינם. בלי שאלות, בלי תירוצים. המילה שלנו היא חוזה."],
+        ["⚡","מהירים כמו אריה","זמני תגובה מהירים — הצעת מחיר תוך דקות, הגעה מהירה, וניקוי יסודי בלי לבזבז לכם את היום."],
+        ["🧪","חומרים בטוחים","היפואלרגניים, ללא כלור ואמוניה. בטוחים לתינוקות, ילדים, חיות מחמד ואנשים רגישים. רק ריח נקי ורענן."],
+        ["💰","מחירים שקופים","מה שנגיד — זה מה שתשלמו. בלי הפתעות, בלי תוספות, בלי קטנה עם הגדולה. שקיפות מלאה מהשנייה הראשונה."],
+        ["📱","שירות 7/7","זמינים כל יום — כולל ערבים ושישי. שלחו הודעה בוואטסאפ בכל שעה ותקבלו מענה. כי האריה לא ישן."],
+      ].map(([ic,t,d],i)=><F key={i} d={i*.06}><div className="crd" style={{padding:"30px 24px",height:"100%",display:"flex",flexDirection:"column",textAlign:"center"}}>
+        <div style={{fontSize:38,marginBottom:14}}>{ic}</div>
+        <h3 style={{fontSize:18,fontWeight:800,color:"#fff",marginBottom:10}}>{t}</h3>
+        <p style={{fontSize:14,color:"rgba(255,255,255,.35)",lineHeight:1.8}}>{d}</p>
+      </div></F>)}
+    </div>
+
+    <F d={.4}><div className="crd glow-border" style={{padding:"36px 32px",textAlign:"center",position:"relative",overflow:"hidden"}}>
+      <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(200,164,78,.04),rgba(200,164,78,.01))"}}/>
+      <div style={{position:"relative",zIndex:1}}>
+        <div style={{fontSize:48,marginBottom:16}}>🦁</div>
+        <h3 style={{fontSize:"clamp(20px,4vw,28px)",color:"#fff",marginBottom:12,lineHeight:1.3}}>כי אריה לא מתפשר<br/><span style={{color:"#C8A44E"}}>ואנחנו גם לא</span></h3>
+        <p style={{color:"rgba(255,255,255,.35)",fontSize:15,maxWidth:500,margin:"0 auto 24px",lineHeight:1.8}}>
+          בעולם שכולם מבטיחים — אנחנו מוכיחים. כל לקוח מקבל יחס של VIP, כל ספה מקבלת טיפול של מלך, וכל עבודה נגמרת רק כשאתם מחייכים.
+        </p>
+        <div style={{display:"flex",gap:20,justifyContent:"center",flexWrap:"wrap",marginBottom:24}}>
+          {[["3,000+","לקוחות שסמכו"],["100%","שביעות רצון"],["5.0","דירוג ממוצע"],["0","תלונות"]].map(([n,l],i)=><div key={i} style={{textAlign:"center"}}>
+            <div style={{fontFamily:"'Heebo'",fontSize:28,fontWeight:900,color:"#C8A44E"}}>{n}</div>
+            <div style={{fontSize:11,color:"rgba(255,255,255,.2)"}}>{l}</div>
+          </div>)}
+        </div>
+        <a href={`https://wa.me/${X.waNum}`} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"16px 36px"}}>💬 הצטרפו למשפחת Leo</a>
+      </div>
+    </div></F>
+  </div>
+</section>
+
 {/* ═══ PROCESS ═══ */}
 <section className="sec" id="process" style={{position:"relative",overflow:"hidden"}}>
   <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-inspect.png)",backgroundSize:"cover",backgroundPosition:"center 20%",opacity:.5}}/><div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(6,6,6,.4),rgba(6,6,6,.35))"}}/>
