@@ -104,7 +104,7 @@ function Site({data:X,goAdmin}){
   const[mm,setMm]=useState(false);const[showTop,setShowTop]=useState(false);
   useEffect(()=>{const f=()=>setShowTop(window.scrollY>500);window.addEventListener("scroll",f,{passive:true});return()=>window.removeEventListener("scroll",f);},[]);
   const go=id=>{document.getElementById(id)?.scrollIntoView({behavior:"smooth"});setMm(false);};
-  const nav=[["services","שירותים"],["pricing","מחירון"],["process","התהליך"],["gallery","לפני ואחרי"],["reviews","ביקורות"],["faq","שאלות"],["contact","צור קשר"]];
+  const nav=[["services","שירותים"],["process","התהליך"],["gallery","לפני ואחרי"],["reviews","ביקורות"],["faq","שאלות"],["contact","צור קשר"]];
 
 return<div>
 
@@ -137,7 +137,7 @@ return<div>
       <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,58px)",lineHeight:1.06,color:"#fff",marginBottom:18}}>כשהאריה מנקה<br/><span style={{background:"linear-gradient(135deg,#C8A44E,#E8D48A)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם</span></h1></F>
       <F d={.2}><p style={{fontSize:17,color:"rgba(255,255,255,.5)",lineHeight:1.85,maxWidth:440,marginBottom:28}}>ניקוי מקצועי ברמה של מלך החיות.<br/>ספות · מזרנים · שטיחים · מזגנים · רכבים · כיסאות</p></F>
       <F d={.3}><div style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:16,background:"rgba(200,164,78,.04)",border:"1px solid rgba(200,164,78,.08)",marginBottom:28}}>
-        <span style={{fontFamily:"'Heebo'",fontSize:36,fontWeight:900,background:"linear-gradient(135deg,#C8A44E,#E8D48A)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>₪{SV[0]?.price||"280₪"}</span>
+        <span style={{fontFamily:"'Heebo'",fontSize:36,fontWeight:900,background:"linear-gradient(135deg,#C8A44E,#E8D48A)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>280₪</span>
         <span style={{fontSize:13,color:"rgba(255,255,255,.3)",lineHeight:1.4}}>ניקוי ספה<br/>כולל חיטוי ובישום</span>
       </div></F>
       <F d={.4}><div className="m-stack" style={{display:"flex",gap:10}}>
@@ -176,7 +176,7 @@ return<div>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <F><STit sub="פתרון מקצועי לכל פריט בבית וברכב">השירותים שלנו</STit></F>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:14}}>
-      {SV.slice(0,6).map((s,i)=><F key={i} d={i*.05}><div className="crd" style={{padding:"28px 22px",cursor:"pointer",height:"100%",display:"flex",flexDirection:"column",borderTop:`3px solid ${s.accent||"#C8A44E"}`}} onClick={()=>window.open(wm("היי, מעוניין/ת ב"+s.name),"_blank")}>
+      {SV.map((s,i)=><F key={i} d={i*.05}><div className="crd" style={{padding:"28px 22px",cursor:"pointer",height:"100%",display:"flex",flexDirection:"column",borderTop:`3px solid ${s.accent||"#C8A44E"}`}} onClick={()=>window.open(wm("היי, מעוניין/ת ב"+s.name),"_blank")}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:10}}><h3 style={{fontSize:17,fontWeight:700,color:"#fff"}}>{s.name}</h3><span style={{fontSize:22}}>{s.icon||"🔹"}</span></div>
         <p style={{fontSize:13.5,color:"rgba(255,255,255,.3)",lineHeight:1.7,marginBottom:"auto",paddingBottom:16}}>{s.desc}</p>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:14,borderTop:"1px solid rgba(200,164,78,.06)"}}>
@@ -185,25 +185,6 @@ return<div>
         </div>
       </div></F>)}
     </div>
-  </div>
-</section>
-
-{/* ═══ FULL PRICING ═══ */}
-<section className="sec" id="pricing" style={{background:"rgba(200,164,78,.015)"}}>
-  <div className="mx">
-    <F><STit sub="מחירים שקופים — בלי הפתעות">מחירון מלא 💰</STit></F>
-    <F d={.1}><div className="crd glow-border" style={{padding:0,overflow:"hidden",maxWidth:700,margin:"0 auto"}}>
-      <div style={{background:"linear-gradient(135deg,rgba(200,164,78,.08),rgba(200,164,78,.02))",padding:"18px 28px",borderBottom:"1px solid rgba(200,164,78,.06)"}}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontFamily:"'Heebo'",fontWeight:700,color:"#C8A44E",fontSize:14}}>שירות</span><span style={{fontFamily:"'Heebo'",fontWeight:700,color:"#C8A44E",fontSize:14}}>מחיר</span></div>
-      </div>
-      {SV.map((s,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 28px",borderBottom:i<SV.length-1?"1px solid rgba(255,255,255,.03)":"none",transition:"background .2s"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(200,164,78,.03)"} onMouseLeave={e=>e.currentTarget.style.background="none"}>
-        <div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:18}}>{s.icon||"🔹"}</span><div><div style={{fontSize:14,color:"#fff",fontFamily:"'Heebo'",fontWeight:600}}>{s.name}</div><div style={{fontSize:12,color:"rgba(255,255,255,.2)"}}>{s.desc?.slice(0,50)}...</div></div></div>
-        <span style={{fontFamily:"'Heebo'",fontSize:18,fontWeight:800,color:s.accent||"#C8A44E",whiteSpace:"nowrap"}}>{s.price}</span>
-      </div>)}
-      <div style={{padding:"18px 28px",background:"rgba(200,164,78,.04)",textAlign:"center"}}>
-        <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:14}}>💬 שלחו תמונה — הצעה מדויקת תוך דקות</a>
-      </div>
-    </div></F>
   </div>
 </section>
 
@@ -315,7 +296,7 @@ return<div>
 <footer style={{background:"rgba(0,0,0,.5)",padding:"52px 0 18px",borderTop:"1px solid rgba(200,164,78,.04)"}}><div className="mx">
   <div className="m-col" style={{display:"grid",gridTemplateColumns:"1.5fr 1fr 1fr 1fr",gap:28,marginBottom:36}}>
     <div><img src="/img/logo.png" alt="" style={{height:56,marginBottom:16,mixBlendMode:"screen"}}/><p style={{fontSize:13,color:"rgba(255,255,255,.12)",lineHeight:1.8}}>Leo — שירותי ניקיון מקצועיים.<br/>ניקיון ברמה של מלך החיות.</p></div>
-    <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:14}}>שירותים</h4>{SV.slice(0,6).map((s,i)=><div key={i} style={{fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6}}>{s.name}</div>)}</div>
+    <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:14}}>שירותים</h4>{SV.map((s,i)=><div key={i} style={{fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6}}>{s.name}</div>)}</div>
     <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:14}}>ניווט</h4>{nav.map(([id,l])=><div key={id} style={{fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6,cursor:"pointer"}} onClick={()=>go(id)}>{l}</div>)}</div>
     <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:14}}>צור קשר</h4><a href={`tel:${X.phone.replace(/-/g,"")}`} style={{display:"block",fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6}}>📞 {X.phone}</a><a href={wa} target="_blank" rel="noopener" style={{display:"block",fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6}}>💬 וואטסאפ</a><div style={{fontSize:11,color:"rgba(255,255,255,.07)",marginTop:8}}>א׳-ש׳ | כולל ערבים</div></div>
   </div>
