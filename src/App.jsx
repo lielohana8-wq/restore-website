@@ -149,7 +149,7 @@ return<div>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"1.4fr 1fr",gap:40,alignItems:"center"}}>
     <div className="m-center" style={{maxWidth:620}}>
       <F><div className="badge" style={{marginBottom:20}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
-      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>אוויר נקי. בית בריא.<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>ראש שקט.</span></h1></F>
+      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>כשהאריה מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם 🦁</span></h1></F>
       <F d={.2}><p style={{fontSize:18.5,color:"#1a2b4a",lineHeight:1.75,maxWidth:500,marginBottom:26,fontWeight:600}}>ניקוי מזגנים, ספות, מזרנים, שטיחים ורכבים ברמה הגבוהה ביותר.<br/><span style={{color:"#5A6B88",fontWeight:500}}>תוצאות שרואים מיד — ומרגישים כל יום.</span></p></F>
       <F d={.3}><div className="m-stack" style={{display:"flex",gap:12,alignItems:"center",flexWrap:"wrap",marginBottom:22}}>
         <div style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:18,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 8px 28px rgba(255,193,7,.4)",animation:"pulseY 2s infinite"}}>
