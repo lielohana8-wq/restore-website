@@ -26,11 +26,10 @@ const D = {
     { n:"עמית ב׳", t:"6 כיסאות אוכל + כורסא — הכל נראה חדש. מחיר מעולה ושירות 10/10.", s:"כיסאות", stars:5 },
   ],
   beforeAfter: [
-    { title:"ספה חומה — כתמים כבדים", desc:"כתמים של שנים → נקייה כמו חדשה", bc:"#6b5544", ac:"#c9b99a", imgBefore:"/img/ba/brown-sofa-before.jpg", imgAfter:"/img/ba/brown-sofa-after.jpg" },
-    { title:"ספה אפורה — 3 מושבים", desc:"לכלוך וכתמים → צבע אחיד ונקי", bc:"#484848", ac:"#888", imgBefore:"/img/ba/gray-sofa3-before.jpg", imgAfter:"/img/ba/gray-sofa3-after.jpg" },
-    { title:"ספה כחולה — בד עדין", desc:"כתמים ואבק → רעננה ונקייה", bc:"#2c4a6e", ac:"#4a7ab5", imgBefore:"/img/ba/blue-sofa-before.jpg", imgAfter:"/img/ba/blue-sofa-after.jpg" },
-    { title:"ספה אפורה — דו מושבית", desc:"שימוש יומי → כמו מהסלון", bc:"#555", ac:"#999", imgBefore:"/img/ba/gray-sofa2-before.jpg", imgAfter:"/img/ba/gray-sofa2-after.jpg" },
-    { title:"ספה בז׳ — 3 מושבים", desc:"כתמי קפה ושומן → נקייה לגמרי", bc:"#8a7a6a", ac:"#c9b99a", imgBefore:"/img/ba/beige-sofa-before.jpg", imgAfter:"/img/ba/beige-sofa-after.jpg" },
+    { title:"ספה עם כתמי קפה", desc:"3 שנים של שימוש → כמו מהחנות", bc:"#6b5544", ac:"#c9b99a", imgBefore:"", imgAfter:"" },
+    { title:"מזרן עם כתמים", desc:"כתמים + ריח → נקי ומחוטא", bc:"#7a6e5e", ac:"#ddd0c0", imgBefore:"", imgAfter:"" },
+    { title:"ריפודי רכב", desc:"רכב מוזנח → ריח של חדש", bc:"#484848", ac:"#aaa", imgBefore:"", imgAfter:"" },
+    { title:"שטיח פרסי", desc:"שטיח עתיק שחזר לחיים", bc:"#5c4e3f", ac:"#b8a990", imgBefore:"", imgAfter:"" },
   ],
   areas: "תל אביב · רמת גן · גבעתיים · הרצליה · רעננה · פתח תקווה · ראשון לציון · חולון · בת ים · נתניה · ירושלים · בית שמש · אשדוד · אשקלון · באר שבע · חיפה · כפר סבא · מודיעין · רחובות · חדרה · הוד השרון · רעננה · קריית גת · אילת",
 };
@@ -280,6 +279,31 @@ return<div>
     </div><div style={{padding:"16px 20px"}}><h4 style={{fontSize:15,color:"#fff",marginBottom:3}}>{b.title}</h4><p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{b.desc}</p></div></div></F>)}
   </div>
 </div></section>
+
+{/* ═══ VIDEOS ═══ */}
+<section className="sec" id="videos" style={{background:"rgba(200,164,78,.015)"}}>
+  <div className="mx">
+    <F><STit sub="ראו במו עיניכם את ההבדל — לפני ואחרי בווידאו">📹 סרטוני עבודות</STit></F>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
+      {[
+        {title:"ניקוי ספה — לפני ואחרי",desc:"ספת בד עם כתמי קפה וזיעה. צפו בתהליך המלא.",thumb:"🛋️",color:"#C8A44E"},
+        {title:"ניקוי מזרן — תוצאות מטורפות",desc:"מזרן זוגי עם כתמים של שנים. ההבדל מדהים.",thumb:"🛏️",color:"#6DC489"},
+        {title:"שחזור פנים רכב",desc:"ריפודים, תקרה ודשבורד — כמו רכב חדש מהסלון.",thumb:"🚗",color:"#E07B5B"},
+      ].map((v,i)=><F key={i} d={i*.08}><div className="crd" style={{overflow:"hidden",cursor:"pointer"}} onClick={()=>window.open(`https://wa.me/${X.waNum}?text=${encodeURIComponent("היי, ראיתי את הסרטונים באתר ומעוניין/ת בשירות")}`)}>
+        <div style={{height:180,background:`linear-gradient(135deg,rgba(6,6,6,.8),rgba(6,6,6,.4)),linear-gradient(135deg,${v.color}33,${v.color}11)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}>
+          <div style={{width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,.08)",backdropFilter:"blur(8px)",border:"2px solid rgba(255,255,255,.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,transition:"transform .3s",cursor:"pointer"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.15)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>▶</div>
+          <div style={{position:"absolute",top:14,right:14,fontSize:32}}>{v.thumb}</div>
+          <div style={{position:"absolute",bottom:12,left:14,padding:"4px 12px",borderRadius:8,background:"rgba(200,164,78,.15)",backdropFilter:"blur(4px)",color:"#C8A44E",fontSize:11,fontFamily:"'Heebo'",fontWeight:700}}>📹 צפו בסרטון</div>
+        </div>
+        <div style={{padding:"16px 20px"}}>
+          <h4 style={{fontSize:15,color:"#fff",marginBottom:4}}>{v.title}</h4>
+          <p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{v.desc}</p>
+        </div>
+      </div></F>)}
+    </div>
+    <F d={.3}><p style={{textAlign:"center",marginTop:20,fontSize:13,color:"rgba(255,255,255,.2)"}}>🎬 עוד סרטונים בעמוד האינסטגרם והטיקטוק שלנו</p></F>
+  </div>
+</section>
 
 {/* ═══ REVIEWS ═══ */}
 <section className="sec" id="reviews" style={{background:"rgba(200,164,78,.015)"}}><div className="mx">
