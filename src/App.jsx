@@ -26,11 +26,11 @@ const D = {
     { n:"עמית ב׳", t:"6 כיסאות אוכל + כורסא — הכל נראה חדש. מחיר מעולה ושירות 10/10.", s:"כיסאות", stars:5 },
   ],
   beforeAfter: [
-    { title:"ספה 3 מושבים — בז'", desc:"שנים של כתמים ולכלוך → חזרה כמו חדשה", bc:"#6b5544", ac:"#c9b99a", imgBefore:"/img/ba/beige-sofa-before.jpg", imgAfter:"/img/ba/beige-sofa-after.jpg" },
-    { title:"ספה מעוצבת כחולה", desc:"סימני שימוש כבדים → רעננה ונקייה", bc:"#3d4c66", ac:"#5b7296", imgBefore:"/img/ba/blue-sofa-before.jpg", imgAfter:"/img/ba/blue-sofa-after.jpg" },
-    { title:"שזלונג חום", desc:"כתמי מים עמוקים → נקי לחלוטין", bc:"#4a3e30", ac:"#8a7560", imgBefore:"/img/ba/brown-sofa-before.jpg", imgAfter:"/img/ba/brown-sofa-after.jpg" },
-    { title:"ספה אפורה זוגית", desc:"כתמים וסימני שימוש → כמו חדשה", bc:"#3a3a40", ac:"#6a6a70", imgBefore:"/img/ba/gray-sofa2-before.jpg", imgAfter:"/img/ba/gray-sofa2-after.jpg" },
-    { title:"ספה אפורה 3 מושבים", desc:"שנים של שימוש → מראה מחודש", bc:"#2e2e32", ac:"#5c5c62", imgBefore:"/img/ba/gray-sofa3-before.jpg", imgAfter:"/img/ba/gray-sofa3-after.jpg" },
+    { title:"ספה בז' — שחזור מלא", desc:"שנים של כתמים ולכלוך → חזרה כמו חדשה", bc:"#6b5544", ac:"#c9b99a", imgBefore:"/img/ba/beige-sofa-before.jpg", imgAfter:"/img/ba/beige-sofa-after.jpg" },
+    { title:"ספה כחולה — כמו חדשה", desc:"סימני שימוש כבדים → רעננה ונקייה", bc:"#3d4c66", ac:"#5b7296", imgBefore:"/img/ba/blue-sofa-before.jpg", imgAfter:"/img/ba/blue-sofa-after.jpg" },
+    { title:"שזלונג חום — חידוש מקצועי", desc:"כתמי מים עמוקים → נקי לחלוטין", bc:"#4a3e30", ac:"#8a7560", imgBefore:"/img/ba/brown-sofa-before.jpg", imgAfter:"/img/ba/brown-sofa-after.jpg" },
+    { title:"ספה זוגית — כמו מהחנות", desc:"כתמים וסימני שימוש → כמו חדשה", bc:"#3a3a40", ac:"#6a6a70", imgBefore:"/img/ba/gray-sofa2-before.jpg", imgAfter:"/img/ba/gray-sofa2-after.jpg" },
+    { title:"ספה 3 מושבים — מראה מחודש", desc:"שנים של שימוש → מראה מחודש", bc:"#2e2e32", ac:"#5c5c62", imgBefore:"/img/ba/gray-sofa3-before.jpg", imgAfter:"/img/ba/gray-sofa3-after.jpg" },
   ],
   areas: "תל אביב · רמת גן · גבעתיים · הרצליה · רעננה · פתח תקווה · ראשון לציון · חולון · בת ים · נתניה · ירושלים · בית שמש · אשדוד · אשקלון · באר שבע · חיפה · כפר סבא · מודיעין · רחובות · חדרה · הוד השרון · רעננה · קריית גת · אילת",
 };
