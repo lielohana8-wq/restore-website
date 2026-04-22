@@ -6,16 +6,16 @@ const NPOINT_ID = "";
 const D = {
   phone: "053-938-4024", waNum: "972539384024",
   services: [
-    { name:"ניקוי ספות", desc:"ניקוי מקצועי לכל סוגי הספות — בד, עור, אימפלה, קטיפה. הסרת כתמים עמוקים, ריחות וחיידקים. כולל חיטוי ובישום.", price:"280₪", accent:"#0B5ED7", icon:"🛋️" },
-    { name:"ניקוי מזרן זוגי", desc:"חיטוי עמוק, הסרת קרדית אבק, כתמים ואלרגנים. צד אחד או שני צדדים.", price:"150/250₪", accent:"#6DC489", icon:"🛏️" },
-    { name:"ניקוי מזרן יחיד", desc:"חיטוי מלא למזרן יחיד. הסרת כתמים, ריחות ואלרגנים. צד אחד או שניים.", price:"100/200₪", accent:"#82C8A0", icon:"🛏️" },
-    { name:"ניקוי מזגן עילי", desc:"פירוק, ניקוי וחיטוי מזגן עילי. אוויר נקי ובריא, הפחתת ריחות וחיסכון בחשמל.", price:"170₪", accent:"#4ABDE0", icon:"❄️" },
-    { name:"מזגן מיני מרכזי", desc:"ניקוי מערכת מיני מרכזי עד 10 יחידות פנימיות. כל יחידה נוספת 45₪.", price:"600₪", accent:"#3A9CC0", icon:"🌬️" },
-    { name:"ניקוי רכב — 5 מושבים", desc:"שחזור מלא של פנים הרכב — ריפודים, תקרה, דשבורד, מושבים ותא מטען.", price:"250₪", accent:"#E07B5B", icon:"🚗" },
-    { name:"ניקוי שטיחים", desc:"ניקוי עמוק לשטיחים מכל הסוגים. מחיר למ״ר — שטיחים קטנים וגדולים.", price:"40₪/מ״ר", accent:"#5BA0E0", icon:"🟫" },
-    { name:"ניקוי כורסא", desc:"ניקוי וחיטוי כורסאות מכל הסוגים — בד, עור, קטיפה.", price:"70₪", accent:"#9B7ED8", icon:"💺" },
-    { name:"ניקוי כיסא", desc:"כיסאות אוכל, משרדיים, גיימינג ובר.", price:"30₪", accent:"#D88ECF", icon:"🪑" },
-    { name:"ניקוי ארובה", desc:"ניקוי ושטיפת ארובות מקצועי. שומן, פיח ולכלוך — הכל יורד.", price:"500₪", accent:"#B8860B", icon:"🔥" },
+    { name:"ניקוי ספות", desc:"מחזירים לספה מראה חדש. ניקוי עמוק, הסרת כתמים, ריחות וחיידקים — כולל חיטוי ובישום. התוצאה מדברת בעד עצמה.", price:"280₪", accent:"#0B5ED7", icon:"🛋️" },
+    { name:"ניקוי מזרן זוגי", desc:"שינה בריאה מתחילה בניקיון עמוק. הסרת קרדית אבק, כתמים, ריחות ואלרגנים — צד אחד או שני צדדים. ילדים ישנים טוב יותר.", price:"150/250₪", accent:"#6DC489", icon:"🛏️" },
+    { name:"ניקוי מזרן יחיד", desc:"חיטוי מלא ועמוק למזרן יחיד. הסרת כתמים, ריחות ואלרגנים — צד אחד או שניים. מתחילים לישון נקי.", price:"100/200₪", accent:"#82C8A0", icon:"🛏️" },
+    { name:"ניקוי מזגן עילי", desc:"אוויר נקי ובריא לכל המשפחה. פירוק, ניקוי וחיטוי מקצועי — הפחתת ריחות, פחות אלרגיות וחיסכון של עד 30% בחשמל.", price:"170₪", accent:"#4ABDE0", icon:"❄️" },
+    { name:"מזגן מיני מרכזי", desc:"ניקוי מערכת מיני מרכזי עד 10 יחידות פנימיות. אוויר נקי בכל החדרים, חיסכון משמעותי בחשמל. כל יחידה נוספת 45₪.", price:"600₪", accent:"#3A9CC0", icon:"🌬️" },
+    { name:"ניקוי רכב — 5 מושבים", desc:"הרכב שלכם יריח כמו חדש מהסלון. שחזור מלא — ריפודים, תקרה, דשבורד, מושבים ותא מטען. תוצאות שרואים מיד.", price:"250₪", accent:"#E07B5B", icon:"🚗" },
+    { name:"ניקוי שטיחים", desc:"ניקוי עמוק מקצועי לשטיחים מכל הסוגים — גם הישנים חוזרים לחיים. מחיר למ״ר, שטיחים קטנים וגדולים.", price:"40₪/מ״ר", accent:"#5BA0E0", icon:"🟫" },
+    { name:"ניקוי כורסא", desc:"כורסא מלוכלכת הופכת לפריט מרשים בסלון. ניקוי וחיטוי מקצועי לכל הסוגים — בד, עור, קטיפה.", price:"70₪", accent:"#9B7ED8", icon:"💺" },
+    { name:"ניקוי כיסא", desc:"כיסאות אוכל, משרדיים, גיימינג ובר — כמו חדשים. מחיר נוח לכל כיסא, אידיאלי למערכות שלמות.", price:"30₪", accent:"#D88ECF", icon:"🪑" },
+    { name:"ניקוי ארובה", desc:"ניקוי ושטיפת ארובות מקצועי — בטיחות אש ויעילות מרבית. שומן, פיח ולכלוך — הכל יורד.", price:"500₪", accent:"#B8860B", icon:"🔥" },
   ],
   reviews: [
     { n:"דנה כ׳", t:"הזמנתי ניקוי לספה של 3 מושבים — חזרה לצבע המקורי! הצוות מקצועי, אדיב ומהיר. ממליצה בחום.", s:"ניקוי ספות", stars:5 },
@@ -119,7 +119,7 @@ function Site({data:X,goAdmin}){
   const[mm,setMm]=useState(false);const[showTop,setShowTop]=useState(false);
   useEffect(()=>{const f=()=>setShowTop(window.scrollY>500);window.addEventListener("scroll",f,{passive:true});return()=>window.removeEventListener("scroll",f);},[]);
   const go=id=>{document.getElementById(id)?.scrollIntoView({behavior:"smooth"});setMm(false);};
-  const nav=[["services","שירותים"],["process","התהליך"],["gallery","לפני ואחרי"],["reviews","ביקורות"],["faq","שאלות"],["contact","צור קשר"]];
+  const nav=[["services","שירותים"],["ac-videos","ניקוי מזגן 170₪"],["process","התהליך"],["gallery","לפני ואחרי"],["reviews","ביקורות"],["faq","שאלות"],["contact","צור קשר"]];
 
 return<div>
 
@@ -147,21 +147,28 @@ return<div>
 <section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"100px 0 60px"}}>
   <div className="mx" style={{position:"relative",zIndex:2,width:"100%"}}>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"1.4fr 1fr",gap:40,alignItems:"center"}}>
-    <div className="m-center" style={{maxWidth:600}}>
+    <div className="m-center" style={{maxWidth:620}}>
       <F><div className="badge" style={{marginBottom:20}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
-      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,60px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>כשליאו מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הבית מנצנץ!</span></h1></F>
-      <F d={.2}><p style={{fontSize:18,color:"#1a2b4a",lineHeight:1.8,maxWidth:480,marginBottom:28,fontWeight:600}}>ניקוי מקצועי ברמה הגבוהה ביותר.<br/>ספות · מזרנים · שטיחים · מזגנים · רכבים · כיסאות · ארובות</p></F>
-      <F d={.3}><div style={{display:"inline-flex",alignItems:"center",gap:16,padding:"16px 28px",borderRadius:18,background:"#fff",border:"2px solid #FFC107",marginBottom:28,boxShadow:"0 8px 28px rgba(255,193,7,.25)"}}>
-        <span style={{fontFamily:"'Heebo'",fontSize:40,fontWeight:900,color:"#0B5ED7"}}>280₪</span>
-        <span style={{fontSize:14,color:"#1a2b4a",lineHeight:1.4,fontWeight:700}}>ניקוי ספה<br/><span style={{color:"#5A6B88",fontWeight:500}}>כולל חיטוי ובישום</span></span>
+      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>אוויר נקי. בית בריא.<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>ראש שקט.</span></h1></F>
+      <F d={.2}><p style={{fontSize:18.5,color:"#1a2b4a",lineHeight:1.75,maxWidth:500,marginBottom:26,fontWeight:600}}>ניקוי מזגנים, ספות, מזרנים, שטיחים ורכבים ברמה הגבוהה ביותר.<br/><span style={{color:"#5A6B88",fontWeight:500}}>תוצאות שרואים מיד — ומרגישים כל יום.</span></p></F>
+      <F d={.3}><div className="m-stack" style={{display:"flex",gap:12,alignItems:"center",flexWrap:"wrap",marginBottom:22}}>
+        <div style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:18,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 8px 28px rgba(255,193,7,.4)",animation:"pulseY 2s infinite"}}>
+          <span style={{fontSize:22}}>🔥</span>
+          <div><div style={{fontFamily:"'Heebo'",fontSize:13,fontWeight:900,color:"#1a2b4a",letterSpacing:1}}>מבצע קיץ!</div><div style={{fontSize:18,fontWeight:900,color:"#0B1E3F",lineHeight:1}}>ניקוי מזגן רק <span style={{color:"#0B5ED7"}}>170₪</span></div></div>
+        </div>
       </div></F>
-      <F d={.4}><div className="m-stack" style={{display:"flex",gap:12}}>
-        <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:16,padding:"18px 34px"}}>💬 שלחו תמונה — הצעה חינם</a>
-        <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:16,padding:"18px 34px"}}>📞 {X.phone}</a>
+      <F d={.4}><div className="m-stack" style={{display:"flex",gap:12,marginBottom:16}}>
+        <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:16,padding:"19px 34px"}}>💬 קבלו הצעה תוך דקות</a>
+        <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:16,padding:"19px 34px"}}>📞 {X.phone}</a>
+      </div></F>
+      <F d={.5}><div style={{display:"flex",gap:22,flexWrap:"wrap",color:"#0B1E3F",fontSize:14,fontWeight:700}}>
+        <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ הצעה חינם</span>
+        <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ אחריות מלאה</span>
+        <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ תוצאות מובטחות</span>
       </div></F>
     </div>
     <div className="d-hide" style={{textAlign:"center",position:"relative"}}>
-      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",maxHeight:520,objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite"}}/>
+      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",maxHeight:540,objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite"}}/>
     </div>
     </div>
   </div>
@@ -177,15 +184,15 @@ return<div>
 {/* ═══ PROBLEM → SOLUTION ═══ */}
 <section className="sec sec-white" style={{position:"relative",overflow:"hidden"}}>
   <div className="mx" style={{position:"relative",zIndex:1}}>
-    <F><STit sub="אתם לא לבד. רוב הבתים בישראל סובלים מזה.">הבעיה שכולם מכירים 😤</STit></F>
+    <F><STit sub="אתם נושמים אבק, עובש וחיידקים בלי לשים לב. הבית שלכם נראה נקי… אבל הוא באמת נקי?">הבעיה שכולם מכירים 😤</STit></F>
     <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20,marginBottom:52}}>
-      {[["🤢","ריחות שנספגו","זיעה, אוכל ישן ועובש שנכנסו עמוק לסיבי הבד. שום ספריי לא עוזר."],["🦠","חיידקים ואלרגנים","קרדית אבק, חיידקים ופטריות שחיים בתוך הספה. סכנה בריאותית אמיתית."],["💧","כתמים שלא יורדים","קפה, יין, שתן, שוקולד — כתמים שום חומר ביתי לא יכול להוריד."]].map(([ic,t,d],i)=>
+      {[["🤢","ריחות שנספגו","זיעה, אוכל ישן ועובש שנכנסו עמוק לסיבי הבד. שום ספריי ושואב אבק ביתי לא מצליחים להוציא אותם."],["🦠","חיידקים ואלרגנים","קרדית אבק, חיידקים ופטריות שחיים במזרן ובספה שלכם. גורמים להתקפי אסטמה, אלרגיות ושינה רעה."],["💧","כתמים שלא יורדים","קפה, יין, שתן של ילדים ושוקולד — אתם מכתימים יותר ויותר, ואף חומר ביתי לא מסוגל להוציא את זה."]].map(([ic,t,d],i)=>
       <F key={i} d={i*.08}><div className="crd" style={{padding:"36px 26px",textAlign:"center",height:"100%"}}><div style={{fontSize:48,marginBottom:16}}>{ic}</div><h3 style={{fontSize:20,fontWeight:800,marginBottom:12,color:"#0B1E3F"}}>{t}</h3><p style={{fontSize:14.5,color:"#5A6B88",lineHeight:1.8}}>{d}</p></div></F>)}
     </div>
-    <F d={.3}><div style={{textAlign:"center",padding:"36px 28px",borderRadius:24,background:"linear-gradient(135deg,#EAF4FF,#F5FAFF)",border:"1px solid #C8DFFC"}}>
+    <F d={.3}><div style={{textAlign:"center",padding:"40px 30px",borderRadius:24,background:"linear-gradient(135deg,#EAF4FF,#F5FAFF)",border:"1px solid #C8DFFC"}}>
       <h3 style={{fontSize:"clamp(26px,4.5vw,36px)",color:"#0B1E3F",marginBottom:14,fontWeight:900}}>הפתרון? <span style={{color:"#0B5ED7"}}>ליאו 🦁</span></h3>
-      <p style={{color:"#5A6B88",maxWidth:460,margin:"0 auto 24px",fontSize:16,lineHeight:1.7,fontWeight:500}}>ציוד תעשייתי. חומרים מקצועיים. תוצאות מובטחות.</p>
-      <a href={wa} target="_blank" rel="noopener" className="btn btn-a" style={{fontSize:16}}>💬 בואו לליאו 🦁</a>
+      <p style={{color:"#1a2b4a",maxWidth:520,margin:"0 auto 26px",fontSize:16.5,lineHeight:1.7,fontWeight:600}}>ציוד תעשייתי. חומרים מקצועיים ובטוחים לילדים. תוצאות מובטחות — או שנחזור בחינם.</p>
+      <a href={wa} target="_blank" rel="noopener" className="btn btn-a" style={{fontSize:16,padding:"17px 38px"}}>💬 הזמינו עכשיו — הצעה חינם</a>
     </div></F>
   </div>
 </section>
@@ -193,7 +200,7 @@ return<div>
 {/* ═══ SERVICES ═══ */}
 <section className="sec sec-light" id="services" style={{position:"relative",overflow:"hidden"}}>
   <div className="mx" style={{position:"relative",zIndex:1}}>
-    <F><STit sub="פתרון מקצועי לכל פריט בבית וברכב">השירותים שלנו</STit></F>
+    <F><STit sub="פתרון מקצועי לכל פריט בבית וברכב — תוצאות שרואים מיד ומרגישים כל יום">השירותים שלנו</STit></F>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
       {SV.map((s,i)=><F key={i} d={i*.05}><div className="crd" style={{padding:"30px 24px",cursor:"pointer",height:"100%",display:"flex",flexDirection:"column",borderTop:`4px solid ${s.accent||"#0B5ED7"}`}} onClick={()=>window.open(wm("היי, מעוניין/ת ב"+s.name),"_blank")}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12}}><h3 style={{fontSize:18,fontWeight:800,color:"#0B1E3F"}}>{s.name}</h3><span style={{fontSize:28}}>{s.icon||"🔹"}</span></div>
@@ -276,14 +283,44 @@ return<div>
 <section style={{padding:"80px 0",position:"relative",overflow:"hidden",background:"linear-gradient(135deg,#0B5ED7 0%,#2979FF 50%,#0B5ED7 100%)"}}>
   <div style={{position:"absolute",inset:0,opacity:.08,backgroundImage:"radial-gradient(circle at 20% 30%,#fff 2px,transparent 2px),radial-gradient(circle at 80% 70%,#fff 2px,transparent 2px)",backgroundSize:"50px 50px"}}/>
   <div className="mx" style={{position:"relative",zIndex:2}}><div className="m-center" style={{maxWidth:520,margin:"0 auto",textAlign:"center"}}>
-    <F><div className="badge-y" style={{marginBottom:16}}>📞 זמינים א׳-ו׳ · סגור בשבת</div></F>
+    <F><div className="badge-y" style={{marginBottom:16}}>⚡ מענה מיידי · הצעה תוך דקות</div></F>
     <F d={.1}><h2 style={{fontSize:"clamp(26px,4.5vw,34px)",color:"#fff",marginBottom:14,fontWeight:900}}>רוצים הצעת מחיר?<br/><span style={{color:"#FFC107"}}>ליאו כבר בדרך 🦁</span></h2></F>
-    <F d={.15}><p style={{color:"rgba(255,255,255,.9)",fontSize:16,marginBottom:26,lineHeight:1.75,fontWeight:500}}>שלחו תמונה של הפריט → הצעה מדויקת תוך דקות → מתאמים הגעה. פשוט ככה.</p></F>
+    <F d={.15}><p style={{color:"rgba(255,255,255,.95)",fontSize:16.5,marginBottom:28,lineHeight:1.75,fontWeight:500}}>שלחו תמונה → הצעה מדויקת תוך דקות → מתאמים הגעה. פשוט ככה.</p></F>
     <F d={.2}><div className="m-stack" style={{display:"flex",gap:12,justifyContent:"center"}}>
       <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:16}}>💬 שלחו תמונה</a>
       <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:16}}>📞 חייגו עכשיו</a>
     </div></F>
   </div></div>
+</section>
+
+{/* ═══ AC VIDEOS ═══ */}
+<section className="sec sec-white" id="ac-videos">
+  <div className="mx">
+    <F><div style={{textAlign:"center",marginBottom:24}}>
+      <div className="badge-y" style={{marginBottom:16,fontSize:14,padding:"10px 22px"}}>🔥 מבצע קיץ · רק 170₪</div>
+    </div></F>
+    <F d={.05}><STit sub="אוויר נקי ובריא לכל המשפחה — ראו את ההבדל במו עיניכם">ניקוי מזגן מקצועי 📹</STit></F>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:22,maxWidth:960,margin:"0 auto"}}>
+      {[
+        {title:"המזגן לפני הניקוי",desc:"אבק, עובש וחיידקים שהצטברו במערכת. זה מה שאתם נושמים כל יום.",src:"/img/videos/ac-before.mp4",label:"לפני",isAfter:false},
+        {title:"המזגן אחרי הניקוי",desc:"ניקוי יסודי וחיטוי מלא. אוויר נקי, בריא — וחיסכון של עד 30% בחשמל.",src:"/img/videos/ac-after.mp4",label:"אחרי ✨",isAfter:true},
+      ].map((v,i)=><F key={i} d={i*.1}><div className="crd" style={{overflow:"hidden"}}>
+        <div style={{position:"relative",background:"#000",aspectRatio:"16/10"}}>
+          <video src={v.src} controls playsInline preload="metadata" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}></video>
+          <span style={{position:"absolute",top:14,right:14,padding:"7px 16px",borderRadius:10,background:v.isAfter?"linear-gradient(135deg,#FFC107,#FFD54F)":"#DC2626",color:v.isAfter?"#1a2b4a":"#fff",fontSize:13,fontFamily:"'Heebo'",fontWeight:900,zIndex:2,pointerEvents:"none",boxShadow:v.isAfter?"0 4px 14px rgba(255,193,7,.5)":"0 4px 14px rgba(220,38,38,.5)"}}>{v.label}</span>
+        </div>
+        <div style={{padding:"20px 22px"}}>
+          <h4 style={{fontSize:17,color:"#0B1E3F",marginBottom:6,fontWeight:800}}>{v.title}</h4>
+          <p style={{fontSize:14,color:"#5A6B88",lineHeight:1.6}}>{v.desc}</p>
+        </div>
+      </div></F>)}
+    </div>
+    <F d={.3}><div style={{textAlign:"center",marginTop:32,padding:"28px 24px",borderRadius:22,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 12px 40px rgba(255,193,7,.35)",maxWidth:720,margin:"32px auto 0"}}>
+      <div style={{fontSize:"clamp(22px,3.5vw,28px)",fontWeight:900,color:"#0B1E3F",marginBottom:8}}>🔥 מבצע קיץ: ניקוי מזגן רק <span style={{color:"#0B5ED7"}}>170₪</span></div>
+      <p style={{fontSize:15,color:"#1a2b4a",marginBottom:18,fontWeight:600}}>פחות חיידקים. פחות אלרגיות. יותר חיסכון בחשמל.</p>
+      <a href={wm("היי, מעוניין/ת להזמין ניקוי מזגן במבצע 170₪")} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"17px 38px",animation:"pulse 2s infinite"}}>💬 הזמינו עכשיו בוואטסאפ</a>
+    </div></F>
+  </div>
 </section>
 
 {/* ═══ BEFORE/AFTER ═══ */}
@@ -342,8 +379,8 @@ return<div>
 <section className="sec sec-light" style={{textAlign:"center"}}>
   <div className="mx">
     <F><img src="/img/logo.png" alt="" style={{height:180,objectFit:"contain",margin:"0 auto 28px",filter:"drop-shadow(0 15px 35px rgba(11,94,215,.25))",animation:"bob 4s ease-in-out infinite"}}/></F>
-    <F d={.1}><h2 style={{fontSize:"clamp(28px,5vw,40px)",color:"#0B1E3F",marginBottom:12,fontWeight:900}}>הבית שלך צריך את <span style={{color:"#0B5ED7"}}>ליאו 🦁</span></h2></F>
-    <F d={.15}><p style={{color:"#5A6B88",fontSize:17,marginBottom:32,fontWeight:500}}>ליאו — ניקיון ברמה של מלך</p></F>
+    <F d={.1}><h2 style={{fontSize:"clamp(28px,5vw,40px)",color:"#0B1E3F",marginBottom:12,fontWeight:900}}>הבית שלך מחכה <span style={{color:"#0B5ED7"}}>לטיפול של ליאו 🦁</span></h2></F>
+    <F d={.15}><p style={{color:"#1a2b4a",fontSize:17.5,marginBottom:32,fontWeight:600,maxWidth:540,margin:"0 auto 32px"}}>אלפי משפחות כבר בחרו בנו. תורכם להצטרף — קבלו הצעת מחיר תוך דקות.</p></F>
     <F d={.2}><div className="m-stack" style={{display:"flex",gap:12,justifyContent:"center"}}>
       <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:17,padding:"18px 40px",animation:"pulse 2s infinite"}}>💬 הזמינו עכשיו</a>
       <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:17,padding:"18px 40px"}}>📞 {X.phone}</a>
