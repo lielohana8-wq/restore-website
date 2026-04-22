@@ -6,7 +6,7 @@ const NPOINT_ID = "";
 const D = {
   phone: "053-938-4024", waNum: "972539384024",
   services: [
-    { name:"ניקוי ספות", desc:"ניקוי מקצועי לכל סוגי הספות — בד, עור, אימפלה, קטיפה. הסרת כתמים עמוקים, ריחות וחיידקים. כולל חיטוי ובישום.", price:"280₪", accent:"#C8A44E", icon:"🛋️" },
+    { name:"ניקוי ספות", desc:"ניקוי מקצועי לכל סוגי הספות — בד, עור, אימפלה, קטיפה. הסרת כתמים עמוקים, ריחות וחיידקים. כולל חיטוי ובישום.", price:"280₪", accent:"#0B5ED7", icon:"🛋️" },
     { name:"ניקוי מזרן זוגי", desc:"חיטוי עמוק, הסרת קרדית אבק, כתמים ואלרגנים. צד אחד או שני צדדים.", price:"150/250₪", accent:"#6DC489", icon:"🛏️" },
     { name:"ניקוי מזרן יחיד", desc:"חיטוי מלא למזרן יחיד. הסרת כתמים, ריחות ואלרגנים. צד אחד או שניים.", price:"100/200₪", accent:"#82C8A0", icon:"🛏️" },
     { name:"ניקוי מזגן עילי", desc:"פירוק, ניקוי וחיטוי מזגן עילי. אוויר נקי ובריא, הפחתת ריחות וחיסכון בחשמל.", price:"170₪", accent:"#4ABDE0", icon:"❄️" },
@@ -32,12 +32,12 @@ const D = {
     { title:"ספה זוגית — כמו מהחנות", desc:"כתמים וסימני שימוש → כמו חדשה", bc:"#3a3a40", ac:"#6a6a70", imgBefore:"/img/ba/gray-sofa2-before.jpg", imgAfter:"/img/ba/gray-sofa2-after.jpg" },
     { title:"ספה 3 מושבים — מראה מחודש", desc:"שנים של שימוש → מראה מחודש", bc:"#2e2e32", ac:"#5c5c62", imgBefore:"/img/ba/gray-sofa3-before.jpg", imgAfter:"/img/ba/gray-sofa3-after.jpg" },
   ],
-  areas: "תל אביב · רמת גן · גבעתיים · הרצליה · רעננה · פתח תקווה · ראשון לציון · חולון · בת ים · נתניה · ירושלים · בית שמש · אשדוד · אשקלון · באר שבע · חיפה · כפר סבא · מודיעין · רחובות · חדרה · הוד השרון · רעננה · קריית גת · אילת",
+  areas: "ירושלים · בית שמש · מעלה אדומים · מודיעין · תל אביב · רמת גן · גבעתיים · פתח תקווה · ראשון לציון · חולון · בת ים · רחובות · נס ציונה · רמלה · לוד · אשדוד · אשקלון · קריית גת · באר שבע · נתיבות · אופקים · דימונה · ערד · אילת",
 };
 
 const PROCESS = [
   { step:"01", title:"שלחו תמונה", desc:"צלמו את הפריט ושלחו בוואטסאפ. נאבחן סוג בד, כתמים ודרך טיפול — בחינם ובלי התחייבות.", icon:"📸" },
-  { step:"02", title:"קבלו הצעה ותאמו", desc:"תוך דקות תקבלו מחיר מדויק. מתאים? נתאם הגעה ליום ושעה שנוח לכם — גם בערב ובשישי.", icon:"💬" },
+  { step:"02", title:"קבלו הצעה ותאמו", desc:"תוך דקות תקבלו מחיר מדויק. מתאים? נתאם הגעה ליום ושעה שנוח לכם — גם בערב ובשישי קצר.", icon:"💬" },
   { step:"03", title:"האריה מגיע ומנקה", desc:"מגיעים עם ציוד תעשייתי, מזריקים חומר מקצועי לעומק הסיבים, שואבים 95% מהלחות.", icon:"🦁" },
   { step:"04", title:"נהנים מחדש", desc:"חיטוי אנטיבקטריאלי + בישום. תוך 4-6 שעות הכל יבש, נקי ומריח מדהים.", icon:"✨" },
 ];
@@ -51,38 +51,49 @@ const sL=v=>localStorage.setItem("r_leads",JSON.stringify(v));
 
 /* ─── CSS ─── */
 const CSS=`
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@400;600;700;800&family=Rubik:wght@400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:'Assistant',sans-serif;font-size:15px;color:#e8e6e1;direction:rtl;overflow-x:hidden;-webkit-font-smoothing:antialiased;background:#060606}
-::selection{background:#C8A44E;color:#0E1A2B}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
-h1,h2,h3,h4{font-family:'Heebo',sans-serif;font-weight:800;letter-spacing:-.02em}
-.mx{max-width:1140px;margin:0 auto;padding:0 20px}.sec{padding:90px 0}
+body{font-family:'Assistant','Rubik',sans-serif;font-size:15px;color:#1a2b4a;direction:rtl;overflow-x:hidden;-webkit-font-smoothing:antialiased;background:#F5FAFF}
+::selection{background:#0B5ED7;color:#fff}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:'Heebo','Rubik',sans-serif;font-weight:800;letter-spacing:-.02em;color:#0B1E3F}
+.mx{max-width:1180px;margin:0 auto;padding:0 20px}.sec{padding:90px 0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes glow{0%,100%{filter:drop-shadow(0 0 8px rgba(200,164,78,.15))}50%{filter:drop-shadow(0 0 28px rgba(200,164,78,.4))}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 10px rgba(11,94,215,.25))}50%{filter:drop-shadow(0 0 28px rgba(11,94,215,.5))}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes slideR{from{transform:translateX(100%)}to{transform:translateX(0)}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
+@keyframes pulseY{0%,100%{box-shadow:0 0 0 0 rgba(255,193,7,.55)}70%{box-shadow:0 0 0 16px rgba(255,193,7,0)}}
 @keyframes countUp{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 34px;border-radius:14px;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all .25s;font-family:'Heebo';letter-spacing:.3px}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 32px;border-radius:16px;font-size:15px;font-weight:800;border:none;cursor:pointer;transition:all .25s;font-family:'Heebo','Rubik';letter-spacing:.2px}
 .btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(0)}
-.btn-g{background:linear-gradient(135deg,#25D366,#1DA851);color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.25)}
-.btn-a{background:linear-gradient(135deg,#C8A44E,#DDB960);color:#0E1A2B;box-shadow:0 4px 16px rgba(200,164,78,.2)}
-.btn-o{background:rgba(255,255,255,.03);border:1.5px solid rgba(200,164,78,.15);color:#ccc}.btn-o:hover{border-color:#C8A44E;color:#C8A44E;background:rgba(200,164,78,.04)}
-.btn-d{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:13px;padding:10px 20px;border-radius:10px}
-.crd{background:rgba(255,255,255,.02);backdrop-filter:blur(16px);border:1px solid rgba(200,164,78,.08);border-radius:18px;transition:all .35s}
-.crd:hover{border-color:rgba(200,164,78,.22);box-shadow:0 16px 48px rgba(0,0,0,.25);transform:translateY(-5px)}
-.gold-line{height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,78,.25),transparent)}
-.glow-border{box-shadow:inset 0 0 0 1px rgba(200,164,78,.06),0 0 40px rgba(200,164,78,.03)}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:50px;font-size:12px;font-family:'Heebo';font-weight:600;background:rgba(200,164,78,.06);border:1px solid rgba(200,164,78,.1);color:#C8A44E}
-@media(max-width:800px){.d-hide{display:none!important}.m-show{display:flex!important}.m-col{grid-template-columns:1fr!important}.m-col2{grid-template-columns:1fr 1fr!important}.m-stack{flex-direction:column!important}.m-full{width:100%!important}.m-center{text-align:center!important}.sec{padding:64px 0}}
+.btn-g{background:linear-gradient(135deg,#25D366,#1DA851);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-g:hover{box-shadow:0 12px 30px rgba(37,211,102,.5)}
+.btn-a{background:linear-gradient(135deg,#FFC107,#FFD54F);color:#1a2b4a;box-shadow:0 8px 24px rgba(255,193,7,.4)}
+.btn-a:hover{box-shadow:0 12px 30px rgba(255,193,7,.55)}
+.btn-p{background:linear-gradient(135deg,#0B5ED7,#2979FF);color:#fff;box-shadow:0 8px 24px rgba(11,94,215,.35)}
+.btn-p:hover{box-shadow:0 12px 30px rgba(11,94,215,.5)}
+.btn-o{background:#fff;border:2px solid #EAF4FF;color:#0B5ED7}.btn-o:hover{border-color:#0B5ED7;background:#EAF4FF}
+.btn-d{background:#EAF4FF;color:#0B5ED7;font-size:13px;padding:9px 18px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+.crd{background:#fff;border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.05)}
+.crd:hover{border-color:#0B5ED7;box-shadow:0 16px 40px rgba(11,94,215,.12);transform:translateY(-5px)}
+.crd-light{background:linear-gradient(135deg,#fff,#F5FAFF);border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.06)}
+.blue-line{height:2px;background:linear-gradient(90deg,transparent,#0B5ED7,transparent)}
+.glow-border{box-shadow:0 0 0 1px #E1ECFB,0 20px 60px rgba(11,94,215,.1)}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:13px;font-family:'Heebo','Rubik';font-weight:700;background:#EAF4FF;border:1px solid #C8DFFC;color:#0B5ED7}
+.badge-y{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:13px;font-family:'Heebo','Rubik';font-weight:700;background:#FFF7D6;border:1px solid #FFE69C;color:#B8860B}
+.sec-light{background:linear-gradient(180deg,#F5FAFF,#EAF4FF 50%,#F5FAFF)}
+.sec-white{background:#fff}
+.hero-overlay{background:linear-gradient(135deg,rgba(234,244,255,.92) 0%,rgba(234,244,255,.7) 40%,rgba(234,244,255,.3) 100%)}
+@media(max-width:800px){.d-hide{display:none!important}.m-show{display:flex!important}.m-col{grid-template-columns:1fr!important}.m-col2{grid-template-columns:1fr 1fr!important}.m-stack{flex-direction:column!important}.m-full{width:100%!important}.m-center{text-align:center!important}.sec{padding:56px 0}}
 `;
 
 /* ─── Utils ─── */
 function useV(t=.1){const r=useRef(null);const[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.unobserve(e);}},{threshold:t});o.observe(e);return()=>o.disconnect();},[]);return[r,v];}
 function F({children,d=0,s=""}){const[r,v]=useV();return<div ref={r} style={{opacity:v?1:0,transform:v?"none":"translateY(28px)",transition:`all .7s cubic-bezier(.22,1,.36,1) ${d}s`,...(s?{transitionProperty:"all"}:{})}}>{children}</div>;}
 function Num({to,sfx=""}){const[v,s]=useState(0);const[r,vis]=useV();useEffect(()=>{if(!vis)return;const st=Date.now();const t=()=>{const p=Math.min((Date.now()-st)/1800,1);s(Math.round(to*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(t);};requestAnimationFrame(t);},[vis,to]);return<span ref={r} style={{animation:vis?"countUp .4s ease":"none"}}>{v.toLocaleString()}{sfx}</span>;}
-const STit=({sub,children,light})=><div style={{textAlign:"center",marginBottom:52}}><h2 style={{fontSize:"clamp(28px,5vw,42px)",color:"#fff",marginBottom:sub?12:0,lineHeight:1.15}}>{children}</h2>{sub&&<p style={{color:light?"rgba(255,255,255,.45)":"rgba(255,255,255,.3)",fontSize:16,maxWidth:500,margin:"0 auto",lineHeight:1.7}}>{sub}</p>}</div>;
+const STit=({sub,children,light})=><div style={{textAlign:"center",marginBottom:56}}><h2 style={{fontSize:"clamp(30px,5vw,44px)",color:"#0B1E3F",marginBottom:sub?14:0,lineHeight:1.15,fontWeight:900}}>{children}</h2>{sub&&<p style={{color:"#5A6B88",fontSize:17,maxWidth:520,margin:"0 auto",lineHeight:1.7,fontWeight:500}}>{sub}</p>}</div>;
 
 /* ═══ APP ═══ */
 export default function App(){
@@ -90,7 +101,7 @@ export default function App(){
   const[data,setData]=useState(D);
   const[loading,setLoading]=useState(true);
   useEffect(()=>{const id=NPOINT_ID||localStorage.getItem("r_npoint")||"";if(id){cloudLoad(id).then(d=>{if(d)setData({...D,...d});setLoading(false);});}else{setLoading(false);}},[]);
-  if(loading)return<div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"#060606"}}><style>{CSS}</style><div className="badge" style={{fontSize:16,padding:"12px 28px"}}>🦁 Leo — טוען...</div></div>;
+  if(loading)return<div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#EAF4FF,#fff)"}}><style>{CSS}</style><div className="badge" style={{fontSize:16,padding:"14px 28px"}}>🦁 ליאו — טוען...</div></div>;
   return<div><style>{CSS}</style>
     {page==="site"&&<Site data={data} goAdmin={()=>setPage("login")}/>}
     {page==="login"&&<Login ok={()=>setPage("admin")} back={()=>setPage("site")}/>}
@@ -110,79 +121,86 @@ function Site({data:X,goAdmin}){
 return<div>
 
 {/* ═══ HEADER ═══ */}
-<header style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(6,6,6,.88)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(200,164,78,.05)"}}>
-<div className="mx" style={{display:"flex",alignItems:"center",justifyContent:"space-between",height:90}}>
-  <img src="/img/logo.png" alt="Leo" onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{height:200,marginTop:55,cursor:"pointer",objectFit:"contain",animation:"glow 4s ease-in-out infinite",filter:"drop-shadow(0 8px 24px rgba(0,0,0,.7))",position:"relative",zIndex:10,mixBlendMode:"screen"}}/>
-  <nav className="d-hide" style={{display:"flex",alignItems:"center",gap:22}}>
-    {nav.map(([id,l])=><span key={id} onClick={()=>go(id)} style={{color:"rgba(255,255,255,.35)",fontSize:13.5,cursor:"pointer",fontFamily:"'Heebo'",fontWeight:500,transition:"all .2s",letterSpacing:.2}} onMouseEnter={e=>{e.target.style.color="#C8A44E";}} onMouseLeave={e=>{e.target.style.color="rgba(255,255,255,.35)";}}>{l}</span>)}
+<header style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(255,255,255,.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid #E1ECFB",boxShadow:"0 2px 20px rgba(11,94,215,.06)"}}>
+<div className="mx" style={{display:"flex",alignItems:"center",justifyContent:"space-between",height:80}}>
+  <img src="/img/logo.png" alt="ליאו" onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{height:70,cursor:"pointer",objectFit:"contain",position:"relative",zIndex:10,filter:"drop-shadow(0 4px 12px rgba(11,94,215,.15))"}}/>
+  <nav className="d-hide" style={{display:"flex",alignItems:"center",gap:24}}>
+    {nav.map(([id,l])=><span key={id} onClick={()=>go(id)} style={{color:"#5A6B88",fontSize:14,cursor:"pointer",fontFamily:"'Heebo','Rubik'",fontWeight:600,transition:"all .2s",letterSpacing:.2}} onMouseEnter={e=>{e.target.style.color="#0B5ED7";}} onMouseLeave={e=>{e.target.style.color="#5A6B88";}}>{l}</span>)}
+    <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{padding:"10px 20px",fontSize:14}}>📞 {X.phone}</a>
     <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{padding:"10px 22px",fontSize:13,animation:"pulse 2s infinite"}}>💬 וואטסאפ</a>
   </nav>
-  <button className="m-show" onClick={()=>setMm(true)} style={{display:"none",background:"none",border:"none",color:"#C8A44E",fontSize:26,cursor:"pointer"}}>☰</button>
+  <button className="m-show" onClick={()=>setMm(true)} style={{display:"none",background:"#EAF4FF",border:"1px solid #C8DFFC",borderRadius:10,color:"#0B5ED7",fontSize:22,cursor:"pointer",width:44,height:44}}>☰</button>
 </div></header>
 
 {/* Mobile menu */}
-{mm&&<><div onClick={()=>setMm(false)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,.75)",zIndex:200,backdropFilter:"blur(4px)"}}/><div style={{position:"fixed",top:0,right:0,bottom:0,width:"min(300px,82vw)",background:"#0a0a0a",zIndex:201,padding:24,display:"flex",flexDirection:"column",animation:"slideR .3s ease",borderLeft:"1px solid rgba(200,164,78,.06)"}}>
-  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:28}}><img src="/img/logo.png" style={{height:50,mixBlendMode:"screen"}} alt=""/><button onClick={()=>setMm(false)} style={{background:"none",border:"none",color:"#C8A44E",fontSize:20,cursor:"pointer"}}>✕</button></div>
-  {nav.map(([id,l])=><span key={id} onClick={()=>go(id)} style={{color:"rgba(255,255,255,.4)",fontSize:16,padding:"15px 0",borderBottom:"1px solid rgba(255,255,255,.03)",cursor:"pointer",fontFamily:"'Heebo'",fontWeight:500}}>{l}</span>)}
-  <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{marginTop:20,justifyContent:"center",fontSize:16}}>💬 שלחו הודעה</a>
+{mm&&<><div onClick={()=>setMm(false)} style={{position:"fixed",inset:0,background:"rgba(11,30,63,.6)",zIndex:200,backdropFilter:"blur(4px)"}}/><div style={{position:"fixed",top:0,right:0,bottom:0,width:"min(320px,85vw)",background:"#fff",zIndex:201,padding:24,display:"flex",flexDirection:"column",animation:"slideR .3s ease",boxShadow:"-8px 0 40px rgba(11,94,215,.15)"}}>
+  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:28,paddingBottom:18,borderBottom:"1px solid #E1ECFB"}}><img src="/img/logo.png" style={{height:54}} alt=""/><button onClick={()=>setMm(false)} style={{background:"#EAF4FF",border:"none",borderRadius:10,color:"#0B5ED7",fontSize:18,cursor:"pointer",width:40,height:40}}>✕</button></div>
+  {nav.map(([id,l])=><span key={id} onClick={()=>go(id)} style={{color:"#1a2b4a",fontSize:16,padding:"15px 0",borderBottom:"1px solid #F0F5FC",cursor:"pointer",fontFamily:"'Heebo','Rubik'",fontWeight:600}}>{l}</span>)}
+  <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{marginTop:20,justifyContent:"center",fontSize:15}}>📞 {X.phone}</a>
+  <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{marginTop:10,justifyContent:"center",fontSize:15}}>💬 שלחו הודעה</a>
 </div></>}
 
 {/* ═══ HERO ═══ */}
-<section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"110px 0 60px"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/hero-sofa.png)",backgroundSize:"cover",backgroundPosition:"center 25%",opacity:.6}}/>
-  <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(6,6,6,.82) 0%,rgba(6,6,6,.4) 50%,rgba(6,6,6,.2) 100%)"}}/>
-  <div style={{position:"absolute",bottom:0,left:0,right:0,height:120,background:"linear-gradient(transparent,#060606)"}}/>
+<section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"100px 0 60px",background:"linear-gradient(135deg,#EAF4FF 0%,#F5FAFF 50%,#EAF4FF 100%)"}}>
+  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/hero-sofa.jpg)",backgroundSize:"cover",backgroundPosition:"center",opacity:.5}}/>
+  <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(234,244,255,.92) 0%,rgba(234,244,255,.65) 40%,rgba(255,255,255,.4) 100%)"}}/>
+  <div style={{position:"absolute",bottom:0,left:0,right:0,height:100,background:"linear-gradient(transparent,#F5FAFF)"}}/>
   <div className="mx" style={{position:"relative",zIndex:2,width:"100%"}}>
-    <div className="m-center" style={{maxWidth:560}}>
-      <F><div className="badge" style={{marginBottom:18}}>🦁 Leo — שירותי ניקיון מקצועיים</div></F>
-      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,58px)",lineHeight:1.06,color:"#fff",marginBottom:18}}>כשהאריה מנקה<br/><span style={{background:"linear-gradient(135deg,#C8A44E,#E8D48A)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם</span></h1></F>
-      <F d={.2}><p style={{fontSize:17,color:"rgba(255,255,255,.5)",lineHeight:1.85,maxWidth:440,marginBottom:28}}>ניקוי מקצועי ברמה של מלך החיות.<br/>ספות · מזרנים · שטיחים · מזגנים · רכבים · כיסאות</p></F>
-      <F d={.3}><div style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:16,background:"rgba(200,164,78,.04)",border:"1px solid rgba(200,164,78,.08)",marginBottom:28}}>
-        <span style={{fontFamily:"'Heebo'",fontSize:36,fontWeight:900,background:"linear-gradient(135deg,#C8A44E,#E8D48A)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>280₪</span>
-        <span style={{fontSize:13,color:"rgba(255,255,255,.3)",lineHeight:1.4}}>ניקוי ספה<br/>כולל חיטוי ובישום</span>
+    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"1.4fr 1fr",gap:40,alignItems:"center"}}>
+    <div className="m-center" style={{maxWidth:600}}>
+      <F><div className="badge" style={{marginBottom:20}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
+      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,60px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>נושמים נקי,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>חיים טוב!</span></h1></F>
+      <F d={.2}><p style={{fontSize:18,color:"#5A6B88",lineHeight:1.8,maxWidth:480,marginBottom:28,fontWeight:500}}>ניקוי מקצועי ברמה הגבוהה ביותר.<br/>ספות · מזרנים · שטיחים · מזגנים · רכבים · כיסאות</p></F>
+      <F d={.3}><div style={{display:"inline-flex",alignItems:"center",gap:16,padding:"16px 28px",borderRadius:18,background:"#fff",border:"2px solid #FFC107",marginBottom:28,boxShadow:"0 8px 28px rgba(255,193,7,.2)"}}>
+        <span style={{fontFamily:"'Heebo'",fontSize:40,fontWeight:900,color:"#0B5ED7"}}>280₪</span>
+        <span style={{fontSize:14,color:"#1a2b4a",lineHeight:1.4,fontWeight:700}}>ניקוי ספה<br/><span style={{color:"#5A6B88",fontWeight:500}}>כולל חיטוי ובישום</span></span>
       </div></F>
-      <F d={.4}><div className="m-stack" style={{display:"flex",gap:10}}>
+      <F d={.4}><div className="m-stack" style={{display:"flex",gap:12}}>
         <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:16,padding:"18px 34px"}}>💬 שלחו תמונה — הצעה חינם</a>
-        <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-o m-full" style={{fontSize:16,padding:"18px 34px"}}>📞 {X.phone}</a>
+        <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:16,padding:"18px 34px"}}>📞 {X.phone}</a>
       </div></F>
+    </div>
+    <div className="d-hide" style={{textAlign:"center",position:"relative"}}>
+      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",maxHeight:520,objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.25))",animation:"bob 4s ease-in-out infinite"}}/>
+    </div>
     </div>
   </div>
 </section>
 
 {/* ═══ TRUST BAR ═══ */}
-<div style={{background:"rgba(200,164,78,.03)",borderTop:"1px solid rgba(200,164,78,.06)",borderBottom:"1px solid rgba(200,164,78,.06)",padding:"24px 0"}}><div className="mx"><div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,textAlign:"center"}}>
-  {[["3,000","+","לקוחות מרוצים"],["100","%","שביעות רצון"],["7","","ימים בשבוע"],["5","⭐","דירוג ממוצע"]].map(([n,s,l],i)=><div key={i}><div style={{fontFamily:"'Heebo'",fontSize:30,fontWeight:900,color:"#C8A44E"}}><Num to={parseInt(n.replace(",",""))} sfx={s}/></div><div style={{fontSize:12,color:"rgba(255,255,255,.2)",marginTop:4,fontFamily:"'Heebo'",fontWeight:500}}>{l}</div></div>)}
+<div style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",padding:"32px 0",position:"relative",overflow:"hidden"}}>
+<div style={{position:"absolute",inset:0,opacity:.1,backgroundImage:"radial-gradient(circle at 20% 50%,#fff 1px,transparent 1px),radial-gradient(circle at 80% 50%,#fff 1px,transparent 1px)",backgroundSize:"40px 40px"}}/>
+<div className="mx" style={{position:"relative"}}><div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,textAlign:"center"}}>
+  {[["3,000","+","לקוחות מרוצים"],["100","%","שביעות רצון"],["6","","ימים בשבוע"],["5","⭐","דירוג ממוצע"]].map(([n,s,l],i)=><div key={i}><div style={{fontFamily:"'Heebo'",fontSize:34,fontWeight:900,color:"#FFC107"}}><Num to={parseInt(n.replace(",",""))} sfx={s}/></div><div style={{fontSize:13,color:"rgba(255,255,255,.9)",marginTop:4,fontFamily:"'Heebo'",fontWeight:600}}>{l}</div></div>)}
 </div></div></div>
 
 {/* ═══ PROBLEM → SOLUTION ═══ */}
-<section className="sec" style={{position:"relative",overflow:"hidden"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"linear-gradient(rgba(6,6,6,.55),rgba(6,6,6,.55)),url(/img/lion-ac.png)",backgroundSize:"cover",backgroundPosition:"center 30%"}}/>
+<section className="sec sec-white" style={{position:"relative",overflow:"hidden"}}>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <F><STit sub="אתם לא לבד. רוב הבתים בישראל סובלים מזה.">הבעיה שכולם מכירים 😤</STit></F>
-    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16,marginBottom:52}}>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20,marginBottom:52}}>
       {[["🤢","ריחות שנספגו","זיעה, אוכל ישן ועובש שנכנסו עמוק לסיבי הבד. שום ספריי לא עוזר."],["🦠","חיידקים ואלרגנים","קרדית אבק, חיידקים ופטריות שחיים בתוך הספה. סכנה בריאותית אמיתית."],["💧","כתמים שלא יורדים","קפה, יין, שתן, שוקולד — כתמים שום חומר ביתי לא יכול להוריד."]].map(([ic,t,d],i)=>
-      <F key={i} d={i*.08}><div className="crd" style={{padding:"32px 24px",textAlign:"center"}}><div style={{fontSize:40,marginBottom:14}}>{ic}</div><h3 style={{fontSize:18,fontWeight:700,marginBottom:10,color:"#fff"}}>{t}</h3><p style={{fontSize:14,color:"rgba(255,255,255,.3)",lineHeight:1.8}}>{d}</p></div></F>)}
+      <F key={i} d={i*.08}><div className="crd" style={{padding:"36px 26px",textAlign:"center",height:"100%"}}><div style={{fontSize:48,marginBottom:16}}>{ic}</div><h3 style={{fontSize:20,fontWeight:800,marginBottom:12,color:"#0B1E3F"}}>{t}</h3><p style={{fontSize:14.5,color:"#5A6B88",lineHeight:1.8}}>{d}</p></div></F>)}
     </div>
-    <F d={.3}><div style={{textAlign:"center"}}>
-      <h3 style={{fontSize:"clamp(24px,4.5vw,34px)",color:"#fff",marginBottom:14}}>הפתרון? <span style={{color:"#C8A44E"}}>Leo 🦁</span></h3>
-      <p style={{color:"rgba(255,255,255,.3)",maxWidth:440,margin:"0 auto 24px",fontSize:15,lineHeight:1.7}}>ציוד תעשייתי. חומרים מקצועיים. תוצאות מובטחות.</p>
-      <a href={wa} target="_blank" rel="noopener" className="btn btn-a" style={{fontSize:16}}>💬 בואו לאריה 🦁</a>
+    <F d={.3}><div style={{textAlign:"center",padding:"36px 28px",borderRadius:24,background:"linear-gradient(135deg,#EAF4FF,#F5FAFF)",border:"1px solid #C8DFFC"}}>
+      <h3 style={{fontSize:"clamp(26px,4.5vw,36px)",color:"#0B1E3F",marginBottom:14,fontWeight:900}}>הפתרון? <span style={{color:"#0B5ED7"}}>ליאו 🦁</span></h3>
+      <p style={{color:"#5A6B88",maxWidth:460,margin:"0 auto 24px",fontSize:16,lineHeight:1.7,fontWeight:500}}>ציוד תעשייתי. חומרים מקצועיים. תוצאות מובטחות.</p>
+      <a href={wa} target="_blank" rel="noopener" className="btn btn-a" style={{fontSize:16}}>💬 בואו לליאו 🦁</a>
     </div></F>
   </div>
 </section>
 
 {/* ═══ SERVICES ═══ */}
-<section className="sec" id="services" style={{position:"relative",overflow:"hidden"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-van.png)",backgroundSize:"cover",backgroundPosition:"center 30%",opacity:.5}}/><div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(6,6,6,.4),rgba(6,6,6,.35))"}}/>
+<section className="sec sec-light" id="services" style={{position:"relative",overflow:"hidden"}}>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <F><STit sub="פתרון מקצועי לכל פריט בבית וברכב">השירותים שלנו</STit></F>
-    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:14}}>
-      {SV.map((s,i)=><F key={i} d={i*.05}><div className="crd" style={{padding:"28px 22px",cursor:"pointer",height:"100%",display:"flex",flexDirection:"column",borderTop:`3px solid ${s.accent||"#C8A44E"}`}} onClick={()=>window.open(wm("היי, מעוניין/ת ב"+s.name),"_blank")}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:10}}><h3 style={{fontSize:17,fontWeight:700,color:"#fff"}}>{s.name}</h3><span style={{fontSize:22}}>{s.icon||"🔹"}</span></div>
-        <p style={{fontSize:13.5,color:"rgba(255,255,255,.3)",lineHeight:1.7,marginBottom:"auto",paddingBottom:16}}>{s.desc}</p>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:14,borderTop:"1px solid rgba(200,164,78,.06)"}}>
-          <span style={{fontFamily:"'Heebo'",fontSize:20,fontWeight:900,color:s.accent||"#C8A44E"}}>{s.price}</span>
-          <span className="btn-d" style={{padding:"6px 14px"}}>הזמינו →</span>
+    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
+      {SV.map((s,i)=><F key={i} d={i*.05}><div className="crd" style={{padding:"30px 24px",cursor:"pointer",height:"100%",display:"flex",flexDirection:"column",borderTop:`4px solid ${s.accent||"#0B5ED7"}`}} onClick={()=>window.open(wm("היי, מעוניין/ת ב"+s.name),"_blank")}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12}}><h3 style={{fontSize:18,fontWeight:800,color:"#0B1E3F"}}>{s.name}</h3><span style={{fontSize:28}}>{s.icon||"🔹"}</span></div>
+        <p style={{fontSize:14,color:"#5A6B88",lineHeight:1.75,marginBottom:"auto",paddingBottom:18}}>{s.desc}</p>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:16,borderTop:"1px solid #E1ECFB"}}>
+          <span style={{fontFamily:"'Heebo'",fontSize:22,fontWeight:900,color:s.accent||"#0B5ED7"}}>{s.price}</span>
+          <span className="btn-d">הזמינו →</span>
         </div>
       </div></F>)}
     </div>
@@ -190,46 +208,46 @@ return<div>
 </section>
 
 {/* ═══ WHY LEO ═══ */}
-<section className="sec" id="why" style={{background:"rgba(200,164,78,.015)"}}>
+<section className="sec sec-white" id="why">
   <div className="mx">
-    <F><STit sub="כי כשמלך החיות מנקה — אין פשרות">למה דווקא Leo? 🦁</STit></F>
-    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16,marginBottom:40}}>
+    <F><STit sub="כי כשמלך החיות מנקה — אין פשרות">למה דווקא ליאו? 🦁</STit></F>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18,marginBottom:40}}>
       {[
         ["👑","מלך הניקיון","לא סתם שם — אנחנו מתייחסים לכל עבודה כמו מלך. ציוד תעשייתי מהשורה הראשונה, חומרים מקצועיים בלבד, ותוצאות שמדברות בעד עצמן."],
         ["🛡️","אחריות מלכותית","לא מרוצים? נחזור ונתקן — בחינם. בלי שאלות, בלי תירוצים. המילה שלנו היא חוזה."],
         ["⚡","מהירים כמו אריה","זמני תגובה מהירים — הצעת מחיר תוך דקות, הגעה מהירה, וניקוי יסודי בלי לבזבז לכם את היום."],
         ["🧪","חומרים בטוחים","היפואלרגניים, ללא כלור ואמוניה. בטוחים לתינוקות, ילדים, חיות מחמד ואנשים רגישים. רק ריח נקי ורענן."],
         ["💰","מחירים שקופים","מה שנגיד — זה מה שתשלמו. בלי הפתעות, בלי תוספות, בלי קטנה עם הגדולה. שקיפות מלאה מהשנייה הראשונה."],
-        ["📱","שירות 7/7","זמינים כל יום — כולל ערבים ושישי. שלחו הודעה בוואטסאפ בכל שעה ותקבלו מענה. כי האריה לא ישן."],
-      ].map(([ic,t,d],i)=><F key={i} d={i*.06}><div className="crd" style={{padding:"30px 24px",height:"100%",display:"flex",flexDirection:"column",textAlign:"center"}}>
-        <div style={{fontSize:38,marginBottom:14}}>{ic}</div>
-        <h3 style={{fontSize:18,fontWeight:800,color:"#fff",marginBottom:10}}>{t}</h3>
-        <p style={{fontSize:14,color:"rgba(255,255,255,.35)",lineHeight:1.8}}>{d}</p>
+        ["📱","שירות 6 ימים בשבוע","זמינים א׳-ו׳ כולל ערבים. שלחו הודעה בוואטסאפ בכל שעה ותקבלו מענה. בשבת סגור — מנוחה של המלך."],
+      ].map(([ic,t,d],i)=><F key={i} d={i*.06}><div className="crd" style={{padding:"32px 26px",height:"100%",display:"flex",flexDirection:"column",textAlign:"center"}}>
+        <div style={{fontSize:44,marginBottom:16}}>{ic}</div>
+        <h3 style={{fontSize:19,fontWeight:800,color:"#0B1E3F",marginBottom:12}}>{t}</h3>
+        <p style={{fontSize:14.5,color:"#5A6B88",lineHeight:1.8}}>{d}</p>
       </div></F>)}
     </div>
 
-    <F d={.4}><div className="crd glow-border" style={{padding:"36px 32px",textAlign:"center",position:"relative",overflow:"hidden"}}>
-      <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(200,164,78,.04),rgba(200,164,78,.01))"}}/>
+    <F d={.4}><div style={{padding:"44px 36px",textAlign:"center",position:"relative",overflow:"hidden",borderRadius:24,background:"linear-gradient(135deg,#0B5ED7 0%,#2979FF 100%)",boxShadow:"0 20px 60px rgba(11,94,215,.3)"}}>
+      <div style={{position:"absolute",inset:0,opacity:.1,backgroundImage:"radial-gradient(circle at 30% 20%,#fff 2px,transparent 2px),radial-gradient(circle at 70% 80%,#fff 2px,transparent 2px)",backgroundSize:"60px 60px"}}/>
       <div style={{position:"relative",zIndex:1}}>
-        <div style={{fontSize:48,marginBottom:16}}>🦁</div>
-        <h3 style={{fontSize:"clamp(20px,4vw,28px)",color:"#fff",marginBottom:12,lineHeight:1.3}}>כי אריה לא מתפשר<br/><span style={{color:"#C8A44E"}}>ואנחנו גם לא</span></h3>
-        <p style={{color:"rgba(255,255,255,.35)",fontSize:15,maxWidth:500,margin:"0 auto 24px",lineHeight:1.8}}>
+        <div style={{fontSize:52,marginBottom:18}}>🦁</div>
+        <h3 style={{fontSize:"clamp(22px,4vw,30px)",color:"#fff",marginBottom:14,lineHeight:1.3,fontWeight:900}}>כי אריה לא מתפשר<br/><span style={{color:"#FFC107"}}>ואנחנו גם לא</span></h3>
+        <p style={{color:"rgba(255,255,255,.9)",fontSize:16,maxWidth:520,margin:"0 auto 28px",lineHeight:1.8,fontWeight:500}}>
           בעולם שכולם מבטיחים — אנחנו מוכיחים. כל לקוח מקבל יחס של VIP, כל ספה מקבלת טיפול של מלך, וכל עבודה נגמרת רק כשאתם מחייכים.
         </p>
-        <div style={{display:"flex",gap:20,justifyContent:"center",flexWrap:"wrap",marginBottom:24}}>
+        <div style={{display:"flex",gap:24,justifyContent:"center",flexWrap:"wrap",marginBottom:28}}>
           {[["3,000+","לקוחות שסמכו"],["100%","שביעות רצון"],["5.0","דירוג ממוצע"],["0","תלונות"]].map(([n,l],i)=><div key={i} style={{textAlign:"center"}}>
-            <div style={{fontFamily:"'Heebo'",fontSize:28,fontWeight:900,color:"#C8A44E"}}>{n}</div>
-            <div style={{fontSize:11,color:"rgba(255,255,255,.2)"}}>{l}</div>
+            <div style={{fontFamily:"'Heebo'",fontSize:32,fontWeight:900,color:"#FFC107"}}>{n}</div>
+            <div style={{fontSize:12,color:"rgba(255,255,255,.8)",fontWeight:600}}>{l}</div>
           </div>)}
         </div>
-        <a href={`https://wa.me/${X.waNum}`} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"16px 36px"}}>💬 הצטרפו למשפחת Leo</a>
+        <a href={`https://wa.me/${X.waNum}`} target="_blank" rel="noopener" className="btn btn-a" style={{fontSize:16,padding:"16px 36px"}}>💬 הצטרפו למשפחת ליאו</a>
       </div>
     </div></F>
   </div>
 </section>
 
 {/* ═══ PRICE CALCULATOR ═══ */}
-<section className="sec" id="calc" style={{background:"rgba(200,164,78,.015)"}}>
+<section className="sec sec-light" id="calc">
   <div className="mx">
     <F><STit sub="בחרו שירותים וקבלו הערכת מחיר מיידית">🧮 מחשבון מחיר</STit></F>
     <F d={.1}><PriceCalc services={SV} wa={wa}/></F>
@@ -237,32 +255,31 @@ return<div>
 </section>
 
 {/* ═══ PROCESS ═══ */}
-<section className="sec" id="process" style={{position:"relative",overflow:"hidden"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-inspect.png)",backgroundSize:"cover",backgroundPosition:"center 20%",opacity:.5}}/><div style={{position:"absolute",inset:0,background:"linear-gradient(rgba(6,6,6,.4),rgba(6,6,6,.35))"}}/>
+<section className="sec sec-white" id="process" style={{position:"relative",overflow:"hidden"}}>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <F><STit sub="מהתמונה הראשונה ועד לספה כמו חדשה">איך זה עובד? 🔄</STit></F>
-    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16}}>
-      {PROCESS.map((p,i)=><F key={i} d={i*.1}><div className="crd" style={{padding:"28px 20px",textAlign:"center",height:"100%",display:"flex",flexDirection:"column",alignItems:"center"}}>
-        <div style={{width:56,height:56,borderRadius:16,background:"rgba(200,164,78,.06)",border:"1px solid rgba(200,164,78,.1)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,marginBottom:14}}>{p.icon}</div>
-        <span style={{fontFamily:"'Heebo'",fontSize:11,fontWeight:800,color:"#C8A44E",letterSpacing:1,marginBottom:6}}>שלב {p.step}</span>
-        <h3 style={{fontSize:16,fontWeight:800,color:"#fff",marginBottom:8}}>{p.title}</h3>
-        <p style={{fontSize:13,color:"rgba(255,255,255,.3)",lineHeight:1.75}}>{p.desc}</p>
+    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:18}}>
+      {PROCESS.map((p,i)=><F key={i} d={i*.1}><div className="crd" style={{padding:"32px 22px",textAlign:"center",height:"100%",display:"flex",flexDirection:"column",alignItems:"center"}}>
+        <div style={{width:64,height:64,borderRadius:18,background:"linear-gradient(135deg,#EAF4FF,#fff)",border:"2px solid #C8DFFC",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,marginBottom:16}}>{p.icon}</div>
+        <span style={{fontFamily:"'Heebo'",fontSize:11,fontWeight:800,color:"#FFC107",letterSpacing:1.5,marginBottom:8,background:"#FFF7D6",padding:"3px 12px",borderRadius:50}}>שלב {p.step}</span>
+        <h3 style={{fontSize:17,fontWeight:800,color:"#0B1E3F",marginBottom:10}}>{p.title}</h3>
+        <p style={{fontSize:13.5,color:"#5A6B88",lineHeight:1.75}}>{p.desc}</p>
       </div></F>)}
     </div>
-    <F d={.5}><div style={{textAlign:"center",marginTop:40}}>
+    <F d={.5}><div style={{textAlign:"center",marginTop:44}}>
       <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"18px 40px",animation:"pulse 2s infinite"}}>💬 שלחו תמונה — הצעה חינם</a>
     </div></F>
   </div>
 </section>
 
 {/* ═══ CTA ═══ */}
-<section style={{padding:"80px 0",position:"relative",overflow:"hidden"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/lion-office.png)",backgroundSize:"cover",backgroundPosition:"center 25%",opacity:.55}}/><div style={{position:"absolute",inset:0,background:"linear-gradient(to left,rgba(6,6,6,.08),rgba(6,6,6,.6) 55%)"}}/>
-  <div className="mx" style={{position:"relative",zIndex:2}}><div className="m-center" style={{maxWidth:500}}>
-    <F><div className="badge" style={{marginBottom:14}}>📞 זמינים 7 ימים בשבוע</div></F>
-    <F d={.1}><h2 style={{fontSize:"clamp(24px,4.5vw,32px)",color:"#fff",marginBottom:12}}>רוצים הצעת מחיר?<br/><span style={{color:"#C8A44E"}}>האריה כבר בדרך 🦁</span></h2></F>
-    <F d={.15}><p style={{color:"rgba(255,255,255,.4)",fontSize:15,marginBottom:24,lineHeight:1.75}}>שלחו תמונה של הפריט → הצעה מדויקת תוך דקות → מתאמים הגעה. פשוט ככה.</p></F>
-    <F d={.2}><div className="m-stack" style={{display:"flex",gap:10}}>
+<section style={{padding:"80px 0",position:"relative",overflow:"hidden",background:"linear-gradient(135deg,#0B5ED7 0%,#2979FF 50%,#0B5ED7 100%)"}}>
+  <div style={{position:"absolute",inset:0,opacity:.08,backgroundImage:"radial-gradient(circle at 20% 30%,#fff 2px,transparent 2px),radial-gradient(circle at 80% 70%,#fff 2px,transparent 2px)",backgroundSize:"50px 50px"}}/>
+  <div className="mx" style={{position:"relative",zIndex:2}}><div className="m-center" style={{maxWidth:520,margin:"0 auto",textAlign:"center"}}>
+    <F><div className="badge-y" style={{marginBottom:16}}>📞 זמינים א׳-ו׳ · סגור בשבת</div></F>
+    <F d={.1}><h2 style={{fontSize:"clamp(26px,4.5vw,34px)",color:"#fff",marginBottom:14,fontWeight:900}}>רוצים הצעת מחיר?<br/><span style={{color:"#FFC107"}}>ליאו כבר בדרך 🦁</span></h2></F>
+    <F d={.15}><p style={{color:"rgba(255,255,255,.9)",fontSize:16,marginBottom:26,lineHeight:1.75,fontWeight:500}}>שלחו תמונה של הפריט → הצעה מדויקת תוך דקות → מתאמים הגעה. פשוט ככה.</p></F>
+    <F d={.2}><div className="m-stack" style={{display:"flex",gap:12,justifyContent:"center"}}>
       <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:16}}>💬 שלחו תמונה</a>
       <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:16}}>📞 חייגו עכשיו</a>
     </div></F>
@@ -270,59 +287,34 @@ return<div>
 </section>
 
 {/* ═══ BEFORE/AFTER ═══ */}
-<section className="sec" id="gallery"><div className="mx">
+<section className="sec sec-light" id="gallery"><div className="mx">
   <F><STit sub="ראו בעיניים — ההבדל מדבר בעד עצמו">לפני ואחרי 📸</STit></F>
-  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
-    {BA.map((b,i)=><F key={i} d={i*.06}><div className="crd" style={{overflow:"hidden"}}><div style={{display:"flex",height:190}}>
-      <div style={{flex:1,background:b.imgBefore?"none":`linear-gradient(135deg,${b.bc},${b.bc}cc)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.06}}>✕</span>}<span style={{position:"absolute",bottom:10,right:10,padding:"5px 12px",borderRadius:8,background:"rgba(0,0,0,.6)",backdropFilter:"blur(4px)",color:"#fff",fontSize:11,fontFamily:"'Heebo'",fontWeight:700}}>לפני</span></div>
-      <div style={{width:2,background:"linear-gradient(transparent,rgba(200,164,78,.3),transparent)"}}/>
-      <div style={{flex:1,background:b.imgAfter?"none":`linear-gradient(135deg,${b.ac},${b.ac}dd)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.06}}>✓</span>}<span style={{position:"absolute",bottom:10,left:10,padding:"5px 12px",borderRadius:8,background:"#C8A44E",color:"#0E1A2B",fontSize:11,fontFamily:"'Heebo'",fontWeight:700}}>אחרי ✨</span></div>
-    </div><div style={{padding:"16px 20px"}}><h4 style={{fontSize:15,color:"#fff",marginBottom:3}}>{b.title}</h4><p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{b.desc}</p></div></div></F>)}
+  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
+    {BA.map((b,i)=><F key={i} d={i*.06}><div className="crd" style={{overflow:"hidden"}}><div style={{display:"flex",height:220}}>
+      <div style={{flex:1,background:b.imgBefore?"none":`linear-gradient(135deg,${b.bc},${b.bc}cc)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✕</span>}<span style={{position:"absolute",bottom:12,right:12,padding:"6px 14px",borderRadius:10,background:"#DC2626",color:"#fff",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(220,38,38,.4)"}}>לפני</span></div>
+      <div style={{width:3,background:"linear-gradient(transparent,#FFC107,transparent)"}}/>
+      <div style={{flex:1,background:b.imgAfter?"none":`linear-gradient(135deg,${b.ac},${b.ac}dd)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✓</span>}<span style={{position:"absolute",bottom:12,left:12,padding:"6px 14px",borderRadius:10,background:"linear-gradient(135deg,#FFC107,#FFD54F)",color:"#1a2b4a",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(255,193,7,.4)"}}>אחרי ✨</span></div>
+    </div><div style={{padding:"18px 22px"}}><h4 style={{fontSize:16,color:"#0B1E3F",marginBottom:4,fontWeight:800}}>{b.title}</h4><p style={{fontSize:13,color:"#5A6B88"}}>{b.desc}</p></div></div></F>)}
   </div>
 </div></section>
 
-{/* ═══ VIDEOS ═══ */}
-<section className="sec" id="videos" style={{background:"rgba(200,164,78,.015)"}}>
-  <div className="mx">
-    <F><STit sub="ניקוי מזגן עילי — לפני ואחרי בווידאו">📹 ניקוי מזגן — ההבדל מדבר בעד עצמו</STit></F>
-    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:20,maxWidth:920,margin:"0 auto"}}>
-      {[
-        {title:"מזגן — לפני הניקוי",desc:"שנים של אבק, לכלוך ועובש שהצטברו במערכת.",src:"/img/videos/ac-before.mp4",label:"לפני",isAfter:false},
-        {title:"מזגן — אחרי הניקוי",desc:"ניקוי יסודי וחיטוי מלא. אוויר נקי ובריא.",src:"/img/videos/ac-after.mp4",label:"אחרי ✨",isAfter:true},
-      ].map((v,i)=><F key={i} d={i*.1}><div className="crd" style={{overflow:"hidden"}}>
-        <div style={{position:"relative",background:"#000",aspectRatio:"16/10"}}>
-          <video src={v.src} controls playsInline preload="metadata" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}></video>
-          <span style={{position:"absolute",top:12,right:12,padding:"5px 14px",borderRadius:8,background:v.isAfter?"#C8A44E":"rgba(0,0,0,.75)",color:v.isAfter?"#0E1A2B":"#fff",fontSize:12,fontFamily:"'Heebo'",fontWeight:700,zIndex:2,pointerEvents:"none"}}>{v.label}</span>
-        </div>
-        <div style={{padding:"16px 20px"}}>
-          <h4 style={{fontSize:16,color:"#fff",marginBottom:4}}>{v.title}</h4>
-          <p style={{fontSize:13,color:"rgba(255,255,255,.3)"}}>{v.desc}</p>
-        </div>
-      </div></F>)}
-    </div>
-    <F d={.3}><div style={{textAlign:"center",marginTop:28}}>
-      <a href={wm("היי, מעוניין/ת בניקוי מזגן עילי")} target="_blank" rel="noopener" className="btn btn-a" style={{fontSize:15}}>💬 הזמינו ניקוי מזגן — 170₪</a>
-    </div></F>
-  </div>
-</section>
-
 {/* ═══ REVIEWS ═══ */}
-<section className="sec" id="reviews" style={{background:"rgba(200,164,78,.015)"}}><div className="mx">
+<section className="sec sec-white" id="reviews"><div className="mx">
   <F><STit sub="אלפי לקוחות מרוצים — הנה כמה מהם">מה אומרים עלינו ⭐</STit></F>
-  <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
-    {RV.map((r,i)=><F key={i} d={i*.06}><div className="crd" style={{padding:"26px 22px",height:"100%",display:"flex",flexDirection:"column"}}>
-      <div style={{color:"#C8A44E",fontSize:13,letterSpacing:1,marginBottom:12}}>{"★".repeat(r.stars||5)}</div>
-      <p style={{fontSize:14.5,lineHeight:1.9,color:"rgba(255,255,255,.55)",marginBottom:"auto",paddingBottom:16}}>״{r.t}״</p>
-      <div style={{display:"flex",alignItems:"center",gap:12,paddingTop:14,borderTop:"1px solid rgba(200,164,78,.06)"}}>
-        <div style={{width:38,height:38,borderRadius:12,background:"linear-gradient(135deg,#C8A44E,#9A7B30)",display:"flex",alignItems:"center",justifyContent:"center",color:"#0E1A2B",fontFamily:"'Heebo'",fontWeight:900,fontSize:15}}>{r.n[0]}</div>
-        <div><div style={{fontSize:14,fontFamily:"'Heebo'",fontWeight:700,color:"#fff"}}>{r.n}</div><div style={{fontSize:11,color:"rgba(255,255,255,.2)"}}>{r.s}</div></div>
+  <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
+    {RV.map((r,i)=><F key={i} d={i*.06}><div className="crd" style={{padding:"30px 26px",height:"100%",display:"flex",flexDirection:"column"}}>
+      <div style={{color:"#FFC107",fontSize:16,letterSpacing:2,marginBottom:14}}>{"★".repeat(r.stars||5)}</div>
+      <p style={{fontSize:15,lineHeight:1.9,color:"#1a2b4a",marginBottom:"auto",paddingBottom:18,fontWeight:500}}>״{r.t}״</p>
+      <div style={{display:"flex",alignItems:"center",gap:12,paddingTop:16,borderTop:"1px solid #E1ECFB"}}>
+        <div style={{width:42,height:42,borderRadius:14,background:"linear-gradient(135deg,#0B5ED7,#2979FF)",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontFamily:"'Heebo'",fontWeight:900,fontSize:17}}>{r.n[0]}</div>
+        <div><div style={{fontSize:15,fontFamily:"'Heebo'",fontWeight:800,color:"#0B1E3F"}}>{r.n}</div><div style={{fontSize:12,color:"#5A6B88",fontWeight:600}}>{r.s}</div></div>
       </div>
     </div></F>)}
   </div>
 </div></section>
 
 {/* ═══ FAQ ═══ */}
-<section className="sec" id="faq"><div className="mx" style={{maxWidth:700}}>
+<section className="sec sec-light" id="faq"><div className="mx" style={{maxWidth:740}}>
   <F><STit>שאלות נפוצות ❓</STit></F>
   {[
 ["כמה זמן לוקח ניקוי ספה?","הניקוי אורך 30-60 דקות. ייבוש: 4-6 שעות. ספות עור מתייבשות מהר יותר. מומלץ לאוורר."],
@@ -330,56 +322,56 @@ return<div>
 ["מנקים כל סוגי הספות?","כן — בד, עור, דמוי עור, אימפלה, קטיפה, מיקרופייבר ועוד. לכל בד שיטת ניקוי מותאמת."],
 ["מה אם הכתם לא יורד?","95% מהכתמים יורדים בטיפול הראשון. לגבי כתמים עקשנים — נעדכן מראש ונציע פתרון."],
 ["אתם מביאים ציוד?","כן, מגיעים עם הכל — מכונת שאיבה תעשייתית, חומרי ניקוי, ציוד חיטוי ובישום. רק תפנו גישה."],
-["לאן מגיעים?","פריסה ארצית — גוש דן, שרון, שפלה, ירושלים, חיפה, באר שבע, אשדוד ועוד. הגעה חינם ברוב האזורים."],
+["לאן מגיעים?","אזורי שירות: ירושלים והסביבה, המרכז (גוש דן, שפלה) והדרום (אשדוד, אשקלון, באר שבע, אילת ועוד). הגעה חינם ברוב האזורים. לא עובדים בשבת."],
 ["גם מזרנים, שטיחים ורכבים?","כן! מזרנים מ-100₪, שטיחים 40₪/מ״ר, כיסאות מ-30₪, רכבים מ-250₪, מזגנים 170₪, ארובות 500₪."],
 ["יש אחריות?","אחריות מלאה. לא מרוצים — נחזור בחינם. עובדים בשקיפות ולא גובים על שירות שלא סופק."],
-["איך מזמינים?","שלחו תמונה בוואטסאפ → הצעה תוך דקות → מתאמים מועד (7 ימים בשבוע). תשלום: מזומן, ביט, אשראי."]
+["איך מזמינים?","שלחו תמונה בוואטסאפ → הצעה תוך דקות → מתאמים מועד (ימים א׳-ו׳). תשלום: מזומן, ביט, אשראי. לא עובדים בשבת."]
   ].map(([q,a],i)=><F key={i} d={i*.04}><FaqItem q={q} a={a}/></F>)}
 </div></section>
 
 {/* ═══ AREAS ═══ */}
-<section className="sec" id="areas" style={{background:"rgba(200,164,78,.015)"}}><div className="mx">
+<section className="sec sec-white" id="areas"><div className="mx">
   <F><STit>🚐 איפה שאתם — אנחנו שם</STit></F>
-  <F d={.08}><div className="crd glow-border" style={{padding:"36px 40px",textAlign:"center"}}>
-    <p style={{fontSize:15,lineHeight:2.4,color:"rgba(255,255,255,.35)",fontFamily:"'Heebo'",fontWeight:500}}>{X.areas||D.areas}</p>
-    <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{marginTop:24}}>💬 בדקו אם מגיעים אליכם</a>
+  <F d={.08}><div className="glow-border" style={{padding:"40px 44px",textAlign:"center",borderRadius:24,background:"linear-gradient(135deg,#fff,#F5FAFF)",border:"1px solid #E1ECFB"}}>
+    <p style={{fontSize:16,lineHeight:2.4,color:"#1a2b4a",fontFamily:"'Heebo','Rubik'",fontWeight:600}}>{X.areas||D.areas}</p>
+    <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{marginTop:28}}>💬 בדקו אם מגיעים אליכם</a>
   </div></F>
 </div></section>
 
 {/* ═══ FINAL CTA ═══ */}
-<section className="sec" style={{textAlign:"center"}}>
+<section className="sec sec-light" style={{textAlign:"center"}}>
   <div className="mx">
-    <F><img src="/img/logo.png" alt="" style={{height:160,objectFit:"contain",margin:"0 auto 28px",mixBlendMode:"screen",animation:"glow 3s ease-in-out infinite"}}/></F>
-    <F d={.1}><h2 style={{fontSize:"clamp(26px,5vw,38px)",color:"#fff",marginBottom:12}}>הבית שלך צריך את <span style={{color:"#C8A44E"}}>האריה 🦁</span></h2></F>
-    <F d={.15}><p style={{color:"rgba(255,255,255,.3)",fontSize:16,marginBottom:32}}>Leo — ניקיון ברמה של מלך</p></F>
+    <F><img src="/img/logo.png" alt="" style={{height:180,objectFit:"contain",margin:"0 auto 28px",filter:"drop-shadow(0 15px 35px rgba(11,94,215,.25))",animation:"bob 4s ease-in-out infinite"}}/></F>
+    <F d={.1}><h2 style={{fontSize:"clamp(28px,5vw,40px)",color:"#0B1E3F",marginBottom:12,fontWeight:900}}>הבית שלך צריך את <span style={{color:"#0B5ED7"}}>ליאו 🦁</span></h2></F>
+    <F d={.15}><p style={{color:"#5A6B88",fontSize:17,marginBottom:32,fontWeight:500}}>ליאו — ניקיון ברמה של מלך</p></F>
     <F d={.2}><div className="m-stack" style={{display:"flex",gap:12,justifyContent:"center"}}>
       <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:17,padding:"18px 40px",animation:"pulse 2s infinite"}}>💬 הזמינו עכשיו</a>
-      <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-o m-full" style={{fontSize:17,padding:"18px 40px"}}>📞 {X.phone}</a>
+      <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:17,padding:"18px 40px"}}>📞 {X.phone}</a>
     </div></F>
   </div>
 </section>
 
 {/* ═══ FORM ═══ */}
-<section className="sec" id="contact" style={{background:"rgba(200,164,78,.015)"}}><div className="mx">
+<section className="sec sec-white" id="contact"><div className="mx">
   <F><STit>השאירו פרטים ונחזור אליכם 📋</STit></F>
   <F d={.1}><LeadForm services={SV} wa={wa}/></F>
 </div></section>
 
 {/* ═══ FOOTER ═══ */}
-<footer style={{background:"rgba(0,0,0,.5)",padding:"52px 0 18px",borderTop:"1px solid rgba(200,164,78,.04)"}}><div className="mx">
-  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1.5fr 1fr 1fr 1fr",gap:28,marginBottom:36}}>
-    <div><img src="/img/logo.png" alt="" style={{height:56,marginBottom:16,mixBlendMode:"screen"}}/><p style={{fontSize:13,color:"rgba(255,255,255,.12)",lineHeight:1.8}}>Leo — שירותי ניקיון מקצועיים.<br/>ניקיון ברמה של מלך החיות.</p></div>
-    <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:14}}>שירותים</h4>{SV.map((s,i)=><div key={i} style={{fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6}}>{s.name}</div>)}</div>
-    <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:14}}>ניווט</h4>{nav.map(([id,l])=><div key={id} style={{fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6,cursor:"pointer"}} onClick={()=>go(id)}>{l}</div>)}</div>
-    <div><h4 style={{color:"#C8A44E",fontSize:12,marginBottom:14}}>צור קשר</h4><a href={`tel:${X.phone.replace(/-/g,"")}`} style={{display:"block",fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6}}>📞 {X.phone}</a><a href={wa} target="_blank" rel="noopener" style={{display:"block",fontSize:12,color:"rgba(255,255,255,.12)",marginBottom:6}}>💬 וואטסאפ</a><div style={{fontSize:11,color:"rgba(255,255,255,.07)",marginTop:8}}>א׳-ש׳ | כולל ערבים</div></div>
+<footer style={{background:"linear-gradient(135deg,#0B1E3F,#0B5ED7)",padding:"56px 0 20px",position:"relative",overflow:"hidden"}}><div className="mx" style={{position:"relative"}}>
+  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1.5fr 1fr 1fr 1fr",gap:30,marginBottom:36}}>
+    <div><img src="/img/logo.png" alt="" style={{height:68,marginBottom:18}}/><p style={{fontSize:13.5,color:"rgba(255,255,255,.7)",lineHeight:1.8,fontWeight:500}}>ליאו — שירותי ניקיון מקצועיים.<br/>ניקיון ברמה של מלך החיות.</p></div>
+    <div><h4 style={{color:"#FFC107",fontSize:13,marginBottom:16,fontWeight:800}}>שירותים</h4>{SV.map((s,i)=><div key={i} style={{fontSize:13,color:"rgba(255,255,255,.6)",marginBottom:7,fontWeight:500}}>{s.name}</div>)}</div>
+    <div><h4 style={{color:"#FFC107",fontSize:13,marginBottom:16,fontWeight:800}}>ניווט</h4>{nav.map(([id,l])=><div key={id} style={{fontSize:13,color:"rgba(255,255,255,.6)",marginBottom:7,cursor:"pointer",fontWeight:500}} onClick={()=>go(id)}>{l}</div>)}</div>
+    <div><h4 style={{color:"#FFC107",fontSize:13,marginBottom:16,fontWeight:800}}>צור קשר</h4><a href={`tel:${X.phone.replace(/-/g,"")}`} style={{display:"block",fontSize:13,color:"rgba(255,255,255,.6)",marginBottom:7,fontWeight:500}}>📞 {X.phone}</a><a href={wa} target="_blank" rel="noopener" style={{display:"block",fontSize:13,color:"rgba(255,255,255,.6)",marginBottom:7,fontWeight:500}}>💬 וואטסאפ</a><div style={{fontSize:12,color:"rgba(255,255,255,.5)",marginTop:10,fontWeight:500}}>א׳-ו׳ | סגור בשבת</div></div>
   </div>
-  <div className="gold-line"/><div style={{paddingTop:14,display:"flex",justifyContent:"space-between",fontSize:10,color:"rgba(255,255,255,.06)"}}><span>© 2026 Leo — שירותי ניקיון</span><span onClick={goAdmin} style={{cursor:"pointer"}}>ניהול</span></div>
+  <div className="blue-line" style={{background:"linear-gradient(90deg,transparent,rgba(255,193,7,.5),transparent)"}}/><div style={{paddingTop:16,display:"flex",justifyContent:"space-between",fontSize:11,color:"rgba(255,255,255,.5)",fontWeight:500}}><span>© 2026 ליאו — שירותי ניקיון</span><span onClick={goAdmin} style={{cursor:"pointer"}}>ניהול</span></div>
 </div></footer>
 
 {/* Floating */}
-<a href={wa} target="_blank" rel="noopener" style={{position:"fixed",bottom:22,left:22,zIndex:999,width:58,height:58,borderRadius:16,background:"linear-gradient(135deg,#25D366,#1DA851)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,color:"#fff",boxShadow:"0 6px 20px rgba(37,211,102,.3)",animation:"pulse 2s infinite"}}>💬</a>
-{showTop&&<button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{position:"fixed",bottom:22,right:22,zIndex:999,width:42,height:42,borderRadius:12,background:"rgba(200,164,78,.06)",border:"1px solid rgba(200,164,78,.08)",color:"#C8A44E",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",backdropFilter:"blur(8px)"}}>↑</button>}
-<div className="m-show" style={{position:"fixed",bottom:0,left:0,right:0,zIndex:90,background:"rgba(6,6,6,.95)",backdropFilter:"blur(16px)",padding:"10px 14px",display:"none",gap:8,borderTop:"1px solid rgba(200,164,78,.05)"}}>
+<a href={wa} target="_blank" rel="noopener" style={{position:"fixed",bottom:24,left:24,zIndex:999,width:62,height:62,borderRadius:18,background:"linear-gradient(135deg,#25D366,#1DA851)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,color:"#fff",boxShadow:"0 8px 24px rgba(37,211,102,.45)",animation:"pulse 2s infinite"}}>💬</a>
+{showTop&&<button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{position:"fixed",bottom:24,right:24,zIndex:999,width:46,height:46,borderRadius:14,background:"#fff",border:"2px solid #C8DFFC",color:"#0B5ED7",cursor:"pointer",fontSize:16,fontWeight:900,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 6px 20px rgba(11,94,215,.15)"}}>↑</button>}
+<div className="m-show" style={{position:"fixed",bottom:0,left:0,right:0,zIndex:90,background:"rgba(255,255,255,.97)",backdropFilter:"blur(16px)",padding:"12px 14px",display:"none",gap:8,borderTop:"1px solid #E1ECFB",boxShadow:"0 -4px 20px rgba(11,94,215,.1)"}}>
   <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{flex:1,padding:"14px 6px",fontSize:15}}>💬 וואטסאפ</a>
   <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{flex:1,padding:"14px 6px",fontSize:15}}>📞 חייגו</a>
 </div>
@@ -398,16 +390,16 @@ function Popup({wa}){
     return()=>clearTimeout(t);
   },[]);
   if(!show)return null;
-  return<><div onClick={()=>setShow(false)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,.7)",backdropFilter:"blur(6px)",zIndex:9998}}/>
-    <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:9999,width:"min(420px,90vw)",background:"#0c0c0c",borderRadius:24,border:"1px solid rgba(200,164,78,.15)",padding:"40px 32px",textAlign:"center",animation:"fadeUp .4s ease",boxShadow:"0 24px 64px rgba(0,0,0,.5)"}}>
-      <button onClick={()=>setShow(false)} style={{position:"absolute",top:14,left:14,background:"none",border:"none",color:"rgba(255,255,255,.2)",fontSize:18,cursor:"pointer"}}>✕</button>
-      <div style={{fontSize:52,marginBottom:14}}>🦁</div>
-      <h3 style={{fontSize:24,color:"#fff",fontFamily:"'Heebo'",marginBottom:8}}>ברוכים הבאים ל-Leo!</h3>
-      <p style={{color:"rgba(255,255,255,.4)",fontSize:15,lineHeight:1.7,marginBottom:6}}>מבקרים חדשים מקבלים</p>
-      <div style={{fontSize:42,fontFamily:"'Heebo'",fontWeight:900,background:"linear-gradient(135deg,#C8A44E,#E8D48A)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",marginBottom:6}}>10% הנחה</div>
-      <p style={{color:"rgba(255,255,255,.3)",fontSize:13,marginBottom:20}}>על ההזמנה הראשונה! ציינו <strong style={{color:"#C8A44E"}}>"LEO10"</strong> בוואטסאפ</p>
-      <a href={`${wa}?text=${encodeURIComponent("היי! ראיתי את ההנחה באתר — קוד LEO10 🦁")}`} target="_blank" rel="noopener" className="btn btn-g" style={{width:"100%",fontSize:16,padding:"16px 0",marginBottom:10,animation:"pulse 2s infinite"}}>💬 מממש עכשיו — וואטסאפ</a>
-      <button onClick={()=>setShow(false)} style={{background:"none",border:"none",color:"rgba(255,255,255,.15)",fontSize:12,cursor:"pointer"}}>אולי אחר כך</button>
+  return<><div onClick={()=>setShow(false)} style={{position:"fixed",inset:0,background:"rgba(11,30,63,.6)",backdropFilter:"blur(6px)",zIndex:9998}}/>
+    <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:9999,width:"min(440px,92vw)",background:"#fff",borderRadius:26,border:"2px solid #FFC107",padding:"44px 32px",textAlign:"center",animation:"fadeUp .4s ease",boxShadow:"0 24px 64px rgba(11,94,215,.3)"}}>
+      <button onClick={()=>setShow(false)} style={{position:"absolute",top:16,left:16,background:"#EAF4FF",border:"none",borderRadius:10,color:"#0B5ED7",fontSize:16,cursor:"pointer",width:34,height:34}}>✕</button>
+      <div style={{fontSize:56,marginBottom:14}}>🦁</div>
+      <h3 style={{fontSize:26,color:"#0B1E3F",fontFamily:"'Heebo'",marginBottom:10,fontWeight:900}}>ברוכים הבאים לליאו!</h3>
+      <p style={{color:"#5A6B88",fontSize:15,lineHeight:1.7,marginBottom:8,fontWeight:500}}>מבקרים חדשים מקבלים</p>
+      <div style={{fontSize:48,fontFamily:"'Heebo'",fontWeight:900,color:"#0B5ED7",marginBottom:8}}>10% הנחה</div>
+      <p style={{color:"#5A6B88",fontSize:13.5,marginBottom:22,fontWeight:500}}>על ההזמנה הראשונה! ציינו <strong style={{color:"#0B5ED7"}}>"LEO10"</strong> בוואטסאפ</p>
+      <a href={`${wa}?text=${encodeURIComponent("היי! ראיתי את ההנחה באתר — קוד LEO10 🦁")}`} target="_blank" rel="noopener" className="btn btn-g" style={{width:"100%",fontSize:16,padding:"16px 0",marginBottom:12,animation:"pulse 2s infinite"}}>💬 מממש עכשיו — וואטסאפ</a>
+      <button onClick={()=>setShow(false)} style={{background:"none",border:"none",color:"#5A6B88",fontSize:13,cursor:"pointer",fontWeight:500}}>אולי אחר כך</button>
     </div>
   </>;
 }
@@ -422,40 +414,40 @@ function PriceCalc({services,wa}){
   const total=Object.entries(items).reduce((sum,[name,qty])=>{const svc=services.find(s=>s.name===name);return sum+(svc?getNum(svc.price)*qty:0);},0);
   const selectedNames=Object.entries(items).map(([n,q])=>q>1?`${n} x${q}`:n).join(", ");
 
-  return<div className="crd glow-border" style={{maxWidth:600,margin:"0 auto",padding:0,overflow:"hidden"}}>
-    <div style={{background:"linear-gradient(135deg,rgba(200,164,78,.06),rgba(200,164,78,.02))",padding:"18px 24px",borderBottom:"1px solid rgba(200,164,78,.06)"}}>
-      <p style={{fontSize:14,color:"rgba(255,255,255,.4)",textAlign:"center"}}>👆 סמנו שירותים וכמויות — המחיר מתעדכן אוטומטית</p>
+  return<div className="glow-border" style={{maxWidth:620,margin:"0 auto",padding:0,overflow:"hidden",borderRadius:24,background:"#fff",border:"1px solid #E1ECFB"}}>
+    <div style={{background:"linear-gradient(135deg,#EAF4FF,#F5FAFF)",padding:"20px 24px",borderBottom:"1px solid #E1ECFB"}}>
+      <p style={{fontSize:14,color:"#1a2b4a",textAlign:"center",fontWeight:600}}>👆 סמנו שירותים וכמויות — המחיר מתעדכן אוטומטית</p>
     </div>
     <div style={{padding:"8px 0"}}>
-      {services.map((s,i)=>{const active=!!items[s.name];const qty=items[s.name]||0;return<div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"14px 24px",borderBottom:i<services.length-1?"1px solid rgba(255,255,255,.02)":"none",background:active?"rgba(200,164,78,.04)":"none",transition:"background .2s",cursor:"pointer"}} onClick={()=>!active&&toggle(s.name)}>
-        <div style={{display:"flex",alignItems:"center",gap:12}}>
-          <span style={{fontSize:20}}>{s.icon||"🔹"}</span>
-          <div><div style={{fontSize:14,color:active?"#fff":"rgba(255,255,255,.5)",fontFamily:"'Heebo'",fontWeight:active?700:500}}>{s.name}</div><div style={{fontSize:11,color:"rgba(255,255,255,.15)"}}>{s.price}</div></div>
+      {services.map((s,i)=>{const active=!!items[s.name];const qty=items[s.name]||0;return<div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"16px 24px",borderBottom:i<services.length-1?"1px solid #F0F5FC":"none",background:active?"#EAF4FF":"none",transition:"background .2s",cursor:"pointer"}} onClick={()=>!active&&toggle(s.name)}>
+        <div style={{display:"flex",alignItems:"center",gap:14}}>
+          <span style={{fontSize:24}}>{s.icon||"🔹"}</span>
+          <div><div style={{fontSize:15,color:active?"#0B1E3F":"#1a2b4a",fontFamily:"'Heebo'",fontWeight:active?800:600}}>{s.name}</div><div style={{fontSize:12,color:"#5A6B88",fontWeight:500}}>{s.price}</div></div>
         </div>
         {active?<div style={{display:"flex",alignItems:"center",gap:8}} onClick={e=>e.stopPropagation()}>
-          <button onClick={()=>dec(s.name)} style={{width:30,height:30,borderRadius:8,background:"rgba(255,255,255,.04)",border:"1px solid rgba(200,164,78,.1)",color:"#C8A44E",fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>−</button>
-          <span style={{fontFamily:"'Heebo'",fontSize:16,fontWeight:800,color:"#C8A44E",minWidth:20,textAlign:"center"}}>{qty}</span>
-          <button onClick={()=>inc(s.name)} style={{width:30,height:30,borderRadius:8,background:"rgba(200,164,78,.08)",border:"1px solid rgba(200,164,78,.15)",color:"#C8A44E",fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>+</button>
-          <button onClick={()=>toggle(s.name)} style={{marginRight:4,background:"none",border:"none",color:"#F87171",fontSize:14,cursor:"pointer"}}>✕</button>
+          <button onClick={()=>dec(s.name)} style={{width:32,height:32,borderRadius:10,background:"#fff",border:"1px solid #C8DFFC",color:"#0B5ED7",fontSize:18,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900}}>−</button>
+          <span style={{fontFamily:"'Heebo'",fontSize:17,fontWeight:900,color:"#0B5ED7",minWidth:22,textAlign:"center"}}>{qty}</span>
+          <button onClick={()=>inc(s.name)} style={{width:32,height:32,borderRadius:10,background:"#0B5ED7",border:"1px solid #0B5ED7",color:"#fff",fontSize:18,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900}}>+</button>
+          <button onClick={()=>toggle(s.name)} style={{marginRight:4,background:"none",border:"none",color:"#DC2626",fontSize:14,cursor:"pointer",fontWeight:700}}>✕</button>
         </div>
-        :<div style={{padding:"6px 14px",borderRadius:8,background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.06)",fontSize:12,color:"rgba(255,255,255,.2)"}}>+ הוסף</div>}
+        :<div style={{padding:"7px 16px",borderRadius:10,background:"#EAF4FF",border:"1px solid #C8DFFC",fontSize:12,color:"#0B5ED7",fontWeight:700}}>+ הוסף</div>}
       </div>;})}
     </div>
-    <div style={{padding:"20px 24px",background:"rgba(200,164,78,.04)",borderTop:"1px solid rgba(200,164,78,.08)"}}>
+    <div style={{padding:"24px 28px",background:"linear-gradient(135deg,#FFF7D6,#FFFBEB)",borderTop:"2px solid #FFC107"}}>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:total>0?16:0}}>
-        <span style={{fontSize:14,color:"rgba(255,255,255,.4)"}}>סה״כ הערכה:</span>
-        <span style={{fontFamily:"'Heebo'",fontSize:total>0?32:20,fontWeight:900,color:"#C8A44E",transition:"all .3s"}}>{total>0?`~${total}₪`:"בחרו שירותים"}</span>
+        <span style={{fontSize:15,color:"#1a2b4a",fontWeight:700}}>סה״כ הערכה:</span>
+        <span style={{fontFamily:"'Heebo'",fontSize:total>0?34:22,fontWeight:900,color:"#0B5ED7",transition:"all .3s"}}>{total>0?`~${total}₪`:"בחרו שירותים"}</span>
       </div>
       {total>0&&<a href={`${wa}?text=${encodeURIComponent(`היי! אני מעוניין/ת ב:\n${selectedNames}\n\nסה"כ הערכה: ~${total}₪\nאשמח להצעה מדויקת 🦁`)}`} target="_blank" rel="noopener" className="btn btn-g" style={{width:"100%",fontSize:15}}>💬 קבלו הצעה מדויקת — וואטסאפ</a>}
-      {total>0&&<p style={{textAlign:"center",fontSize:11,color:"rgba(255,255,255,.15)",marginTop:10}}>* המחיר הסופי ייקבע לאחר אבחון. ייתכנו הנחות חבילה!</p>}
+      {total>0&&<p style={{textAlign:"center",fontSize:12,color:"#5A6B88",marginTop:10,fontWeight:500}}>* המחיר הסופי ייקבע לאחר אבחון. ייתכנו הנחות חבילה!</p>}
     </div>
   </div>;
 }
 
-function FaqItem({q,a}){const[o,s]=useState(false);return<div className="crd" style={{marginBottom:10,borderColor:o?"rgba(200,164,78,.15)":"rgba(200,164,78,.05)"}}><div onClick={()=>s(!o)} style={{padding:"20px 24px",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontSize:15,fontFamily:"'Heebo'",fontWeight:600}}>{q}</span><span style={{color:"#C8A44E",fontSize:11,transition:"transform .3s",transform:o?"rotate(180deg)":"",opacity:.6}}>▼</span></div>{o&&<div style={{padding:"0 24px 20px",fontSize:14.5,color:"rgba(255,255,255,.4)",lineHeight:1.85}}>{a}</div>}</div>;}
-function LeadForm({services,wa}){const[f,setF]=useState({name:"",phone:"",service:""});const[sent,setSent]=useState(false);const inp={width:"100%",padding:"15px 18px",borderRadius:14,border:"1px solid rgba(200,164,78,.06)",fontSize:14,fontFamily:"'Assistant'",background:"rgba(255,255,255,.02)",color:"#fff",direction:"rtl",outline:"none",transition:"border-color .2s"};const submit=()=>{const l=gL();l.push({...f,id:"l"+Date.now(),date:new Date().toISOString(),status:"new"});sL(l);setSent(true);setTimeout(()=>{setSent(false);setF({name:"",phone:"",service:""});},5000);};if(sent)return<div style={{maxWidth:480,margin:"0 auto",textAlign:"center",padding:48}}><div style={{fontSize:48,marginBottom:14}}>✅</div><h3 style={{fontSize:22,color:"#fff",marginBottom:8}}>הפרטים נשלחו!</h3><p style={{color:"rgba(255,255,255,.3)",marginBottom:20}}>ניצור קשר בהקדם</p><a href={wa} target="_blank" rel="noopener" className="btn btn-g">💬 או שלחו הודעה</a></div>;return<form onSubmit={e=>{e.preventDefault();if(f.name&&f.phone)submit();}} style={{maxWidth:480,margin:"0 auto",background:"rgba(6,6,6,.5)",backdropFilter:"blur(16px)",borderRadius:22,padding:"40px 30px",border:"1px solid rgba(200,164,78,.06)"}}>{[["שם מלא","text","name","הכנסו שם מלא"],["טלפון","tel","phone","050-000-0000"]].map(([l,t,k,p])=><div key={k} style={{marginBottom:16}}><label style={{display:"block",fontSize:12,fontFamily:"'Heebo'",fontWeight:600,color:"rgba(255,255,255,.25)",marginBottom:6}}>{l} *</label><input type={t} style={inp} value={f[k]} placeholder={p} required onChange={e=>setF(x=>({...x,[k]:e.target.value}))} onFocus={e=>e.target.style.borderColor="#C8A44E"} onBlur={e=>e.target.style.borderColor="rgba(200,164,78,.06)"}/></div>)}<div style={{marginBottom:20}}><label style={{display:"block",fontSize:12,fontFamily:"'Heebo'",fontWeight:600,color:"rgba(255,255,255,.25)",marginBottom:6}}>שירות</label><select style={{...inp,appearance:"none"}} value={f.service} onChange={e=>setF(x=>({...x,service:e.target.value}))}><option value="">בחר שירות</option>{services.map((s,i)=><option key={i} value={s.name}>{s.name} — {s.price}</option>)}</select></div><button type="submit" className="btn btn-a" style={{width:"100%",fontSize:16,padding:"18px 0"}}>שלחו פרטים 🦁</button><p style={{textAlign:"center",fontSize:11,color:"rgba(255,255,255,.08)",marginTop:12}}>🔒 הפרטים מאובטחים</p></form>;}
+function FaqItem({q,a}){const[o,s]=useState(false);return<div className="crd" style={{marginBottom:12,borderColor:o?"#0B5ED7":"#E1ECFB"}}><div onClick={()=>s(!o)} style={{padding:"22px 26px",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontSize:15.5,fontFamily:"'Heebo'",fontWeight:700,color:"#0B1E3F"}}>{q}</span><span style={{color:"#0B5ED7",fontSize:13,transition:"transform .3s",transform:o?"rotate(180deg)":"",fontWeight:900}}>▼</span></div>{o&&<div style={{padding:"0 26px 22px",fontSize:14.5,color:"#5A6B88",lineHeight:1.85,fontWeight:500}}>{a}</div>}</div>;}
+function LeadForm({services,wa}){const[f,setF]=useState({name:"",phone:"",service:""});const[sent,setSent]=useState(false);const inp={width:"100%",padding:"15px 18px",borderRadius:14,border:"2px solid #E1ECFB",fontSize:14.5,fontFamily:"'Assistant','Rubik'",background:"#fff",color:"#0B1E3F",direction:"rtl",outline:"none",transition:"border-color .2s",fontWeight:600};const submit=()=>{const l=gL();l.push({...f,id:"l"+Date.now(),date:new Date().toISOString(),status:"new"});sL(l);setSent(true);setTimeout(()=>{setSent(false);setF({name:"",phone:"",service:""});},5000);};if(sent)return<div style={{maxWidth:500,margin:"0 auto",textAlign:"center",padding:48,background:"#fff",borderRadius:22,border:"2px solid #25D366",boxShadow:"0 12px 40px rgba(37,211,102,.2)"}}><div style={{fontSize:52,marginBottom:16}}>✅</div><h3 style={{fontSize:24,color:"#0B1E3F",marginBottom:10,fontWeight:900}}>הפרטים נשלחו!</h3><p style={{color:"#5A6B88",marginBottom:22,fontWeight:500}}>ניצור קשר בהקדם</p><a href={wa} target="_blank" rel="noopener" className="btn btn-g">💬 או שלחו הודעה</a></div>;return<form onSubmit={e=>{e.preventDefault();if(f.name&&f.phone)submit();}} style={{maxWidth:500,margin:"0 auto",background:"#fff",borderRadius:24,padding:"44px 32px",border:"1px solid #E1ECFB",boxShadow:"0 12px 40px rgba(11,94,215,.08)"}}>{[["שם מלא","text","name","הכנסו שם מלא"],["טלפון","tel","phone","050-000-0000"]].map(([l,t,k,p])=><div key={k} style={{marginBottom:18}}><label style={{display:"block",fontSize:13,fontFamily:"'Heebo'",fontWeight:700,color:"#0B1E3F",marginBottom:8}}>{l} *</label><input type={t} style={inp} value={f[k]} placeholder={p} required onChange={e=>setF(x=>({...x,[k]:e.target.value}))} onFocus={e=>e.target.style.borderColor="#0B5ED7"} onBlur={e=>e.target.style.borderColor="#E1ECFB"}/></div>)}<div style={{marginBottom:22}}><label style={{display:"block",fontSize:13,fontFamily:"'Heebo'",fontWeight:700,color:"#0B1E3F",marginBottom:8}}>שירות</label><select style={{...inp,appearance:"none"}} value={f.service} onChange={e=>setF(x=>({...x,service:e.target.value}))}><option value="">בחר שירות</option>{services.map((s,i)=><option key={i} value={s.name}>{s.name} — {s.price}</option>)}</select></div><button type="submit" className="btn btn-a" style={{width:"100%",fontSize:17,padding:"18px 0"}}>שלחו פרטים 🦁</button><p style={{textAlign:"center",fontSize:12,color:"#5A6B88",marginTop:14,fontWeight:500}}>🔒 הפרטים מאובטחים</p></form>;}
 
-function Login({ok,back}){const[p,setP]=useState("");const[e,setE]=useState(false);return<div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"#060606"}}><style>{CSS}</style><div style={{background:"rgba(255,255,255,.02)",borderRadius:22,padding:44,width:380,maxWidth:"90vw",textAlign:"center",border:"1px solid rgba(200,164,78,.06)"}}><img src="/img/logo.png" alt="" style={{height:65,margin:"0 auto 22px",mixBlendMode:"screen"}}/><h2 style={{fontSize:20,color:"#fff",marginBottom:22,fontFamily:"'Heebo'"}}>כניסת מנהל</h2><input type="password" style={{width:"100%",padding:"14px 20px",borderRadius:14,border:"1px solid rgba(200,164,78,.06)",fontSize:15,textAlign:"center",fontFamily:"'Assistant'",background:"rgba(255,255,255,.02)",color:"#fff",outline:"none",marginBottom:14}} value={p} onChange={x=>{setP(x.target.value);setE(false);}} placeholder="סיסמה" onKeyDown={x=>{if(x.key==="Enter"){p===PASS?ok():setE(true);}}}/>{e&&<p style={{color:"#F87171",fontSize:13,marginBottom:12}}>סיסמה שגויה</p>}<button onClick={()=>p===PASS?ok():setE(true)} className="btn btn-a" style={{width:"100%",marginBottom:12}}>כניסה</button><button onClick={back} style={{background:"none",border:"none",color:"rgba(255,255,255,.15)",cursor:"pointer",fontSize:13}}>← חזרה</button></div></div>;}
+function Login({ok,back}){const[p,setP]=useState("");const[e,setE]=useState(false);return<div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#EAF4FF,#fff)"}}><style>{CSS}</style><div style={{background:"#fff",borderRadius:24,padding:44,width:400,maxWidth:"90vw",textAlign:"center",border:"1px solid #E1ECFB",boxShadow:"0 20px 60px rgba(11,94,215,.15)"}}><img src="/img/logo.png" alt="" style={{height:100,margin:"0 auto 22px"}}/><h2 style={{fontSize:22,color:"#0B1E3F",marginBottom:24,fontFamily:"'Heebo'",fontWeight:900}}>כניסת מנהל</h2><input type="password" style={{width:"100%",padding:"15px 20px",borderRadius:14,border:"2px solid #E1ECFB",fontSize:15,textAlign:"center",fontFamily:"'Assistant','Rubik'",background:"#fff",color:"#0B1E3F",outline:"none",marginBottom:14,fontWeight:600}} value={p} onChange={x=>{setP(x.target.value);setE(false);}} placeholder="סיסמה" onKeyDown={x=>{if(x.key==="Enter"){p===PASS?ok():setE(true);}}}/>{e&&<p style={{color:"#DC2626",fontSize:13,marginBottom:12,fontWeight:600}}>סיסמה שגויה</p>}<button onClick={()=>p===PASS?ok():setE(true)} className="btn btn-a" style={{width:"100%",marginBottom:12}}>כניסה</button><button onClick={back} style={{background:"none",border:"none",color:"#5A6B88",cursor:"pointer",fontSize:13,fontWeight:500}}>← חזרה</button></div></div>;}
 
 /* ═══ ADMIN ═══ */
 function Admin({data,setData,back}){
@@ -467,19 +459,19 @@ function Admin({data,setData,back}){
   const upR=(i,k,v)=>{const r=[...(d.reviews||[])];r[i]={...r[i],[k]:v};sd({...d,reviews:r});};
   const upB=(i,k,v)=>{const b=[...(d.beforeAfter||[])];b[i]={...b[i],[k]:v};sd({...d,beforeAfter:b});};
   const handleImg=async(i,key,file)=>{if(!file)return;const c=await compressImg(file,400);const ba=[...(d.beforeAfter||[])];ba[i]={...ba[i],[key]:c};sd({...d,beforeAfter:ba});show("תמונה נוספה — שמור");};
-  const box={background:"rgba(255,255,255,.02)",border:"1px solid rgba(200,164,78,.05)",borderRadius:16,padding:20,marginBottom:12};
-  const inp={width:"100%",padding:"10px 14px",borderRadius:10,border:"1px solid rgba(200,164,78,.06)",fontSize:14,fontFamily:"'Assistant'",background:"rgba(255,255,255,.02)",color:"#fff",direction:"rtl",outline:"none",marginBottom:8};
-  const lbl={display:"block",fontSize:11,color:"rgba(255,255,255,.25)",marginBottom:3,fontFamily:"'Heebo'",fontWeight:600};
-return<div style={{minHeight:"100vh",background:"#060606",direction:"rtl"}}><style>{CSS}</style>
-  {toast&&<div style={{position:"fixed",top:16,left:"50%",transform:"translateX(-50%)",zIndex:10000,background:toast.startsWith("❌")?"#DC2626":toast.startsWith("⚠")?"#D97706":"#059669",color:"#fff",padding:"12px 24px",borderRadius:14,fontSize:14,fontFamily:"'Heebo'",fontWeight:600}}>{toast}</div>}
-  <div style={{background:"rgba(14,26,43,.5)",borderBottom:"1px solid rgba(200,164,78,.04)",padding:"14px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50}}><div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontFamily:"'Heebo'",fontSize:14,fontWeight:800,color:"#C8A44E"}}>🦁 Leo — ניהול</span></div><div style={{display:"flex",gap:8}}><button onClick={saveAll} disabled={saving} className="btn btn-g" style={{padding:"8px 18px",fontSize:13}}>{saving?"שומר...":"🚀 שמור"}</button><button onClick={downloadJson} className="btn btn-a" style={{padding:"8px 14px",fontSize:12}}>📥 JSON</button><button onClick={back} style={{background:"none",border:"1px solid rgba(255,255,255,.04)",borderRadius:10,padding:"8px 14px",color:"rgba(255,255,255,.25)",cursor:"pointer",fontSize:12}}>←</button></div></div>
-  <div style={{display:"flex",gap:4,padding:"12px 20px",borderBottom:"1px solid rgba(255,255,255,.02)",flexWrap:"wrap"}}>{[["contact","📞"],["services","💰"],["reviews","⭐"],["ba","📸"],["areas","🗺️"],["leads","📋("+leads.length+")"]].map(([id,l])=><button key={id} onClick={()=>setTab(id)} style={{padding:"10px 14px",borderRadius:10,border:"none",cursor:"pointer",fontSize:13,fontFamily:"'Heebo'",fontWeight:600,background:tab===id?"rgba(200,164,78,.1)":"transparent",color:tab===id?"#C8A44E":"rgba(255,255,255,.25)"}}>{l}</button>)}</div>
-  <div style={{maxWidth:820,margin:"0 auto",padding:20}}>
-    {tab==="contact"&&<div><h3 style={{fontSize:18,color:"#fff",marginBottom:16}}>📞 קשר</h3><div style={box}><label style={lbl}>טלפון</label><input style={inp} value={d.phone||""} onChange={e=>sd({...d,phone:e.target.value})}/><label style={lbl}>וואטסאפ</label><input style={inp} value={d.waNum||""} onChange={e=>sd({...d,waNum:e.target.value})}/></div></div>}
-    {tab==="services"&&<div><h3 style={{fontSize:18,color:"#fff",marginBottom:16}}>💰 שירותים <button onClick={()=>sd({...d,services:[...(d.services||[]),{name:"חדש",desc:"תיאור",price:"100₪",accent:"#C8A44E",icon:"🔹"}]})} style={{fontSize:12,background:"rgba(200,164,78,.08)",border:"none",color:"#C8A44E",padding:"4px 12px",borderRadius:8,cursor:"pointer"}}>+</button></h3>{(d.services||[]).map((s,i)=><div key={i} style={box}><div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}><strong style={{color:"#C8A44E"}}>{s.name}</strong><button onClick={()=>sd({...d,services:d.services.filter((_,j)=>j!==i)})} style={{background:"none",border:"none",color:"#F87171",cursor:"pointer",fontSize:12}}>🗑</button></div><label style={lbl}>שם</label><input style={inp} value={s.name} onChange={e=>upS(i,"name",e.target.value)}/><label style={lbl}>תיאור</label><textarea style={{...inp,height:50,resize:"vertical"}} value={s.desc} onChange={e=>upS(i,"desc",e.target.value)}/><div style={{display:"flex",gap:8}}><div style={{flex:1}}><label style={lbl}>מחיר</label><input style={inp} value={s.price} onChange={e=>upS(i,"price",e.target.value)}/></div><div style={{flex:1}}><label style={lbl}>אייקון</label><input style={inp} value={s.icon||""} onChange={e=>upS(i,"icon",e.target.value)}/></div></div></div>)}</div>}
-    {tab==="reviews"&&<div><h3 style={{fontSize:18,color:"#fff",marginBottom:16}}>⭐ ביקורות <button onClick={()=>sd({...d,reviews:[...(d.reviews||[]),{n:"שם",t:"ביקורת",s:"שירות",stars:5}]})} style={{fontSize:12,background:"rgba(200,164,78,.08)",border:"none",color:"#C8A44E",padding:"4px 12px",borderRadius:8,cursor:"pointer"}}>+</button></h3>{(d.reviews||[]).map((r,i)=><div key={i} style={box}><div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}><strong style={{color:"#C8A44E"}}>{r.n}</strong><button onClick={()=>sd({...d,reviews:d.reviews.filter((_,j)=>j!==i)})} style={{background:"none",border:"none",color:"#F87171",cursor:"pointer",fontSize:12}}>🗑</button></div><label style={lbl}>שם</label><input style={inp} value={r.n} onChange={e=>upR(i,"n",e.target.value)}/><label style={lbl}>ביקורת</label><textarea style={{...inp,height:50,resize:"vertical"}} value={r.t} onChange={e=>upR(i,"t",e.target.value)}/><label style={lbl}>שירות</label><input style={inp} value={r.s} onChange={e=>upR(i,"s",e.target.value)}/></div>)}</div>}
-    {tab==="ba"&&<div><h3 style={{fontSize:18,color:"#fff",marginBottom:16}}>📸 לפני/אחרי <button onClick={()=>sd({...d,beforeAfter:[...(d.beforeAfter||[]),{title:"חדש",desc:"תיאור",bc:"#555",ac:"#aaa",imgBefore:"",imgAfter:""}]})} style={{fontSize:12,background:"rgba(200,164,78,.08)",border:"none",color:"#C8A44E",padding:"4px 12px",borderRadius:8,cursor:"pointer"}}>+</button></h3>{(d.beforeAfter||[]).map((b,i)=><div key={i} style={box}><div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}><strong style={{color:"#C8A44E"}}>{b.title}</strong><button onClick={()=>sd({...d,beforeAfter:d.beforeAfter.filter((_,j)=>j!==i)})} style={{background:"none",border:"none",color:"#F87171",cursor:"pointer",fontSize:12}}>🗑</button></div><label style={lbl}>כותרת</label><input style={inp} value={b.title} onChange={e=>upB(i,"title",e.target.value)}/><label style={lbl}>תיאור</label><input style={inp} value={b.desc} onChange={e=>upB(i,"desc",e.target.value)}/><div style={{display:"flex",gap:12,marginBottom:8}}><div style={{flex:1}}><label style={lbl}>📷 לפני</label>{b.imgBefore&&<img src={b.imgBefore} style={{width:"100%",height:70,objectFit:"cover",borderRadius:8,marginBottom:6}}/>}<input type="file" accept="image/*" onChange={e=>handleImg(i,"imgBefore",e.target.files[0])} style={{fontSize:11,color:"rgba(255,255,255,.2)",width:"100%"}}/></div><div style={{flex:1}}><label style={lbl}>📷 אחרי</label>{b.imgAfter&&<img src={b.imgAfter} style={{width:"100%",height:70,objectFit:"cover",borderRadius:8,marginBottom:6}}/>}<input type="file" accept="image/*" onChange={e=>handleImg(i,"imgAfter",e.target.files[0])} style={{fontSize:11,color:"rgba(255,255,255,.2)",width:"100%"}}/></div></div></div>)}</div>}
-    {tab==="areas"&&<div><h3 style={{fontSize:18,color:"#fff",marginBottom:16}}>🗺️ אזורים</h3><div style={box}><label style={lbl}>ערים</label><textarea style={{...inp,height:100,resize:"vertical"}} value={d.areas||""} onChange={e=>sd({...d,areas:e.target.value})}/></div></div>}
-    {tab==="leads"&&<div><h3 style={{fontSize:18,color:"#fff",marginBottom:16}}>📋 לידים</h3>{leads.length===0?<p style={{color:"rgba(255,255,255,.15)"}}>אין לידים</p>:[...leads].reverse().map(l=><div key={l.id} style={box}><div style={{display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:6}}><div><strong style={{color:"#fff"}}>{l.name}</strong> — <span style={{color:"rgba(255,255,255,.25)"}}>{l.phone}</span>{l.service&&<span style={{color:"#C8A44E"}}> · {l.service}</span>}</div><div style={{display:"flex",gap:4}}><a href={`https://wa.me/972${l.phone.replace(/^0/,"").replace(/-/g,"")}`} target="_blank" rel="noopener" style={{padding:"4px 8px",borderRadius:6,background:"#25D366",color:"#fff",fontSize:10}}>💬</a><button onClick={()=>{setLeads(leads.filter(x=>x.id!==l.id));sL(leads.filter(x=>x.id!==l.id));}} style={{padding:"4px 8px",borderRadius:6,background:"rgba(248,113,113,.05)",border:"none",color:"#F87171",fontSize:10,cursor:"pointer"}}>🗑</button></div></div></div>)}</div>}
+  const box={background:"#fff",border:"1px solid #E1ECFB",borderRadius:16,padding:22,marginBottom:14,boxShadow:"0 4px 16px rgba(11,94,215,.04)"};
+  const inp={width:"100%",padding:"10px 14px",borderRadius:10,border:"2px solid #E1ECFB",fontSize:14,fontFamily:"'Assistant','Rubik'",background:"#fff",color:"#0B1E3F",direction:"rtl",outline:"none",marginBottom:10,fontWeight:600};
+  const lbl={display:"block",fontSize:12,color:"#0B1E3F",marginBottom:5,fontFamily:"'Heebo'",fontWeight:700};
+return<div style={{minHeight:"100vh",background:"linear-gradient(135deg,#F5FAFF,#EAF4FF)",direction:"rtl"}}><style>{CSS}</style>
+  {toast&&<div style={{position:"fixed",top:16,left:"50%",transform:"translateX(-50%)",zIndex:10000,background:toast.startsWith("❌")?"#DC2626":toast.startsWith("⚠")?"#D97706":"#059669",color:"#fff",padding:"14px 26px",borderRadius:14,fontSize:14,fontFamily:"'Heebo'",fontWeight:700,boxShadow:"0 8px 24px rgba(0,0,0,.2)"}}>{toast}</div>}
+  <div style={{background:"#fff",borderBottom:"1px solid #E1ECFB",padding:"14px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50,boxShadow:"0 2px 12px rgba(11,94,215,.06)"}}><div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontFamily:"'Heebo'",fontSize:15,fontWeight:900,color:"#0B5ED7"}}>🦁 ליאו — ניהול</span></div><div style={{display:"flex",gap:8}}><button onClick={saveAll} disabled={saving} className="btn btn-g" style={{padding:"9px 20px",fontSize:13}}>{saving?"שומר...":"🚀 שמור"}</button><button onClick={downloadJson} className="btn btn-a" style={{padding:"9px 16px",fontSize:12}}>📥 JSON</button><button onClick={back} style={{background:"#EAF4FF",border:"1px solid #C8DFFC",borderRadius:10,padding:"9px 16px",color:"#0B5ED7",cursor:"pointer",fontSize:13,fontWeight:700}}>←</button></div></div>
+  <div style={{display:"flex",gap:6,padding:"14px 20px",borderBottom:"1px solid #E1ECFB",flexWrap:"wrap",background:"#fff"}}>{[["contact","📞"],["services","💰"],["reviews","⭐"],["ba","📸"],["areas","🗺️"],["leads","📋("+leads.length+")"]].map(([id,l])=><button key={id} onClick={()=>setTab(id)} style={{padding:"10px 16px",borderRadius:10,border:"none",cursor:"pointer",fontSize:13,fontFamily:"'Heebo'",fontWeight:700,background:tab===id?"#0B5ED7":"#F5FAFF",color:tab===id?"#fff":"#5A6B88"}}>{l}</button>)}</div>
+  <div style={{maxWidth:860,margin:"0 auto",padding:24}}>
+    {tab==="contact"&&<div><h3 style={{fontSize:19,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>📞 קשר</h3><div style={box}><label style={lbl}>טלפון</label><input style={inp} value={d.phone||""} onChange={e=>sd({...d,phone:e.target.value})}/><label style={lbl}>וואטסאפ</label><input style={inp} value={d.waNum||""} onChange={e=>sd({...d,waNum:e.target.value})}/></div></div>}
+    {tab==="services"&&<div><h3 style={{fontSize:19,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>💰 שירותים <button onClick={()=>sd({...d,services:[...(d.services||[]),{name:"חדש",desc:"תיאור",price:"100₪",accent:"#0B5ED7",icon:"🔹"}]})} style={{fontSize:13,background:"#EAF4FF",border:"1px solid #C8DFFC",color:"#0B5ED7",padding:"5px 14px",borderRadius:8,cursor:"pointer",fontWeight:800,marginRight:8}}>+</button></h3>{(d.services||[]).map((s,i)=><div key={i} style={box}><div style={{display:"flex",justifyContent:"space-between",marginBottom:10}}><strong style={{color:"#0B5ED7",fontSize:15}}>{s.name}</strong><button onClick={()=>sd({...d,services:d.services.filter((_,j)=>j!==i)})} style={{background:"#FEE",border:"none",color:"#DC2626",cursor:"pointer",fontSize:13,padding:"4px 10px",borderRadius:8,fontWeight:700}}>🗑</button></div><label style={lbl}>שם</label><input style={inp} value={s.name} onChange={e=>upS(i,"name",e.target.value)}/><label style={lbl}>תיאור</label><textarea style={{...inp,height:60,resize:"vertical"}} value={s.desc} onChange={e=>upS(i,"desc",e.target.value)}/><div style={{display:"flex",gap:10}}><div style={{flex:1}}><label style={lbl}>מחיר</label><input style={inp} value={s.price} onChange={e=>upS(i,"price",e.target.value)}/></div><div style={{flex:1}}><label style={lbl}>אייקון</label><input style={inp} value={s.icon||""} onChange={e=>upS(i,"icon",e.target.value)}/></div></div></div>)}</div>}
+    {tab==="reviews"&&<div><h3 style={{fontSize:19,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>⭐ ביקורות <button onClick={()=>sd({...d,reviews:[...(d.reviews||[]),{n:"שם",t:"ביקורת",s:"שירות",stars:5}]})} style={{fontSize:13,background:"#EAF4FF",border:"1px solid #C8DFFC",color:"#0B5ED7",padding:"5px 14px",borderRadius:8,cursor:"pointer",fontWeight:800,marginRight:8}}>+</button></h3>{(d.reviews||[]).map((r,i)=><div key={i} style={box}><div style={{display:"flex",justifyContent:"space-between",marginBottom:10}}><strong style={{color:"#0B5ED7",fontSize:15}}>{r.n}</strong><button onClick={()=>sd({...d,reviews:d.reviews.filter((_,j)=>j!==i)})} style={{background:"#FEE",border:"none",color:"#DC2626",cursor:"pointer",fontSize:13,padding:"4px 10px",borderRadius:8,fontWeight:700}}>🗑</button></div><label style={lbl}>שם</label><input style={inp} value={r.n} onChange={e=>upR(i,"n",e.target.value)}/><label style={lbl}>ביקורת</label><textarea style={{...inp,height:60,resize:"vertical"}} value={r.t} onChange={e=>upR(i,"t",e.target.value)}/><label style={lbl}>שירות</label><input style={inp} value={r.s} onChange={e=>upR(i,"s",e.target.value)}/></div>)}</div>}
+    {tab==="ba"&&<div><h3 style={{fontSize:19,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>📸 לפני/אחרי <button onClick={()=>sd({...d,beforeAfter:[...(d.beforeAfter||[]),{title:"חדש",desc:"תיאור",bc:"#555",ac:"#aaa",imgBefore:"",imgAfter:""}]})} style={{fontSize:13,background:"#EAF4FF",border:"1px solid #C8DFFC",color:"#0B5ED7",padding:"5px 14px",borderRadius:8,cursor:"pointer",fontWeight:800,marginRight:8}}>+</button></h3>{(d.beforeAfter||[]).map((b,i)=><div key={i} style={box}><div style={{display:"flex",justifyContent:"space-between",marginBottom:10}}><strong style={{color:"#0B5ED7",fontSize:15}}>{b.title}</strong><button onClick={()=>sd({...d,beforeAfter:d.beforeAfter.filter((_,j)=>j!==i)})} style={{background:"#FEE",border:"none",color:"#DC2626",cursor:"pointer",fontSize:13,padding:"4px 10px",borderRadius:8,fontWeight:700}}>🗑</button></div><label style={lbl}>כותרת</label><input style={inp} value={b.title} onChange={e=>upB(i,"title",e.target.value)}/><label style={lbl}>תיאור</label><input style={inp} value={b.desc} onChange={e=>upB(i,"desc",e.target.value)}/><div style={{display:"flex",gap:14,marginBottom:8}}><div style={{flex:1}}><label style={lbl}>📷 לפני</label>{b.imgBefore&&<img src={b.imgBefore} style={{width:"100%",height:80,objectFit:"cover",borderRadius:10,marginBottom:8,border:"1px solid #E1ECFB"}}/>}<input type="file" accept="image/*" onChange={e=>handleImg(i,"imgBefore",e.target.files[0])} style={{fontSize:12,color:"#5A6B88",width:"100%"}}/></div><div style={{flex:1}}><label style={lbl}>📷 אחרי</label>{b.imgAfter&&<img src={b.imgAfter} style={{width:"100%",height:80,objectFit:"cover",borderRadius:10,marginBottom:8,border:"1px solid #E1ECFB"}}/>}<input type="file" accept="image/*" onChange={e=>handleImg(i,"imgAfter",e.target.files[0])} style={{fontSize:12,color:"#5A6B88",width:"100%"}}/></div></div></div>)}</div>}
+    {tab==="areas"&&<div><h3 style={{fontSize:19,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>🗺️ אזורים</h3><div style={box}><label style={lbl}>ערים</label><textarea style={{...inp,height:110,resize:"vertical"}} value={d.areas||""} onChange={e=>sd({...d,areas:e.target.value})}/></div></div>}
+    {tab==="leads"&&<div><h3 style={{fontSize:19,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>📋 לידים</h3>{leads.length===0?<p style={{color:"#5A6B88",fontWeight:500}}>אין לידים</p>:[...leads].reverse().map(l=><div key={l.id} style={box}><div style={{display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:8}}><div><strong style={{color:"#0B1E3F",fontSize:15}}>{l.name}</strong> — <span style={{color:"#5A6B88",fontWeight:500}}>{l.phone}</span>{l.service&&<span style={{color:"#0B5ED7",fontWeight:700}}> · {l.service}</span>}</div><div style={{display:"flex",gap:6}}><a href={`https://wa.me/972${l.phone.replace(/^0/,"").replace(/-/g,"")}`} target="_blank" rel="noopener" style={{padding:"5px 10px",borderRadius:8,background:"#25D366",color:"#fff",fontSize:11,fontWeight:700}}>💬</a><button onClick={()=>{setLeads(leads.filter(x=>x.id!==l.id));sL(leads.filter(x=>x.id!==l.id));}} style={{padding:"5px 10px",borderRadius:8,background:"#FEE",border:"none",color:"#DC2626",fontSize:11,cursor:"pointer",fontWeight:700}}>🗑</button></div></div></div>)}</div>}
   </div>
 </div>;}
