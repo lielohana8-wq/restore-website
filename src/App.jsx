@@ -88,9 +88,28 @@ h1,h2,h3,h4{font-family:'Heebo','Rubik',sans-serif;font-weight:800;letter-spacin
 .sec-light{background:linear-gradient(180deg,rgba(234,244,255,.55),rgba(234,244,255,.35) 50%,rgba(234,244,255,.55));backdrop-filter:blur(4px)}
 .sec-white{background:rgba(255,255,255,.55);backdrop-filter:blur(8px)}
 .hero-overlay{background:linear-gradient(135deg,rgba(234,244,255,.7) 0%,rgba(234,244,255,.5) 40%,rgba(255,255,255,.3) 100%)}
-@media(max-width:800px){.d-hide{display:none!important}.m-show{display:flex!important}.m-col{grid-template-columns:1fr!important}.m-col2{grid-template-columns:1fr 1fr!important}.m-stack{flex-direction:column!important}.m-full{width:100%!important}.m-center{text-align:center!important}.sec{padding:56px 0}
-body::before{background-attachment:scroll}}
-`;
+.hero-lion img{max-height:540px}
+.hero-ctas{flex-direction:row}
+@media(max-width:800px){
+.d-hide{display:none!important}.m-show{display:flex!important}
+.m-col{grid-template-columns:1fr!important}.m-col2{grid-template-columns:1fr 1fr!important}
+.m-stack{flex-direction:column!important}.m-full{width:100%!important}
+.m-center{text-align:center!important}.sec{padding:56px 0}
+body::before{background-attachment:scroll}
+body{padding-bottom:76px}
+.hero-sec{padding:90px 0 30px!important;min-height:auto!important}
+.hero-grid{grid-template-columns:1fr!important;gap:18px!important;text-align:center}
+.hero-text{max-width:100%!important;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.hero-lion{order:-1}
+.hero-lion img{max-height:260px!important}
+.hero-h1{font-size:clamp(30px,9vw,44px)!important;line-height:1.1!important}
+.hero-sub{font-size:15.5px!important;line-height:1.65!important;margin-bottom:18px!important}
+.hero-ctas{flex-direction:column!important;gap:10px!important;width:100%}
+.hero-ctas .btn{width:100%!important;padding:16px 20px!important;font-size:15.5px!important}
+.hero-checks{justify-content:center;gap:14px!important;font-size:13px!important}
+.sale-pill{transform:scale(.92)}
+.back-top{bottom:86px!important;right:14px!important;width:42px!important;height:42px!important}
+}`;
 
 /* ─── Utils ─── */
 function useV(t=.1){const r=useRef(null);const[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.unobserve(e);}},{threshold:t});o.observe(e);return()=>o.disconnect();},[]);return[r,v];}
@@ -144,31 +163,31 @@ return<div>
 </div></>}
 
 {/* ═══ HERO ═══ */}
-<section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"100px 0 60px"}}>
+<section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"110px 0 60px"}} className="hero-sec">
   <div className="mx" style={{position:"relative",zIndex:2,width:"100%"}}>
-    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"1.4fr 1fr",gap:40,alignItems:"center"}}>
-    <div className="m-center" style={{maxWidth:620}}>
-      <F><div className="badge" style={{marginBottom:20}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
-      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>כשהאריה מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם 🦁</span></h1></F>
-      <F d={.2}><p style={{fontSize:18.5,color:"#1a2b4a",lineHeight:1.75,maxWidth:500,marginBottom:26,fontWeight:600}}>ניקוי מזגנים, ספות, מזרנים, שטיחים ורכבים ברמה הגבוהה ביותר.<br/><span style={{color:"#5A6B88",fontWeight:500}}>תוצאות שרואים מיד — ומרגישים כל יום.</span></p></F>
-      <F d={.3}><div className="m-stack" style={{display:"flex",gap:12,alignItems:"center",flexWrap:"wrap",marginBottom:22}}>
-        <div style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:18,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 8px 28px rgba(255,193,7,.4)",animation:"pulseY 2s infinite"}}>
+    <div className="hero-grid" style={{display:"grid",gridTemplateColumns:"1.3fr 1fr",gap:40,alignItems:"center"}}>
+    <div className="hero-text" style={{maxWidth:620}}>
+      <F><div className="badge" style={{marginBottom:18}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
+      <F d={.1}><h1 className="hero-h1" style={{fontSize:"clamp(34px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>כשהאריה מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם 🦁</span></h1></F>
+      <F d={.2}><p className="hero-sub" style={{fontSize:17,color:"#1a2b4a",lineHeight:1.7,maxWidth:500,marginBottom:22,fontWeight:600}}>ניקוי מזגנים, ספות, מזרנים, שטיחים ורכבים ברמה הגבוהה ביותר.<br/><span style={{color:"#5A6B88",fontWeight:500}}>תוצאות שרואים מיד — ומרגישים כל יום.</span></p></F>
+      <F d={.3}><div style={{marginBottom:20}}>
+        <div className="sale-pill" style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:18,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 8px 28px rgba(255,193,7,.4)",animation:"pulseY 2s infinite"}}>
           <span style={{fontSize:22}}>🔥</span>
           <div><div style={{fontFamily:"'Heebo'",fontSize:13,fontWeight:900,color:"#1a2b4a",letterSpacing:1}}>מבצע קיץ!</div><div style={{fontSize:18,fontWeight:900,color:"#0B1E3F",lineHeight:1}}>ניקוי מזגן רק <span style={{color:"#0B5ED7"}}>170₪</span></div></div>
         </div>
       </div></F>
-      <F d={.4}><div className="m-stack" style={{display:"flex",gap:12,marginBottom:16}}>
-        <a href={wa} target="_blank" rel="noopener" className="btn btn-g m-full" style={{fontSize:16,padding:"19px 34px"}}>💬 קבלו הצעה תוך דקות</a>
-        <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a m-full" style={{fontSize:16,padding:"19px 34px"}}>📞 {X.phone}</a>
+      <F d={.4}><div className="hero-ctas" style={{display:"flex",gap:12,marginBottom:18}}>
+        <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"19px 30px",flex:1}}>💬 קבלו הצעה תוך דקות</a>
+        <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{fontSize:16,padding:"19px 30px",flex:1}}>📞 {X.phone}</a>
       </div></F>
-      <F d={.5}><div style={{display:"flex",gap:22,flexWrap:"wrap",color:"#0B1E3F",fontSize:14,fontWeight:700}}>
+      <F d={.5}><div className="hero-checks" style={{display:"flex",gap:20,flexWrap:"wrap",color:"#0B1E3F",fontSize:14,fontWeight:700}}>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ הצעה חינם</span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ אחריות מלאה</span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ תוצאות מובטחות</span>
       </div></F>
     </div>
-    <div className="d-hide" style={{textAlign:"center",position:"relative"}}>
-      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",maxHeight:540,objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite"}}/>
+    <div className="hero-lion" style={{textAlign:"center",position:"relative"}}>
+      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite"}}/>
     </div>
     </div>
   </div>
@@ -406,11 +425,11 @@ return<div>
 </div></footer>
 
 {/* Floating */}
-<a href={wa} target="_blank" rel="noopener" style={{position:"fixed",bottom:24,left:24,zIndex:999,width:62,height:62,borderRadius:18,background:"linear-gradient(135deg,#25D366,#1DA851)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,color:"#fff",boxShadow:"0 8px 24px rgba(37,211,102,.45)",animation:"pulse 2s infinite"}}>💬</a>
-{showTop&&<button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{position:"fixed",bottom:24,right:24,zIndex:999,width:46,height:46,borderRadius:14,background:"#fff",border:"2px solid #C8DFFC",color:"#0B5ED7",cursor:"pointer",fontSize:16,fontWeight:900,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 6px 20px rgba(11,94,215,.15)"}}>↑</button>}
-<div className="m-show" style={{position:"fixed",bottom:0,left:0,right:0,zIndex:90,background:"rgba(255,255,255,.97)",backdropFilter:"blur(16px)",padding:"12px 14px",display:"none",gap:8,borderTop:"1px solid #E1ECFB",boxShadow:"0 -4px 20px rgba(11,94,215,.1)"}}>
-  <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{flex:1,padding:"14px 6px",fontSize:15}}>💬 וואטסאפ</a>
-  <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{flex:1,padding:"14px 6px",fontSize:15}}>📞 חייגו</a>
+<a href={wa} target="_blank" rel="noopener" className="d-hide" style={{position:"fixed",bottom:24,left:24,zIndex:999,width:62,height:62,borderRadius:18,background:"linear-gradient(135deg,#25D366,#1DA851)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,color:"#fff",boxShadow:"0 8px 24px rgba(37,211,102,.45)",animation:"pulse 2s infinite"}}>💬</a>
+{showTop&&<button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} className="back-top" style={{position:"fixed",bottom:24,right:24,zIndex:999,width:46,height:46,borderRadius:14,background:"#fff",border:"2px solid #C8DFFC",color:"#0B5ED7",cursor:"pointer",fontSize:16,fontWeight:900,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 6px 20px rgba(11,94,215,.15)"}}>↑</button>}
+<div className="m-show mobile-bar" style={{position:"fixed",bottom:0,left:0,right:0,zIndex:90,background:"rgba(255,255,255,.97)",backdropFilter:"blur(16px)",padding:"12px 14px",display:"none",gap:8,borderTop:"1px solid #E1ECFB",boxShadow:"0 -4px 20px rgba(11,94,215,.1)"}}>
+  <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{flex:1,padding:"15px 6px",fontSize:15.5}}>💬 וואטסאפ</a>
+  <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{flex:1,padding:"15px 6px",fontSize:15.5}}>📞 חייגו</a>
 </div>
 
 {/* Popup */}
