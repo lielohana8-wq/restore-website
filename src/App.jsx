@@ -54,9 +54,11 @@ const CSS=`
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@400;600;700;800&family=Rubik:wght@400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:'Assistant','Rubik',sans-serif;font-size:15px;color:#1a2b4a;direction:rtl;overflow-x:hidden;-webkit-font-smoothing:antialiased;background:#F5FAFF}
+body::before{content:"";position:fixed;inset:0;background-image:url(/img/hero-sofa.jpg);background-size:cover;background-position:center;background-attachment:fixed;opacity:.28;z-index:-2;pointer-events:none}
+body::after{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(234,244,255,.55),rgba(245,250,255,.75));z-index:-1;pointer-events:none}
 ::selection{background:#0B5ED7;color:#fff}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
 h1,h2,h3,h4{font-family:'Heebo','Rubik',sans-serif;font-weight:800;letter-spacing:-.02em;color:#0B1E3F}
-.mx{max-width:1180px;margin:0 auto;padding:0 20px}.sec{padding:90px 0}
+.mx{max-width:1180px;margin:0 auto;padding:0 20px}.sec{padding:90px 0;position:relative}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes glow{0%,100%{filter:drop-shadow(0 0 10px rgba(11,94,215,.25))}50%{filter:drop-shadow(0 0 28px rgba(11,94,215,.5))}}
@@ -76,17 +78,18 @@ h1,h2,h3,h4{font-family:'Heebo','Rubik',sans-serif;font-weight:800;letter-spacin
 .btn-p:hover{box-shadow:0 12px 30px rgba(11,94,215,.5)}
 .btn-o{background:#fff;border:2px solid #EAF4FF;color:#0B5ED7}.btn-o:hover{border-color:#0B5ED7;background:#EAF4FF}
 .btn-d{background:#EAF4FF;color:#0B5ED7;font-size:13px;padding:9px 18px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
-.crd{background:#fff;border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.05)}
-.crd:hover{border-color:#0B5ED7;box-shadow:0 16px 40px rgba(11,94,215,.12);transform:translateY(-5px)}
-.crd-light{background:linear-gradient(135deg,#fff,#F5FAFF);border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.06)}
+.crd{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.05)}
+.crd:hover{border-color:#0B5ED7;box-shadow:0 16px 40px rgba(11,94,215,.15);transform:translateY(-5px)}
+.crd-light{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(245,250,255,.92));backdrop-filter:blur(10px);border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.06)}
 .blue-line{height:2px;background:linear-gradient(90deg,transparent,#0B5ED7,transparent)}
 .glow-border{box-shadow:0 0 0 1px #E1ECFB,0 20px 60px rgba(11,94,215,.1)}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:13px;font-family:'Heebo','Rubik';font-weight:700;background:#EAF4FF;border:1px solid #C8DFFC;color:#0B5ED7}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:13px;font-family:'Heebo','Rubik';font-weight:700;background:rgba(234,244,255,.9);backdrop-filter:blur(10px);border:1px solid #C8DFFC;color:#0B5ED7}
 .badge-y{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:13px;font-family:'Heebo','Rubik';font-weight:700;background:#FFF7D6;border:1px solid #FFE69C;color:#B8860B}
-.sec-light{background:linear-gradient(180deg,#F5FAFF,#EAF4FF 50%,#F5FAFF)}
-.sec-white{background:#fff}
-.hero-overlay{background:linear-gradient(135deg,rgba(234,244,255,.92) 0%,rgba(234,244,255,.7) 40%,rgba(234,244,255,.3) 100%)}
-@media(max-width:800px){.d-hide{display:none!important}.m-show{display:flex!important}.m-col{grid-template-columns:1fr!important}.m-col2{grid-template-columns:1fr 1fr!important}.m-stack{flex-direction:column!important}.m-full{width:100%!important}.m-center{text-align:center!important}.sec{padding:56px 0}}
+.sec-light{background:linear-gradient(180deg,rgba(234,244,255,.55),rgba(234,244,255,.35) 50%,rgba(234,244,255,.55));backdrop-filter:blur(4px)}
+.sec-white{background:rgba(255,255,255,.55);backdrop-filter:blur(8px)}
+.hero-overlay{background:linear-gradient(135deg,rgba(234,244,255,.7) 0%,rgba(234,244,255,.5) 40%,rgba(255,255,255,.3) 100%)}
+@media(max-width:800px){.d-hide{display:none!important}.m-show{display:flex!important}.m-col{grid-template-columns:1fr!important}.m-col2{grid-template-columns:1fr 1fr!important}.m-stack{flex-direction:column!important}.m-full{width:100%!important}.m-center{text-align:center!important}.sec{padding:56px 0}
+body::before{background-attachment:scroll}}
 `;
 
 /* ─── Utils ─── */
@@ -141,17 +144,14 @@ return<div>
 </div></>}
 
 {/* ═══ HERO ═══ */}
-<section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"100px 0 60px",background:"linear-gradient(135deg,#EAF4FF 0%,#F5FAFF 50%,#EAF4FF 100%)"}}>
-  <div style={{position:"absolute",inset:0,backgroundImage:"url(/img/hero-sofa.jpg)",backgroundSize:"cover",backgroundPosition:"center",opacity:.5}}/>
-  <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(234,244,255,.92) 0%,rgba(234,244,255,.65) 40%,rgba(255,255,255,.4) 100%)"}}/>
-  <div style={{position:"absolute",bottom:0,left:0,right:0,height:100,background:"linear-gradient(transparent,#F5FAFF)"}}/>
+<section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"100px 0 60px"}}>
   <div className="mx" style={{position:"relative",zIndex:2,width:"100%"}}>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"1.4fr 1fr",gap:40,alignItems:"center"}}>
     <div className="m-center" style={{maxWidth:600}}>
       <F><div className="badge" style={{marginBottom:20}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
-      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,60px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>נושמים נקי,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>חיים טוב!</span></h1></F>
-      <F d={.2}><p style={{fontSize:18,color:"#5A6B88",lineHeight:1.8,maxWidth:480,marginBottom:28,fontWeight:500}}>ניקוי מקצועי ברמה הגבוהה ביותר.<br/>ספות · מזרנים · שטיחים · מזגנים · רכבים · כיסאות</p></F>
-      <F d={.3}><div style={{display:"inline-flex",alignItems:"center",gap:16,padding:"16px 28px",borderRadius:18,background:"#fff",border:"2px solid #FFC107",marginBottom:28,boxShadow:"0 8px 28px rgba(255,193,7,.2)"}}>
+      <F d={.1}><h1 style={{fontSize:"clamp(36px,7vw,60px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:20,fontWeight:900}}>כשליאו מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הבית מנצנץ!</span></h1></F>
+      <F d={.2}><p style={{fontSize:18,color:"#1a2b4a",lineHeight:1.8,maxWidth:480,marginBottom:28,fontWeight:600}}>ניקוי מקצועי ברמה הגבוהה ביותר.<br/>ספות · מזרנים · שטיחים · מזגנים · רכבים · כיסאות · ארובות</p></F>
+      <F d={.3}><div style={{display:"inline-flex",alignItems:"center",gap:16,padding:"16px 28px",borderRadius:18,background:"#fff",border:"2px solid #FFC107",marginBottom:28,boxShadow:"0 8px 28px rgba(255,193,7,.25)"}}>
         <span style={{fontFamily:"'Heebo'",fontSize:40,fontWeight:900,color:"#0B5ED7"}}>280₪</span>
         <span style={{fontSize:14,color:"#1a2b4a",lineHeight:1.4,fontWeight:700}}>ניקוי ספה<br/><span style={{color:"#5A6B88",fontWeight:500}}>כולל חיטוי ובישום</span></span>
       </div></F>
@@ -161,7 +161,7 @@ return<div>
       </div></F>
     </div>
     <div className="d-hide" style={{textAlign:"center",position:"relative"}}>
-      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",maxHeight:520,objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.25))",animation:"bob 4s ease-in-out infinite"}}/>
+      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",maxHeight:520,objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite"}}/>
     </div>
     </div>
   </div>
