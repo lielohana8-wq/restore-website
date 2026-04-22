@@ -26,10 +26,11 @@ const D = {
     { n:"עמית ב׳", t:"6 כיסאות אוכל + כורסא — הכל נראה חדש. מחיר מעולה ושירות 10/10.", s:"כיסאות", stars:5 },
   ],
   beforeAfter: [
-    { title:"ספה עם כתמי קפה", desc:"3 שנים של שימוש → כמו מהחנות", bc:"#6b5544", ac:"#c9b99a", imgBefore:"", imgAfter:"" },
-    { title:"מזרן עם כתמים", desc:"כתמים + ריח → נקי ומחוטא", bc:"#7a6e5e", ac:"#ddd0c0", imgBefore:"", imgAfter:"" },
-    { title:"ריפודי רכב", desc:"רכב מוזנח → ריח של חדש", bc:"#484848", ac:"#aaa", imgBefore:"", imgAfter:"" },
-    { title:"שטיח פרסי", desc:"שטיח עתיק שחזר לחיים", bc:"#5c4e3f", ac:"#b8a990", imgBefore:"", imgAfter:"" },
+    { title:"ספה 3 מושבים — בז'", desc:"שנים של כתמים ולכלוך → חזרה כמו חדשה", bc:"#6b5544", ac:"#c9b99a", imgBefore:"/img/ba/beige-sofa-before.jpg", imgAfter:"/img/ba/beige-sofa-after.jpg" },
+    { title:"ספה מעוצבת כחולה", desc:"סימני שימוש כבדים → רעננה ונקייה", bc:"#3d4c66", ac:"#5b7296", imgBefore:"/img/ba/blue-sofa-before.jpg", imgAfter:"/img/ba/blue-sofa-after.jpg" },
+    { title:"שזלונג חום", desc:"כתמי מים עמוקים → נקי לחלוטין", bc:"#4a3e30", ac:"#8a7560", imgBefore:"/img/ba/brown-sofa-before.jpg", imgAfter:"/img/ba/brown-sofa-after.jpg" },
+    { title:"ספה אפורה זוגית", desc:"כתמים וסימני שימוש → כמו חדשה", bc:"#3a3a40", ac:"#6a6a70", imgBefore:"/img/ba/gray-sofa2-before.jpg", imgAfter:"/img/ba/gray-sofa2-after.jpg" },
+    { title:"ספה אפורה 3 מושבים", desc:"שנים של שימוש → מראה מחודש", bc:"#2e2e32", ac:"#5c5c62", imgBefore:"/img/ba/gray-sofa3-before.jpg", imgAfter:"/img/ba/gray-sofa3-after.jpg" },
   ],
   areas: "תל אביב · רמת גן · גבעתיים · הרצליה · רעננה · פתח תקווה · ראשון לציון · חולון · בת ים · נתניה · ירושלים · בית שמש · אשדוד · אשקלון · באר שבע · חיפה · כפר סבא · מודיעין · רחובות · חדרה · הוד השרון · רעננה · קריית גת · אילת",
 };
@@ -283,25 +284,25 @@ return<div>
 {/* ═══ VIDEOS ═══ */}
 <section className="sec" id="videos" style={{background:"rgba(200,164,78,.015)"}}>
   <div className="mx">
-    <F><STit sub="ראו במו עיניכם את ההבדל — לפני ואחרי בווידאו">📹 סרטוני עבודות</STit></F>
-    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
+    <F><STit sub="ניקוי מזגן עילי — לפני ואחרי בווידאו">📹 ניקוי מזגן — ההבדל מדבר בעד עצמו</STit></F>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:20,maxWidth:920,margin:"0 auto"}}>
       {[
-        {title:"ניקוי ספה — לפני ואחרי",desc:"ספת בד עם כתמי קפה וזיעה. צפו בתהליך המלא.",thumb:"🛋️",color:"#C8A44E"},
-        {title:"ניקוי מזרן — תוצאות מטורפות",desc:"מזרן זוגי עם כתמים של שנים. ההבדל מדהים.",thumb:"🛏️",color:"#6DC489"},
-        {title:"שחזור פנים רכב",desc:"ריפודים, תקרה ודשבורד — כמו רכב חדש מהסלון.",thumb:"🚗",color:"#E07B5B"},
-      ].map((v,i)=><F key={i} d={i*.08}><div className="crd" style={{overflow:"hidden",cursor:"pointer"}} onClick={()=>window.open(`https://wa.me/${X.waNum}?text=${encodeURIComponent("היי, ראיתי את הסרטונים באתר ומעוניין/ת בשירות")}`)}>
-        <div style={{height:180,background:`linear-gradient(135deg,rgba(6,6,6,.8),rgba(6,6,6,.4)),linear-gradient(135deg,${v.color}33,${v.color}11)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}>
-          <div style={{width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,.08)",backdropFilter:"blur(8px)",border:"2px solid rgba(255,255,255,.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,transition:"transform .3s",cursor:"pointer"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.15)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>▶</div>
-          <div style={{position:"absolute",top:14,right:14,fontSize:32}}>{v.thumb}</div>
-          <div style={{position:"absolute",bottom:12,left:14,padding:"4px 12px",borderRadius:8,background:"rgba(200,164,78,.15)",backdropFilter:"blur(4px)",color:"#C8A44E",fontSize:11,fontFamily:"'Heebo'",fontWeight:700}}>📹 צפו בסרטון</div>
+        {title:"מזגן — לפני הניקוי",desc:"שנים של אבק, לכלוך ועובש שהצטברו במערכת.",src:"/img/videos/ac-before.mp4",label:"לפני",isAfter:false},
+        {title:"מזגן — אחרי הניקוי",desc:"ניקוי יסודי וחיטוי מלא. אוויר נקי ובריא.",src:"/img/videos/ac-after.mp4",label:"אחרי ✨",isAfter:true},
+      ].map((v,i)=><F key={i} d={i*.1}><div className="crd" style={{overflow:"hidden"}}>
+        <div style={{position:"relative",background:"#000",aspectRatio:"16/10"}}>
+          <video src={v.src} controls playsInline preload="metadata" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}></video>
+          <span style={{position:"absolute",top:12,right:12,padding:"5px 14px",borderRadius:8,background:v.isAfter?"#C8A44E":"rgba(0,0,0,.75)",color:v.isAfter?"#0E1A2B":"#fff",fontSize:12,fontFamily:"'Heebo'",fontWeight:700,zIndex:2,pointerEvents:"none"}}>{v.label}</span>
         </div>
         <div style={{padding:"16px 20px"}}>
-          <h4 style={{fontSize:15,color:"#fff",marginBottom:4}}>{v.title}</h4>
-          <p style={{fontSize:12,color:"rgba(255,255,255,.25)"}}>{v.desc}</p>
+          <h4 style={{fontSize:16,color:"#fff",marginBottom:4}}>{v.title}</h4>
+          <p style={{fontSize:13,color:"rgba(255,255,255,.3)"}}>{v.desc}</p>
         </div>
       </div></F>)}
     </div>
-    <F d={.3}><p style={{textAlign:"center",marginTop:20,fontSize:13,color:"rgba(255,255,255,.2)"}}>🎬 עוד סרטונים בעמוד האינסטגרם והטיקטוק שלנו</p></F>
+    <F d={.3}><div style={{textAlign:"center",marginTop:28}}>
+      <a href={wm("היי, מעוניין/ת בניקוי מזגן עילי")} target="_blank" rel="noopener" className="btn btn-a" style={{fontSize:15}}>💬 הזמינו ניקוי מזגן — 170₪</a>
+    </div></F>
   </div>
 </section>
 
