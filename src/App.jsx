@@ -108,9 +108,13 @@ h1,h2,h3,h4{font-family:'Heebo','Rubik',sans-serif;font-weight:800;letter-spacin
 .d-hide{display:none!important}.m-show{display:flex!important}
 .m-col{grid-template-columns:1fr!important}.m-col2{grid-template-columns:1fr 1fr!important}
 .m-stack{flex-direction:column!important}.m-full{width:100%!important}
-.m-center{text-align:center!important}.sec{padding:56px 0}
+.m-center{text-align:center!important}.sec{padding:48px 0}
+.crd{padding:20px 16px!important;border-radius:16px!important}
+.mx{padding:0 14px!important}
 body::before{background-attachment:scroll}
 body{padding-bottom:76px}
+header .mx{height:64px!important}
+header img{height:55px!important}
 .hero-sec{padding:90px 0 30px!important;min-height:auto!important}
 .hero-grid{grid-template-columns:1fr!important;gap:14px!important;text-align:center}
 .hero-text{max-width:100%!important;margin:0 auto!important;display:flex;flex-direction:column;align-items:center}
@@ -163,7 +167,7 @@ return<div>
     <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{padding:"10px 20px",fontSize:14}}>📞 {X.phone}</a>
     <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{padding:"10px 22px",fontSize:13,animation:"pulse 2s infinite"}}>💬 וואטסאפ</a>
   </nav>
-  <button className="m-show" onClick={()=>setMm(true)} style={{display:"none",background:"#EAF4FF",border:"1px solid #C8DFFC",borderRadius:10,color:"#0B5ED7",fontSize:22,cursor:"pointer",width:44,height:44}}>☰</button>
+  <button className="m-show" onClick={()=>setMm(true)} style={{display:"none",background:"#EAF4FF",border:"1px solid #C8DFFC",borderRadius:12,color:"#0B5ED7",fontSize:20,cursor:"pointer",width:44,height:44,alignItems:"center",justifyContent:"center",flexShrink:0}}>☰</button>
 </div></header>
 
 {/* Mobile menu */}
@@ -247,7 +251,7 @@ return<div>
 {/* ═══ BEFORE/AFTER ═══ */}
 <section className="sec sec-light" id="gallery"><div className="mx">
   <F><STit sub="ראו בעיניים — ההבדל מדבר בעד עצמו">לפני ואחרי 📸</STit></F>
-  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
+  <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:16}}>
     {BA.map((b,i)=><F key={i} d={i*.07}><BACard b={b}/></F>)}
   </div>
 </div></section>
@@ -272,7 +276,7 @@ return<div>
 <section className="sec sec-light" id="services" style={{position:"relative",overflow:"hidden"}}>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <F><STit sub="פתרון מקצועי לכל פריט בבית וברכב — תוצאות שרואים מיד ומרגישים כל יום">השירותים שלנו</STit></F>
-    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
       {SV.map((s,i)=><F key={i} d={i*.05}><div className="crd" style={{padding:"30px 24px",cursor:"pointer",height:"100%",display:"flex",flexDirection:"column",borderTop:`4px solid ${s.accent||"#0B5ED7"}`}} onClick={()=>window.open(wm("היי, מעוניין/ת ב"+s.name),"_blank")}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12}}><div>{i===0&&<span style={{display:"inline-block",fontSize:10,fontWeight:800,background:"#FFC107",color:"#0B1E3F",padding:"3px 10px",borderRadius:50,marginBottom:6,fontFamily:"'Heebo'"}}>⭐ הכי מבוקש</span>}<h3 style={{fontSize:18,fontWeight:800,color:"#0B1E3F"}}>{s.name}</h3></div><span style={{fontSize:28}}>{s.icon||"🔹"}</span></div>
         <p style={{fontSize:14,color:"#5A6B88",lineHeight:1.75,marginBottom:"auto",paddingBottom:18}}>{s.desc}</p>
@@ -336,7 +340,7 @@ return<div>
 <section className="sec sec-white" id="process" style={{position:"relative",overflow:"hidden"}}>
   <div className="mx" style={{position:"relative",zIndex:1}}>
     <F><STit sub="מהתמונה הראשונה ועד לספה כמו חדשה">איך זה עובד? 🔄</STit></F>
-    <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:18}}>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:18}}>
       {PROCESS.map((p,i)=><F key={i} d={i*.1}><div className="crd" style={{padding:"32px 22px",textAlign:"center",height:"100%",display:"flex",flexDirection:"column",alignItems:"center"}}>
         <div style={{width:68,height:68,borderRadius:20,background:"linear-gradient(135deg,#EAF4FF,#fff)",border:"2px solid #C8DFFC",display:"flex",alignItems:"center",justifyContent:"center",fontSize:32,marginBottom:16,transition:"all .4s",boxShadow:"0 4px 16px rgba(11,94,215,.08)"}} onMouseEnter={e=>e.currentTarget.style.boxShadow="0 8px 30px rgba(11,94,215,.2)"} onMouseLeave={e=>e.currentTarget.style.boxShadow="0 4px 16px rgba(11,94,215,.08)"}>{p.icon}</div>
         <span style={{fontFamily:"'Heebo'",fontSize:11,fontWeight:800,color:"#FFC107",letterSpacing:1.5,marginBottom:8,background:"#FFF7D6",padding:"3px 12px",borderRadius:50}}>שלב {p.step}</span>
@@ -367,7 +371,7 @@ return<div>
 {/* ═══ REVIEWS ═══ */}
 <section className="sec sec-white" id="reviews"><div className="mx">
   <F><STit sub="אלפי לקוחות מרוצים — הנה כמה מהם">מה אומרים עלינו ⭐</STit></F>
-  <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
+  <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16}}>
     {RV.map((r,i)=><F key={i} d={i*.06}><div className="crd" style={{padding:"30px 26px",height:"100%",display:"flex",flexDirection:"column"}}>
       <div style={{color:"#FFC107",fontSize:16,letterSpacing:2,marginBottom:14}}>{"★".repeat(r.stars||5)}</div>
       <p style={{fontSize:15,lineHeight:1.9,color:"#1a2b4a",marginBottom:"auto",paddingBottom:18,fontWeight:500}}>״{r.t}״</p>
@@ -478,7 +482,7 @@ function LiveNotif(){
     return()=>clearTimeout(t1);
   },[]);
   if(!show)return null;
-  return<div style={{position:"fixed",bottom:90,left:20,zIndex:998,background:"#fff",borderRadius:16,padding:"14px 20px",boxShadow:"0 8px 30px rgba(11,94,215,.2)",border:"1px solid #E1ECFB",animation:"fadeUp .4s ease",maxWidth:300,display:"flex",alignItems:"center",gap:12}}>
+  return<div className="live-notif" style={{position:"fixed",bottom:90,left:14,zIndex:998,background:"#fff",borderRadius:16,padding:"14px 20px",boxShadow:"0 8px 30px rgba(11,94,215,.2)",border:"1px solid #E1ECFB",animation:"fadeUp .4s ease",maxWidth:300,display:"flex",alignItems:"center",gap:12}}>
     <div style={{width:38,height:38,borderRadius:12,background:"linear-gradient(135deg,#25D366,#1DA851)",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:16,flexShrink:0}}>✓</div>
     <div><div style={{fontSize:13,color:"#0B1E3F",fontWeight:700,lineHeight:1.4}}>{msg}</div><div style={{fontSize:11,color:"#5A6B88",marginTop:2}}>לפני דקות ספורות</div></div>
   </div>;
