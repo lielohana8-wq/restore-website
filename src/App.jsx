@@ -184,6 +184,7 @@ return<div>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ הצעה חינם</span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ אחריות מלאה</span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ תוצאות מובטחות</span>
+        <span style={{display:"inline-flex",alignItems:"center",gap:6}}>⚡ מענה תוך 3 דקות</span>
       </div></F>
     </div>
 
@@ -259,7 +260,7 @@ return<div>
     <F><STit sub="פתרון מקצועי לכל פריט בבית וברכב — תוצאות שרואים מיד ומרגישים כל יום">השירותים שלנו</STit></F>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
       {SV.map((s,i)=><F key={i} d={i*.05}><div className="crd" style={{padding:"30px 24px",cursor:"pointer",height:"100%",display:"flex",flexDirection:"column",borderTop:`4px solid ${s.accent||"#0B5ED7"}`}} onClick={()=>window.open(wm("היי, מעוניין/ת ב"+s.name),"_blank")}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12}}><h3 style={{fontSize:18,fontWeight:800,color:"#0B1E3F"}}>{s.name}</h3><span style={{fontSize:28}}>{s.icon||"🔹"}</span></div>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12}}><div>{i===0&&<span style={{display:"inline-block",fontSize:10,fontWeight:800,background:"#FFC107",color:"#0B1E3F",padding:"3px 10px",borderRadius:50,marginBottom:6,fontFamily:"'Heebo'"}}>⭐ הכי מבוקש</span>}<h3 style={{fontSize:18,fontWeight:800,color:"#0B1E3F"}}>{s.name}</h3></div><span style={{fontSize:28}}>{s.icon||"🔹"}</span></div>
         <p style={{fontSize:14,color:"#5A6B88",lineHeight:1.75,marginBottom:"auto",paddingBottom:18}}>{s.desc}</p>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:16,borderTop:"1px solid #E1ECFB"}}>
           <span style={{fontFamily:"'Heebo'",fontSize:22,fontWeight:900,color:s.accent||"#0B5ED7"}}>{s.price}</span>
@@ -420,7 +421,15 @@ return<div>
 </div></footer>
 
 {/* Floating */}
-<a href={wa} target="_blank" rel="noopener" className="d-hide" style={{position:"fixed",bottom:24,left:24,zIndex:999,width:62,height:62,borderRadius:18,background:"linear-gradient(135deg,#25D366,#1DA851)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,color:"#fff",boxShadow:"0 8px 24px rgba(37,211,102,.45)",animation:"pulse 2s infinite"}}>💬</a>
+{/* Sticky promo bar */}
+{showTop&&<div className="d-hide" style={{position:"fixed",top:0,left:0,right:0,zIndex:99,background:"linear-gradient(135deg,#FFC107,#FFD54F)",padding:"10px 0",boxShadow:"0 4px 16px rgba(255,193,7,.3)",animation:"fadeUp .3s ease"}}>
+  <div className="mx" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:16}}>
+    <span style={{fontSize:14,fontWeight:800,color:"#0B1E3F"}}>🔥 מבצע קיץ: ניקוי מזגן רק 170₪</span>
+    <a href={wm("היי, מעוניין/ת במבצע ניקוי מזגן 170₪")} target="_blank" rel="noopener" style={{padding:"7px 18px",borderRadius:10,background:"#0B5ED7",color:"#fff",fontSize:13,fontWeight:800,fontFamily:"'Heebo'"}}>הזמינו →</a>
+  </div>
+</div>}
+
+<a href={wa} target="_blank" rel="noopener" className="d-hide" style={{position:"fixed",bottom:24,left:24,zIndex:999,display:"flex",alignItems:"center",gap:10,padding:"14px 22px 14px 18px",borderRadius:18,background:"linear-gradient(135deg,#25D366,#1DA851)",color:"#fff",boxShadow:"0 8px 24px rgba(37,211,102,.45)",animation:"pulse 2s infinite",fontSize:15,fontFamily:"'Heebo'",fontWeight:800}}><span style={{fontSize:24}}>💬</span> שלחו הודעה</a>
 {showTop&&<button onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} className="back-top" style={{position:"fixed",bottom:24,right:24,zIndex:999,width:46,height:46,borderRadius:14,background:"#fff",border:"2px solid #C8DFFC",color:"#0B5ED7",cursor:"pointer",fontSize:16,fontWeight:900,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 6px 20px rgba(11,94,215,.15)"}}>↑</button>}
 <div className="m-show mobile-bar" style={{position:"fixed",bottom:0,left:0,right:0,zIndex:90,background:"rgba(255,255,255,.97)",backdropFilter:"blur(16px)",padding:"12px 14px",display:"none",gap:8,borderTop:"1px solid #E1ECFB",boxShadow:"0 -4px 20px rgba(11,94,215,.1)"}}>
   <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{flex:1,padding:"15px 6px",fontSize:15.5}}>💬 וואטסאפ</a>
@@ -429,10 +438,38 @@ return<div>
 
 {/* Popup */}
 <Popup wa={wa}/>
+<LiveNotif/>
 
 </div>;}
 
 /* ═══ Components ═══ */
+function LiveNotif(){
+  const[show,setShow]=useState(false);
+  const[msg,setMsg]=useState("");
+  const msgs=[
+    "דנה מירושלים הזמינה ניקוי ספה 🛋️",
+    "יוסי מפתח תקווה הזמין ניקוי מזגן ❄️",
+    "משפחת כהן מבית שמש — ניקוי 3 מזרנים 🛏️",
+    "רונית מאשדוד הזמינה ניקוי רכב 🚗",
+    "עמית מרמת גן — 6 כיסאות + ספה 🪑",
+    "משפחת לוי מחולון — ניקוי מזגן מרכזי 🌬️",
+  ];
+  useEffect(()=>{
+    const t1=setTimeout(()=>{
+      const run=()=>{setMsg(msgs[Math.floor(Math.random()*msgs.length)]);setShow(true);setTimeout(()=>setShow(false),4000);};
+      run();
+      const iv=setInterval(run,15000);
+      return()=>clearInterval(iv);
+    },8000);
+    return()=>clearTimeout(t1);
+  },[]);
+  if(!show)return null;
+  return<div style={{position:"fixed",bottom:90,left:20,zIndex:998,background:"#fff",borderRadius:16,padding:"14px 20px",boxShadow:"0 8px 30px rgba(11,94,215,.2)",border:"1px solid #E1ECFB",animation:"fadeUp .4s ease",maxWidth:300,display:"flex",alignItems:"center",gap:12}}>
+    <div style={{width:38,height:38,borderRadius:12,background:"linear-gradient(135deg,#25D366,#1DA851)",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:16,flexShrink:0}}>✓</div>
+    <div><div style={{fontSize:13,color:"#0B1E3F",fontWeight:700,lineHeight:1.4}}>{msg}</div><div style={{fontSize:11,color:"#5A6B88",marginTop:2}}>לפני דקות ספורות</div></div>
+  </div>;
+}
+
 function Popup({wa}){
   const[show,setShow]=useState(false);
   useEffect(()=>{
