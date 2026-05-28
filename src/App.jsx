@@ -98,10 +98,8 @@ h1,h2,h3,h4{font-family:'Heebo','Rubik',sans-serif;font-weight:800;letter-spacin
 body::before{background-attachment:scroll}
 body{padding-bottom:76px}
 .hero-sec{padding:90px 0 30px!important;min-height:auto!important}
-.hero-grid{grid-template-columns:1fr!important;gap:18px!important;text-align:center}
-.hero-text{max-width:100%!important;margin:0 auto;display:flex;flex-direction:column;align-items:center}
-.hero-lion{order:-1}
-.hero-lion img{max-height:260px!important}
+.hero-grid{grid-template-columns:1fr!important;gap:14px!important;text-align:center}
+.hero-text{max-width:100%!important;margin:0 auto!important;display:flex;flex-direction:column;align-items:center}
 .hero-h1{font-size:clamp(30px,9vw,44px)!important;line-height:1.1!important}
 .hero-sub{font-size:15.5px!important;line-height:1.65!important;margin-bottom:18px!important}
 .hero-ctas{flex-direction:column!important;gap:10px!important;width:100%}
@@ -164,9 +162,11 @@ return<div>
 
 {/* ═══ HERO ═══ */}
 <section style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"110px 0 60px"}} className="hero-sec">
+  <div style={{position:"absolute",top:"10%",left:"5%",fontSize:120,opacity:.04,transform:"rotate(-15deg)",pointerEvents:"none",zIndex:0}}>🦁</div>
+  <div style={{position:"absolute",bottom:"10%",right:"5%",fontSize:100,opacity:.03,transform:"rotate(15deg)",pointerEvents:"none",zIndex:0}}>🧹</div>
   <div className="mx" style={{position:"relative",zIndex:2,width:"100%"}}>
-    <div className="hero-grid" style={{display:"grid",gridTemplateColumns:"1.3fr 1fr",gap:40,alignItems:"center"}}>
-    <div className="hero-text" style={{maxWidth:620}}>
+    <div className="hero-grid" style={{display:"grid",gridTemplateColumns:"1fr",gap:20,alignItems:"center",textAlign:"center",maxWidth:720,margin:"0 auto"}}>
+    <div className="hero-text" style={{maxWidth:620,margin:"0 auto",display:"flex",flexDirection:"column",alignItems:"center"}}>
       <F><div className="badge" style={{marginBottom:18}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
       <F d={.1}><h1 className="hero-h1" style={{fontSize:"clamp(34px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>כשהאריה מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם 🦁</span></h1></F>
       <F d={.2}><p className="hero-sub" style={{fontSize:17,color:"#1a2b4a",lineHeight:1.7,maxWidth:500,marginBottom:22,fontWeight:600}}>ניקוי מזגנים, ספות, מזרנים, שטיחים ורכבים ברמה הגבוהה ביותר.<br/><span style={{color:"#5A6B88",fontWeight:500}}>תוצאות שרואים מיד — ומרגישים כל יום.</span></p></F>
@@ -180,15 +180,13 @@ return<div>
         <a href={wa} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"19px 30px",flex:1}}>💬 קבלו הצעה תוך דקות</a>
         <a href={`tel:${X.phone.replace(/-/g,"")}`} className="btn btn-a" style={{fontSize:16,padding:"19px 30px",flex:1}}>📞 {X.phone}</a>
       </div></F>
-      <F d={.5}><div className="hero-checks" style={{display:"flex",gap:20,flexWrap:"wrap",color:"#0B1E3F",fontSize:14,fontWeight:700}}>
+      <F d={.5}><div className="hero-checks" style={{display:"flex",gap:20,flexWrap:"wrap",color:"#0B1E3F",fontSize:14,fontWeight:700,justifyContent:"center"}}>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ הצעה חינם</span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ אחריות מלאה</span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6}}>✅ תוצאות מובטחות</span>
       </div></F>
     </div>
-    <div className="hero-lion" style={{textAlign:"center",position:"relative"}}>
-      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",maxHeight:420,height:"auto",objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite",margin:"0 auto"}}/>
-    </div>
+
     </div>
   </div>
 </section>
@@ -234,13 +232,7 @@ return<div>
 {/* ═══ BEFORE/AFTER ═══ */}
 <section className="sec sec-light" id="gallery"><div className="mx">
   <F><STit sub="ראו בעיניים — ההבדל מדבר בעד עצמו">לפני ואחרי 📸</STit></F>
-  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
-    {BA.map((b,i)=><F key={i} d={i*.06}><div className="crd" style={{overflow:"hidden"}}><div style={{display:"flex",height:220}}>
-      <div style={{flex:1,background:b.imgBefore?"none":`linear-gradient(135deg,${b.bc},${b.bc}cc)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✕</span>}<span style={{position:"absolute",bottom:12,right:12,padding:"6px 14px",borderRadius:10,background:"#DC2626",color:"#fff",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(220,38,38,.4)"}}>לפני</span></div>
-      <div style={{width:3,background:"linear-gradient(transparent,#FFC107,transparent)"}}/>
-      <div style={{flex:1,background:b.imgAfter?"none":`linear-gradient(135deg,${b.ac},${b.ac}dd)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✓</span>}<span style={{position:"absolute",bottom:12,left:12,padding:"6px 14px",borderRadius:10,background:"linear-gradient(135deg,#FFC107,#FFD54F)",color:"#1a2b4a",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(255,193,7,.4)"}}>אחרי ✨</span></div>
-    </div><div style={{padding:"18px 22px"}}><h4 style={{fontSize:16,color:"#0B1E3F",marginBottom:4,fontWeight:800}}>{b.title}</h4><p style={{fontSize:13,color:"#5A6B88"}}>{b.desc}</p></div></div></F>)}
-  </div>
+  <BASlider items={BA}/>
 </div></section>
 
 {/* ═══ PROBLEM → SOLUTION ═══ */}
@@ -498,6 +490,50 @@ function PriceCalc({services,wa}){
       {total>0&&<a href={`${wa}?text=${encodeURIComponent(`היי! אני מעוניין/ת ב:\n${selectedNames}\n\nסה"כ הערכה: ~${total}₪\nאשמח להצעה מדויקת 🦁`)}`} target="_blank" rel="noopener" className="btn btn-g" style={{width:"100%",fontSize:15}}>💬 קבלו הצעה מדויקת — וואטסאפ</a>}
       {total>0&&<p style={{textAlign:"center",fontSize:12,color:"#5A6B88",marginTop:10,fontWeight:500}}>* המחיר הסופי ייקבע לאחר אבחון. ייתכנו הנחות חבילה!</p>}
     </div>
+  </div>;
+}
+
+
+function BASlider({items}){
+  const[idx,setIdx]=useState(0);
+  const[sliderPos,setSliderPos]=useState(50);
+  const b=items[idx]||items[0];
+  const handleSlider=(e)=>{
+    const rect=e.currentTarget.getBoundingClientRect();
+    const x=e.touches?e.touches[0].clientX-rect.left:e.clientX-rect.left;
+    setSliderPos(Math.max(5,Math.min(95,(x/rect.width)*100)));
+  };
+  return<div style={{maxWidth:700,margin:"0 auto"}}>
+    <div className="crd" style={{overflow:"hidden",marginBottom:16}}>
+      <div style={{position:"relative",height:320,cursor:"ew-resize",touchAction:"none",userSelect:"none"}}
+        onMouseMove={handleSlider} onTouchMove={handleSlider}>
+        {/* After image - full width */}
+        <div style={{position:"absolute",inset:0,overflow:"hidden"}}>
+          {b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>
+          :<div style={{width:"100%",height:"100%",background:`linear-gradient(135deg,${b.ac},${b.ac}dd)`}}/>}
+        </div>
+        {/* Before image - clipped */}
+        <div style={{position:"absolute",inset:0,overflow:"hidden",width:sliderPos+"%"}}>
+          {b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover",minWidth:700}}/>
+          :<div style={{width:"100%",height:"100%",background:`linear-gradient(135deg,${b.bc},${b.bc}cc)`}}/>}
+        </div>
+        {/* Slider line */}
+        <div style={{position:"absolute",top:0,bottom:0,left:sliderPos+"%",width:4,background:"#fff",boxShadow:"0 0 12px rgba(0,0,0,.3)",transform:"translateX(-50%)",zIndex:5}}>
+          <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:40,height:40,borderRadius:"50%",background:"#fff",boxShadow:"0 2px 12px rgba(0,0,0,.25)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,fontWeight:900,color:"#0B5ED7"}}>⇔</div>
+        </div>
+        {/* Labels */}
+        <span style={{position:"absolute",top:14,right:14,padding:"6px 16px",borderRadius:10,background:"linear-gradient(135deg,#FFC107,#FFD54F)",color:"#1a2b4a",fontSize:13,fontFamily:"'Heebo'",fontWeight:900,zIndex:6}}>אחרי ✨</span>
+        <span style={{position:"absolute",top:14,left:14,padding:"6px 16px",borderRadius:10,background:"#DC2626",color:"#fff",fontSize:13,fontFamily:"'Heebo'",fontWeight:900,zIndex:6}}>לפני</span>
+      </div>
+      <div style={{padding:"18px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+        <div><h4 style={{fontSize:17,color:"#0B1E3F",marginBottom:3,fontWeight:800}}>{b.title}</h4><p style={{fontSize:13,color:"#5A6B88"}}>{b.desc}</p></div>
+        <div style={{fontSize:13,color:"#0B5ED7",fontWeight:700}}>{idx+1}/{items.length}</div>
+      </div>
+    </div>
+    <div style={{display:"flex",gap:8,justifyContent:"center"}}>
+      {items.map((_,i)=><button key={i} onClick={()=>{setIdx(i);setSliderPos(50);}} style={{width:i===idx?32:10,height:10,borderRadius:5,border:"none",cursor:"pointer",background:i===idx?"#0B5ED7":"#C8DFFC",transition:"all .3s"}}/>)}
+    </div>
+    <p style={{textAlign:"center",fontSize:12,color:"#5A6B88",marginTop:12}}>👆 גררו ימינה/שמאלה לראות את ההבדל</p>
   </div>;
 }
 
