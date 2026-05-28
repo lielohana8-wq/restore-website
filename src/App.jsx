@@ -138,7 +138,7 @@ function Site({data:X,goAdmin}){
   const[mm,setMm]=useState(false);const[showTop,setShowTop]=useState(false);
   useEffect(()=>{const f=()=>setShowTop(window.scrollY>500);window.addEventListener("scroll",f,{passive:true});return()=>window.removeEventListener("scroll",f);},[]);
   const go=id=>{document.getElementById(id)?.scrollIntoView({behavior:"smooth"});setMm(false);};
-  const nav=[["services","שירותים"],["ac-videos","ניקוי מזגן 170₪"],["process","התהליך"],["gallery","לפני ואחרי"],["reviews","ביקורות"],["faq","שאלות"],["contact","צור קשר"]];
+  const nav=[["ac-videos","🔥 מבצע מזגנים"],["gallery","לפני ואחרי"],["services","שירותים"],["process","התהליך"],["reviews","ביקורות"],["faq","שאלות"],["contact","צור קשר"]];
 
 return<div>
 
@@ -187,7 +187,7 @@ return<div>
       </div></F>
     </div>
     <div className="hero-lion" style={{textAlign:"center",position:"relative"}}>
-      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",height:"auto",objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite"}}/>
+      <img src="/img/logo.png" alt="ליאו" style={{maxWidth:"100%",maxHeight:420,height:"auto",objectFit:"contain",filter:"drop-shadow(0 20px 40px rgba(11,94,215,.3))",animation:"bob 4s ease-in-out infinite",margin:"0 auto"}}/>
     </div>
     </div>
   </div>
@@ -199,6 +199,49 @@ return<div>
 <div className="mx" style={{position:"relative"}}><div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,textAlign:"center"}}>
   {[["3,000","+","לקוחות מרוצים"],["100","%","שביעות רצון"],["6","","ימים בשבוע"],["5","⭐","דירוג ממוצע"]].map(([n,s,l],i)=><div key={i}><div style={{fontFamily:"'Heebo'",fontSize:34,fontWeight:900,color:"#FFC107"}}><Num to={parseInt(n.replace(",",""))} sfx={s}/></div><div style={{fontSize:13,color:"rgba(255,255,255,.9)",marginTop:4,fontFamily:"'Heebo'",fontWeight:600}}>{l}</div></div>)}
 </div></div></div>
+
+
+{/* ═══ AC VIDEOS ═══ */}
+<section className="sec sec-white" id="ac-videos">
+  <div className="mx">
+    <F><div style={{textAlign:"center",marginBottom:24}}>
+      <div className="badge-y" style={{marginBottom:16,fontSize:14,padding:"10px 22px"}}>🔥 מבצע קיץ · רק 170₪</div>
+    </div></F>
+    <F d={.05}><STit sub="אוויר נקי ובריא לכל המשפחה — ראו את ההבדל במו עיניכם">ניקוי מזגן מקצועי 📹</STit></F>
+    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:22,maxWidth:960,margin:"0 auto"}}>
+      {[
+        {title:"המזגן לפני הניקוי",desc:"אבק, עובש וחיידקים שהצטברו במערכת. זה מה שאתם נושמים כל יום.",src:"/img/videos/ac-before.mp4",label:"לפני",isAfter:false},
+        {title:"המזגן אחרי הניקוי",desc:"ניקוי יסודי וחיטוי מלא. אוויר נקי, בריא — וחיסכון של עד 30% בחשמל.",src:"/img/videos/ac-after.mp4",label:"אחרי ✨",isAfter:true},
+      ].map((v,i)=><F key={i} d={i*.1}><div className="crd" style={{overflow:"hidden"}}>
+        <div style={{position:"relative",background:"#000",aspectRatio:"16/10"}}>
+          <video src={v.src} controls playsInline preload="metadata" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}></video>
+          <span style={{position:"absolute",top:14,right:14,padding:"7px 16px",borderRadius:10,background:v.isAfter?"linear-gradient(135deg,#FFC107,#FFD54F)":"#DC2626",color:v.isAfter?"#1a2b4a":"#fff",fontSize:13,fontFamily:"'Heebo'",fontWeight:900,zIndex:2,pointerEvents:"none",boxShadow:v.isAfter?"0 4px 14px rgba(255,193,7,.5)":"0 4px 14px rgba(220,38,38,.5)"}}>{v.label}</span>
+        </div>
+        <div style={{padding:"20px 22px"}}>
+          <h4 style={{fontSize:17,color:"#0B1E3F",marginBottom:6,fontWeight:800}}>{v.title}</h4>
+          <p style={{fontSize:14,color:"#5A6B88",lineHeight:1.6}}>{v.desc}</p>
+        </div>
+      </div></F>)}
+    </div>
+    <F d={.3}><div style={{textAlign:"center",marginTop:32,padding:"28px 24px",borderRadius:22,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 12px 40px rgba(255,193,7,.35)",maxWidth:720,margin:"32px auto 0"}}>
+      <div style={{fontSize:"clamp(22px,3.5vw,28px)",fontWeight:900,color:"#0B1E3F",marginBottom:8}}>🔥 מבצע קיץ: ניקוי מזגן רק <span style={{color:"#0B5ED7"}}>170₪</span></div>
+      <p style={{fontSize:15,color:"#1a2b4a",marginBottom:18,fontWeight:600}}>פחות חיידקים. פחות אלרגיות. יותר חיסכון בחשמל.</p>
+      <a href={wm("היי, מעוניין/ת להזמין ניקוי מזגן במבצע 170₪")} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"17px 38px",animation:"pulse 2s infinite"}}>💬 הזמינו עכשיו בוואטסאפ</a>
+    </div></F>
+  </div>
+</section>
+
+{/* ═══ BEFORE/AFTER ═══ */}
+<section className="sec sec-light" id="gallery"><div className="mx">
+  <F><STit sub="ראו בעיניים — ההבדל מדבר בעד עצמו">לפני ואחרי 📸</STit></F>
+  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
+    {BA.map((b,i)=><F key={i} d={i*.06}><div className="crd" style={{overflow:"hidden"}}><div style={{display:"flex",height:220}}>
+      <div style={{flex:1,background:b.imgBefore?"none":`linear-gradient(135deg,${b.bc},${b.bc}cc)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✕</span>}<span style={{position:"absolute",bottom:12,right:12,padding:"6px 14px",borderRadius:10,background:"#DC2626",color:"#fff",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(220,38,38,.4)"}}>לפני</span></div>
+      <div style={{width:3,background:"linear-gradient(transparent,#FFC107,transparent)"}}/>
+      <div style={{flex:1,background:b.imgAfter?"none":`linear-gradient(135deg,${b.ac},${b.ac}dd)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✓</span>}<span style={{position:"absolute",bottom:12,left:12,padding:"6px 14px",borderRadius:10,background:"linear-gradient(135deg,#FFC107,#FFD54F)",color:"#1a2b4a",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(255,193,7,.4)"}}>אחרי ✨</span></div>
+    </div><div style={{padding:"18px 22px"}}><h4 style={{fontSize:16,color:"#0B1E3F",marginBottom:4,fontWeight:800}}>{b.title}</h4><p style={{fontSize:13,color:"#5A6B88"}}>{b.desc}</p></div></div></F>)}
+  </div>
+</div></section>
 
 {/* ═══ PROBLEM → SOLUTION ═══ */}
 <section className="sec sec-white" style={{position:"relative",overflow:"hidden"}}>
@@ -311,48 +354,6 @@ return<div>
     </div></F>
   </div></div>
 </section>
-
-{/* ═══ AC VIDEOS ═══ */}
-<section className="sec sec-white" id="ac-videos">
-  <div className="mx">
-    <F><div style={{textAlign:"center",marginBottom:24}}>
-      <div className="badge-y" style={{marginBottom:16,fontSize:14,padding:"10px 22px"}}>🔥 מבצע קיץ · רק 170₪</div>
-    </div></F>
-    <F d={.05}><STit sub="אוויר נקי ובריא לכל המשפחה — ראו את ההבדל במו עיניכם">ניקוי מזגן מקצועי 📹</STit></F>
-    <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:22,maxWidth:960,margin:"0 auto"}}>
-      {[
-        {title:"המזגן לפני הניקוי",desc:"אבק, עובש וחיידקים שהצטברו במערכת. זה מה שאתם נושמים כל יום.",src:"/img/videos/ac-before.mp4",label:"לפני",isAfter:false},
-        {title:"המזגן אחרי הניקוי",desc:"ניקוי יסודי וחיטוי מלא. אוויר נקי, בריא — וחיסכון של עד 30% בחשמל.",src:"/img/videos/ac-after.mp4",label:"אחרי ✨",isAfter:true},
-      ].map((v,i)=><F key={i} d={i*.1}><div className="crd" style={{overflow:"hidden"}}>
-        <div style={{position:"relative",background:"#000",aspectRatio:"16/10"}}>
-          <video src={v.src} controls playsInline preload="metadata" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}></video>
-          <span style={{position:"absolute",top:14,right:14,padding:"7px 16px",borderRadius:10,background:v.isAfter?"linear-gradient(135deg,#FFC107,#FFD54F)":"#DC2626",color:v.isAfter?"#1a2b4a":"#fff",fontSize:13,fontFamily:"'Heebo'",fontWeight:900,zIndex:2,pointerEvents:"none",boxShadow:v.isAfter?"0 4px 14px rgba(255,193,7,.5)":"0 4px 14px rgba(220,38,38,.5)"}}>{v.label}</span>
-        </div>
-        <div style={{padding:"20px 22px"}}>
-          <h4 style={{fontSize:17,color:"#0B1E3F",marginBottom:6,fontWeight:800}}>{v.title}</h4>
-          <p style={{fontSize:14,color:"#5A6B88",lineHeight:1.6}}>{v.desc}</p>
-        </div>
-      </div></F>)}
-    </div>
-    <F d={.3}><div style={{textAlign:"center",marginTop:32,padding:"28px 24px",borderRadius:22,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 12px 40px rgba(255,193,7,.35)",maxWidth:720,margin:"32px auto 0"}}>
-      <div style={{fontSize:"clamp(22px,3.5vw,28px)",fontWeight:900,color:"#0B1E3F",marginBottom:8}}>🔥 מבצע קיץ: ניקוי מזגן רק <span style={{color:"#0B5ED7"}}>170₪</span></div>
-      <p style={{fontSize:15,color:"#1a2b4a",marginBottom:18,fontWeight:600}}>פחות חיידקים. פחות אלרגיות. יותר חיסכון בחשמל.</p>
-      <a href={wm("היי, מעוניין/ת להזמין ניקוי מזגן במבצע 170₪")} target="_blank" rel="noopener" className="btn btn-g" style={{fontSize:16,padding:"17px 38px",animation:"pulse 2s infinite"}}>💬 הזמינו עכשיו בוואטסאפ</a>
-    </div></F>
-  </div>
-</section>
-
-{/* ═══ BEFORE/AFTER ═══ */}
-<section className="sec sec-light" id="gallery"><div className="mx">
-  <F><STit sub="ראו בעיניים — ההבדל מדבר בעד עצמו">לפני ואחרי 📸</STit></F>
-  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
-    {BA.map((b,i)=><F key={i} d={i*.06}><div className="crd" style={{overflow:"hidden"}}><div style={{display:"flex",height:220}}>
-      <div style={{flex:1,background:b.imgBefore?"none":`linear-gradient(135deg,${b.bc},${b.bc}cc)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✕</span>}<span style={{position:"absolute",bottom:12,right:12,padding:"6px 14px",borderRadius:10,background:"#DC2626",color:"#fff",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(220,38,38,.4)"}}>לפני</span></div>
-      <div style={{width:3,background:"linear-gradient(transparent,#FFC107,transparent)"}}/>
-      <div style={{flex:1,background:b.imgAfter?"none":`linear-gradient(135deg,${b.ac},${b.ac}dd)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>{b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>:<span style={{fontSize:36,opacity:.1}}>✓</span>}<span style={{position:"absolute",bottom:12,left:12,padding:"6px 14px",borderRadius:10,background:"linear-gradient(135deg,#FFC107,#FFD54F)",color:"#1a2b4a",fontSize:12,fontFamily:"'Heebo'",fontWeight:800,boxShadow:"0 4px 12px rgba(255,193,7,.4)"}}>אחרי ✨</span></div>
-    </div><div style={{padding:"18px 22px"}}><h4 style={{fontSize:16,color:"#0B1E3F",marginBottom:4,fontWeight:800}}>{b.title}</h4><p style={{fontSize:13,color:"#5A6B88"}}>{b.desc}</p></div></div></F>)}
-  </div>
-</div></section>
 
 {/* ═══ REVIEWS ═══ */}
 <section className="sec sec-white" id="reviews"><div className="mx">
