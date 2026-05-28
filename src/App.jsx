@@ -51,7 +51,7 @@ const sL=v=>localStorage.setItem("r_leads",JSON.stringify(v));
 
 /* ─── CSS ─── */
 const CSS=`
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@400;600;700;800&family=Rubik:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@400;600;700;800&family=Rubik:wght@400;500;600;700;800;900&family=Varela+Round&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:'Assistant','Rubik',sans-serif;font-size:15px;color:#1a2b4a;direction:rtl;overflow-x:hidden;-webkit-font-smoothing:antialiased;background:#F5FAFF}
 body::before{content:"";position:fixed;inset:0;background-image:url(/img/hero-sofa.jpg);background-size:cover;background-position:center;background-attachment:fixed;opacity:.28;z-index:-2;pointer-events:none}
@@ -66,27 +66,41 @@ h1,h2,h3,h4{font-family:'Heebo','Rubik',sans-serif;font-weight:800;letter-spacin
 @keyframes slideR{from{transform:translateX(100%)}to{transform:translateX(0)}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
 @keyframes pulseY{0%,100%{box-shadow:0 0 0 0 rgba(255,193,7,.55)}70%{box-shadow:0 0 0 16px rgba(255,193,7,0)}}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px) rotate(-1deg)}75%{transform:translateX(4px) rotate(1deg)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-12px) scale(1.02)}}
+@keyframes glow2{0%,100%{box-shadow:0 0 20px rgba(11,94,215,.15)}50%{box-shadow:0 0 40px rgba(11,94,215,.35)}}
+@keyframes typewrite{from{width:0}to{width:100%}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes rotateIn{from{opacity:0;transform:rotate(-10deg) scale(.8)}to{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes ripple{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.5);opacity:0}}
 @keyframes countUp{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 32px;border-radius:16px;font-size:15px;font-weight:800;border:none;cursor:pointer;transition:all .25s;font-family:'Heebo','Rubik';letter-spacing:.2px}
 .btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(0)}
-.btn-g{background:linear-gradient(135deg,#25D366,#1DA851);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-g{background:linear-gradient(135deg,#25D366,#1DA851);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.35);position:relative;overflow:hidden}
+.btn-g::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:shimmer 3s infinite}
 .btn-g:hover{box-shadow:0 12px 30px rgba(37,211,102,.5)}
-.btn-a{background:linear-gradient(135deg,#FFC107,#FFD54F);color:#1a2b4a;box-shadow:0 8px 24px rgba(255,193,7,.4)}
+.btn-a{background:linear-gradient(135deg,#FFC107,#FFD54F);color:#1a2b4a;box-shadow:0 8px 24px rgba(255,193,7,.4);position:relative;overflow:hidden}
+.btn-a::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shimmer 3s infinite .5s}
 .btn-a:hover{box-shadow:0 12px 30px rgba(255,193,7,.55)}
 .btn-p{background:linear-gradient(135deg,#0B5ED7,#2979FF);color:#fff;box-shadow:0 8px 24px rgba(11,94,215,.35)}
 .btn-p:hover{box-shadow:0 12px 30px rgba(11,94,215,.5)}
 .btn-o{background:#fff;border:2px solid #EAF4FF;color:#0B5ED7}.btn-o:hover{border-color:#0B5ED7;background:#EAF4FF}
 .btn-d{background:#EAF4FF;color:#0B5ED7;font-size:13px;padding:9px 18px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
 .crd{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.05)}
-.crd:hover{border-color:#0B5ED7;box-shadow:0 16px 40px rgba(11,94,215,.15);transform:translateY(-5px)}
+.crd:hover{border-color:#0B5ED7;box-shadow:0 20px 50px rgba(11,94,215,.18);transform:translateY(-8px) scale(1.01)}
 .crd-light{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(245,250,255,.92));backdrop-filter:blur(10px);border:1px solid #E1ECFB;border-radius:22px;transition:all .35s;box-shadow:0 4px 20px rgba(11,94,215,.06)}
 .blue-line{height:2px;background:linear-gradient(90deg,transparent,#0B5ED7,transparent)}
 .glow-border{box-shadow:0 0 0 1px #E1ECFB,0 20px 60px rgba(11,94,215,.1)}
 .badge{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:13px;font-family:'Heebo','Rubik';font-weight:700;background:rgba(234,244,255,.9);backdrop-filter:blur(10px);border:1px solid #C8DFFC;color:#0B5ED7}
 .badge-y{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;font-size:13px;font-family:'Heebo','Rubik';font-weight:700;background:#FFF7D6;border:1px solid #FFE69C;color:#B8860B}
 .sec-light{background:linear-gradient(180deg,rgba(234,244,255,.55),rgba(234,244,255,.35) 50%,rgba(234,244,255,.55));backdrop-filter:blur(4px)}
-.sec-white{background:rgba(255,255,255,.55);backdrop-filter:blur(8px)}
+.sec-white{background:rgba(255,255,255,.55);backdrop-filter:blur(8px);position:relative}
+.sec-white::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,#0B5ED7 1px,transparent 1px);background-size:20px 20px;opacity:.02;pointer-events:none}
 .hero-overlay{background:linear-gradient(135deg,rgba(234,244,255,.7) 0%,rgba(234,244,255,.5) 40%,rgba(255,255,255,.3) 100%)}
 .hero-lion img{max-height:540px}
 .hero-ctas{flex-direction:row}
@@ -111,9 +125,9 @@ body{padding-bottom:76px}
 
 /* ─── Utils ─── */
 function useV(t=.1){const r=useRef(null);const[v,s]=useState(false);useEffect(()=>{const e=r.current;if(!e)return;const o=new IntersectionObserver(([x])=>{if(x.isIntersecting){s(true);o.unobserve(e);}},{threshold:t});o.observe(e);return()=>o.disconnect();},[]);return[r,v];}
-function F({children,d=0,s=""}){const[r,v]=useV();return<div ref={r} style={{opacity:v?1:0,transform:v?"none":"translateY(28px)",transition:`all .7s cubic-bezier(.22,1,.36,1) ${d}s`,...(s?{transitionProperty:"all"}:{})}}>{children}</div>;}
+function F({children,d=0}){const[r,v]=useV();return<div ref={r} style={{opacity:v?1:0,transform:v?"none":"translateY(30px) scale(.97)",transition:`all .8s cubic-bezier(.22,1,.36,1) ${d}s`}}>{children}</div>;}
 function Num({to,sfx=""}){const[v,s]=useState(0);const[r,vis]=useV();useEffect(()=>{if(!vis)return;const st=Date.now();const t=()=>{const p=Math.min((Date.now()-st)/1800,1);s(Math.round(to*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(t);};requestAnimationFrame(t);},[vis,to]);return<span ref={r} style={{animation:vis?"countUp .4s ease":"none"}}>{v.toLocaleString()}{sfx}</span>;}
-const STit=({sub,children,light})=><div style={{textAlign:"center",marginBottom:56}}><h2 style={{fontSize:"clamp(30px,5vw,44px)",color:"#0B1E3F",marginBottom:sub?14:0,lineHeight:1.15,fontWeight:900}}>{children}</h2>{sub&&<p style={{color:"#5A6B88",fontSize:17,maxWidth:520,margin:"0 auto",lineHeight:1.7,fontWeight:500}}>{sub}</p>}</div>;
+const STit=({sub,children})=><div style={{textAlign:"center",marginBottom:56}}><h2 style={{fontSize:"clamp(30px,5vw,44px)",color:"#0B1E3F",marginBottom:sub?18:0,lineHeight:1.15,fontWeight:900}}>{children}</h2><div style={{width:60,height:4,borderRadius:2,background:"linear-gradient(135deg,#0B5ED7,#FFC107)",margin:sub?"12px auto 16px":"12px auto 0",animation:"shimmer 3s infinite",backgroundSize:"200% 100%"}}/>{sub&&<p style={{color:"#5A6B88",fontSize:17,maxWidth:520,margin:"0 auto",lineHeight:1.7,fontWeight:500}}>{sub}</p>}</div>;
 
 /* ═══ APP ═══ */
 export default function App(){
@@ -141,7 +155,7 @@ function Site({data:X,goAdmin}){
 return<div>
 
 {/* ═══ HEADER ═══ */}
-<header style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(255,255,255,.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid #E1ECFB",boxShadow:"0 2px 20px rgba(11,94,215,.06)"}}>
+<header style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(255,255,255,.88)",backdropFilter:"blur(24px)",WebkitBackdropFilter:"blur(24px)",borderBottom:"1px solid #E1ECFB",boxShadow:"0 2px 20px rgba(11,94,215,.06)"}}>
 <div className="mx" style={{display:"flex",alignItems:"center",justifyContent:"space-between",height:80}}>
   <img src="/img/logo.png" alt="ליאו" onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} style={{height:70,cursor:"pointer",objectFit:"contain",position:"relative",zIndex:10,filter:"drop-shadow(0 4px 12px rgba(11,94,215,.15))"}}/>
   <nav className="d-hide" style={{display:"flex",alignItems:"center",gap:24}}>
@@ -167,11 +181,11 @@ return<div>
   <div className="mx" style={{position:"relative",zIndex:2,width:"100%"}}>
     <div className="hero-grid" style={{display:"grid",gridTemplateColumns:"1fr",gap:20,alignItems:"center",textAlign:"center",maxWidth:720,margin:"0 auto"}}>
     <div className="hero-text" style={{maxWidth:620,margin:"0 auto",display:"flex",flexDirection:"column",alignItems:"center"}}>
-      <F><div className="badge" style={{marginBottom:18}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
-      <F d={.1}><h1 className="hero-h1" style={{fontSize:"clamp(34px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>כשהאריה מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם</span> <span style={{WebkitTextFillColor:"initial"}}>🦁</span></h1></F>
+      <F><div className="badge" style={{marginBottom:18,animation:"float 4s ease-in-out infinite"}}>🦁 ליאו — שירותי ניקיון מקצועיים</div></F>
+      <F d={.1}><h1 className="hero-h1" style={{fontSize:"clamp(34px,7vw,62px)",lineHeight:1.05,color:"#0B1E3F",marginBottom:18,fontWeight:900}}>כשהאריה מנקה,<br/><span style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF,#0B5ED7)",backgroundSize:"200% 200%",animation:"gradient 6s ease infinite",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>הלכלוך נעלם</span> <span style={{WebkitTextFillColor:"initial"}}>🦁</span></h1></F>
       <F d={.2}><p className="hero-sub" style={{fontSize:17,color:"#1a2b4a",lineHeight:1.7,maxWidth:500,marginBottom:22,fontWeight:600}}>ניקוי מזגנים, ספות, מזרנים, שטיחים ורכבים ברמה הגבוהה ביותר.<br/><span style={{color:"#5A6B88",fontWeight:500}}>תוצאות שרואים מיד — ומרגישים כל יום.</span></p></F>
       <F d={.3}><div style={{marginBottom:20}}>
-        <div className="sale-pill" style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:18,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 8px 28px rgba(255,193,7,.4)",animation:"pulseY 2s infinite"}}>
+        <div className="sale-pill" style={{display:"inline-flex",alignItems:"center",gap:14,padding:"14px 24px",borderRadius:18,background:"linear-gradient(135deg,#FFC107,#FFD54F)",boxShadow:"0 8px 28px rgba(255,193,7,.4)",animation:"pulseY 2s infinite,shake 5s ease-in-out infinite 3s"}}>
           <span style={{fontSize:22}}>🔥</span>
           <div><div style={{fontFamily:"'Heebo'",fontSize:13,fontWeight:900,color:"#1a2b4a",letterSpacing:1}}>מבצע קיץ!</div><div style={{fontSize:18,fontWeight:900,color:"#0B1E3F",lineHeight:1}}>ניקוי מזגן רק <span style={{color:"#0B5ED7"}}>170₪</span></div></div>
         </div>
@@ -196,7 +210,7 @@ return<div>
 <div style={{background:"linear-gradient(135deg,#0B5ED7,#2979FF)",padding:"32px 0",position:"relative",overflow:"hidden"}}>
 <div style={{position:"absolute",inset:0,opacity:.1,backgroundImage:"radial-gradient(circle at 20% 50%,#fff 1px,transparent 1px),radial-gradient(circle at 80% 50%,#fff 1px,transparent 1px)",backgroundSize:"40px 40px"}}/>
 <div className="mx" style={{position:"relative"}}><div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,textAlign:"center"}}>
-  {[["3,000","+","לקוחות מרוצים"],["100","%","שביעות רצון"],["6","","ימים בשבוע"],["5","⭐","דירוג ממוצע"]].map(([n,s,l],i)=><div key={i}><div style={{fontFamily:"'Heebo'",fontSize:34,fontWeight:900,color:"#FFC107"}}><Num to={parseInt(n.replace(",",""))} sfx={s}/></div><div style={{fontSize:13,color:"rgba(255,255,255,.9)",marginTop:4,fontFamily:"'Heebo'",fontWeight:600}}>{l}</div></div>)}
+  {[["3,000","+","לקוחות מרוצים"],["100","%","שביעות רצון"],["6","","ימים בשבוע"],["5","⭐","דירוג ממוצע"]].map(([n,s,l],i)=><div key={i}><div style={{fontFamily:"'Heebo'",fontSize:38,fontWeight:900,color:"#FFC107",textShadow:"0 2px 10px rgba(0,0,0,.2)"}}><Num to={parseInt(n.replace(",",""))} sfx={s}/></div><div style={{fontSize:13,color:"rgba(255,255,255,.9)",marginTop:4,fontFamily:"'Heebo'",fontWeight:600}}>{l}</div></div>)}
 </div></div></div>
 
 
@@ -244,7 +258,7 @@ return<div>
     <F><STit sub="אתם נושמים אבק, עובש וחיידקים בלי לשים לב. הבית שלכם נראה נקי… אבל הוא באמת נקי?">הבעיה שכולם מכירים 😤</STit></F>
     <div className="m-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20,marginBottom:52}}>
       {[["🤢","ריחות שנספגו","זיעה, אוכל ישן ועובש שנכנסו עמוק לסיבי הבד. שום ספריי ושואב אבק ביתי לא מצליחים להוציא אותם."],["🦠","חיידקים ואלרגנים","קרדית אבק, חיידקים ופטריות שחיים במזרן ובספה שלכם. גורמים להתקפי אסטמה, אלרגיות ושינה רעה."],["💧","כתמים שלא יורדים","קפה, יין, שתן של ילדים ושוקולד — אתם מכתימים יותר ויותר, ואף חומר ביתי לא מסוגל להוציא את זה."]].map(([ic,t,d],i)=>
-      <F key={i} d={i*.08}><div className="crd" style={{padding:"36px 26px",textAlign:"center",height:"100%"}}><div style={{fontSize:48,marginBottom:16}}>{ic}</div><h3 style={{fontSize:20,fontWeight:800,marginBottom:12,color:"#0B1E3F"}}>{t}</h3><p style={{fontSize:14.5,color:"#5A6B88",lineHeight:1.8}}>{d}</p></div></F>)}
+      <F key={i} d={i*.08}><div className="crd" style={{padding:"36px 26px",textAlign:"center",height:"100%"}}><div style={{fontSize:52,marginBottom:18,animation:"float 3s ease-in-out infinite",animationDelay:i*.3+"s"}}>{ic}</div><h3 style={{fontSize:20,fontWeight:800,marginBottom:12,color:"#0B1E3F"}}>{t}</h3><p style={{fontSize:14.5,color:"#5A6B88",lineHeight:1.8}}>{d}</p></div></F>)}
     </div>
     <F d={.3}><div style={{textAlign:"center",padding:"40px 30px",borderRadius:24,background:"linear-gradient(135deg,#EAF4FF,#F5FAFF)",border:"1px solid #C8DFFC"}}>
       <h3 style={{fontSize:"clamp(26px,4.5vw,36px)",color:"#0B1E3F",marginBottom:14,fontWeight:900}}>הפתרון? <span style={{color:"#0B5ED7"}}>ליאו 🦁</span></h3>
@@ -324,7 +338,7 @@ return<div>
     <F><STit sub="מהתמונה הראשונה ועד לספה כמו חדשה">איך זה עובד? 🔄</STit></F>
     <div className="m-col2" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:18}}>
       {PROCESS.map((p,i)=><F key={i} d={i*.1}><div className="crd" style={{padding:"32px 22px",textAlign:"center",height:"100%",display:"flex",flexDirection:"column",alignItems:"center"}}>
-        <div style={{width:64,height:64,borderRadius:18,background:"linear-gradient(135deg,#EAF4FF,#fff)",border:"2px solid #C8DFFC",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,marginBottom:16}}>{p.icon}</div>
+        <div style={{width:68,height:68,borderRadius:20,background:"linear-gradient(135deg,#EAF4FF,#fff)",border:"2px solid #C8DFFC",display:"flex",alignItems:"center",justifyContent:"center",fontSize:32,marginBottom:16,transition:"all .4s",boxShadow:"0 4px 16px rgba(11,94,215,.08)"}} onMouseEnter={e=>e.currentTarget.style.boxShadow="0 8px 30px rgba(11,94,215,.2)"} onMouseLeave={e=>e.currentTarget.style.boxShadow="0 4px 16px rgba(11,94,215,.08)"}>{p.icon}</div>
         <span style={{fontFamily:"'Heebo'",fontSize:11,fontWeight:800,color:"#FFC107",letterSpacing:1.5,marginBottom:8,background:"#FFF7D6",padding:"3px 12px",borderRadius:50}}>שלב {p.step}</span>
         <h3 style={{fontSize:17,fontWeight:800,color:"#0B1E3F",marginBottom:10}}>{p.title}</h3>
         <p style={{fontSize:13.5,color:"#5A6B88",lineHeight:1.75}}>{p.desc}</p>
