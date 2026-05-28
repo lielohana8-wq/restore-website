@@ -232,7 +232,9 @@ return<div>
 {/* ═══ BEFORE/AFTER ═══ */}
 <section className="sec sec-light" id="gallery"><div className="mx">
   <F><STit sub="ראו בעיניים — ההבדל מדבר בעד עצמו">לפני ואחרי 📸</STit></F>
-  <BASlider items={BA}/>
+  <div className="m-col" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
+    {BA.map((b,i)=><F key={i} d={i*.07}><BACard b={b}/></F>)}
+  </div>
 </div></section>
 
 {/* ═══ PROBLEM → SOLUTION ═══ */}
@@ -494,46 +496,32 @@ function PriceCalc({services,wa}){
 }
 
 
-function BASlider({items}){
-  const[idx,setIdx]=useState(0);
-  const[sliderPos,setSliderPos]=useState(50);
-  const b=items[idx]||items[0];
-  const handleSlider=(e)=>{
-    const rect=e.currentTarget.getBoundingClientRect();
-    const x=e.touches?e.touches[0].clientX-rect.left:e.clientX-rect.left;
-    setSliderPos(Math.max(5,Math.min(95,(x/rect.width)*100)));
+function BACard({b}){
+  const[pos,setPos]=useState(50);
+  const ref=useRef(null);
+  const handle=(e)=>{
+    const rect=ref.current.getBoundingClientRect();
+    const x=(e.touches?e.touches[0].clientX:e.clientX)-rect.left;
+    setPos(Math.max(5,Math.min(95,(x/rect.width)*100)));
   };
-  return<div style={{maxWidth:700,margin:"0 auto"}}>
-    <div className="crd" style={{overflow:"hidden",marginBottom:16}}>
-      <div style={{position:"relative",height:320,cursor:"ew-resize",touchAction:"none",userSelect:"none"}}
-        onMouseMove={handleSlider} onTouchMove={handleSlider}>
-        {/* After image - full width */}
-        <div style={{position:"absolute",inset:0,overflow:"hidden"}}>
-          {b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>
-          :<div style={{width:"100%",height:"100%",background:`linear-gradient(135deg,${b.ac},${b.ac}dd)`}}/>}
-        </div>
-        {/* Before image - clipped */}
-        <div style={{position:"absolute",inset:0,overflow:"hidden",width:sliderPos+"%"}}>
-          {b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover",minWidth:700}}/>
-          :<div style={{width:"100%",height:"100%",background:`linear-gradient(135deg,${b.bc},${b.bc}cc)`}}/>}
-        </div>
-        {/* Slider line */}
-        <div style={{position:"absolute",top:0,bottom:0,left:sliderPos+"%",width:4,background:"#fff",boxShadow:"0 0 12px rgba(0,0,0,.3)",transform:"translateX(-50%)",zIndex:5}}>
-          <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:40,height:40,borderRadius:"50%",background:"#fff",boxShadow:"0 2px 12px rgba(0,0,0,.25)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,fontWeight:900,color:"#0B5ED7"}}>⇔</div>
-        </div>
-        {/* Labels */}
-        <span style={{position:"absolute",top:14,right:14,padding:"6px 16px",borderRadius:10,background:"linear-gradient(135deg,#FFC107,#FFD54F)",color:"#1a2b4a",fontSize:13,fontFamily:"'Heebo'",fontWeight:900,zIndex:6}}>אחרי ✨</span>
-        <span style={{position:"absolute",top:14,left:14,padding:"6px 16px",borderRadius:10,background:"#DC2626",color:"#fff",fontSize:13,fontFamily:"'Heebo'",fontWeight:900,zIndex:6}}>לפני</span>
+  return<div className="crd" style={{overflow:"hidden"}}>
+    <div ref={ref} style={{position:"relative",height:220,cursor:"ew-resize",touchAction:"none",userSelect:"none"}}
+      onMouseMove={handle} onTouchMove={handle}>
+      <div style={{position:"absolute",inset:0,overflow:"hidden"}}>
+        {b.imgAfter?<img src={b.imgAfter} style={{width:"100%",height:"100%",objectFit:"cover"}}/>
+        :<div style={{width:"100%",height:"100%",background:`linear-gradient(135deg,${b.ac},${b.ac}dd)`}}/>}
       </div>
-      <div style={{padding:"18px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-        <div><h4 style={{fontSize:17,color:"#0B1E3F",marginBottom:3,fontWeight:800}}>{b.title}</h4><p style={{fontSize:13,color:"#5A6B88"}}>{b.desc}</p></div>
-        <div style={{fontSize:13,color:"#0B5ED7",fontWeight:700}}>{idx+1}/{items.length}</div>
+      <div style={{position:"absolute",inset:0,overflow:"hidden",width:pos+"%"}}>
+        {b.imgBefore?<img src={b.imgBefore} style={{width:"100%",height:"100%",objectFit:"cover",minWidth:500}}/>
+        :<div style={{width:"100%",height:"100%",background:`linear-gradient(135deg,${b.bc},${b.bc}cc)`}}/>}
       </div>
+      <div style={{position:"absolute",top:0,bottom:0,left:pos+"%",width:3,background:"#fff",boxShadow:"0 0 10px rgba(0,0,0,.3)",transform:"translateX(-50%)",zIndex:5}}>
+        <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:32,height:32,borderRadius:"50%",background:"#fff",boxShadow:"0 2px 10px rgba(0,0,0,.2)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:900,color:"#0B5ED7"}}>⇔</div>
+      </div>
+      <span style={{position:"absolute",top:10,right:10,padding:"4px 12px",borderRadius:8,background:"linear-gradient(135deg,#FFC107,#FFD54F)",color:"#1a2b4a",fontSize:11,fontFamily:"'Heebo'",fontWeight:900,zIndex:6}}>אחרי ✨</span>
+      <span style={{position:"absolute",top:10,left:10,padding:"4px 12px",borderRadius:8,background:"#DC2626",color:"#fff",fontSize:11,fontFamily:"'Heebo'",fontWeight:900,zIndex:6}}>לפני</span>
     </div>
-    <div style={{display:"flex",gap:8,justifyContent:"center"}}>
-      {items.map((_,i)=><button key={i} onClick={()=>{setIdx(i);setSliderPos(50);}} style={{width:i===idx?32:10,height:10,borderRadius:5,border:"none",cursor:"pointer",background:i===idx?"#0B5ED7":"#C8DFFC",transition:"all .3s"}}/>)}
-    </div>
-    <p style={{textAlign:"center",fontSize:12,color:"#5A6B88",marginTop:12}}>👆 גררו ימינה/שמאלה לראות את ההבדל</p>
+    <div style={{padding:"14px 18px"}}><h4 style={{fontSize:15,color:"#0B1E3F",marginBottom:2,fontWeight:800}}>{b.title}</h4><p style={{fontSize:12,color:"#5A6B88"}}>{b.desc}</p></div>
   </div>;
 }
 
