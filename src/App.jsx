@@ -138,7 +138,7 @@ export default function App(){
   const[page,setPage]=useState("site");
   const[data,setData]=useState(D);
   const[loading,setLoading]=useState(true);
-  useEffect(()=>{const id=NPOINT_ID||localStorage.getItem("r_npoint")||"";if(id){cloudLoad(id).then(d=>{if(d)setData({...D,...d});setLoading(false);});}else{setLoading(false);}},[]);
+  useEffect(()=>{const id=NPOINT_ID||localStorage.getItem("r_npoint")||"";if(id){cloudLoad(id).then(d=>{if(d)setData({...D,...d,phone:D.phone,waNum:D.waNum});setLoading(false);});}else{setLoading(false);}},[]);
   if(loading)return<div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#EAF4FF,#fff)"}}><style>{CSS}</style><div className="badge" style={{fontSize:16,padding:"14px 28px"}}>🦁 ליאו — טוען...</div></div>;
   return<div><style>{CSS}</style>
     {page==="site"&&<Site data={data} goAdmin={()=>setPage("login")}/>}
